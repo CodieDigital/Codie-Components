@@ -7,7 +7,7 @@
   "types": "./dist/esm/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/CodieDigital/Codie-Components"
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",

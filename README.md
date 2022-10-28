@@ -1,4 +1,4 @@
-# reidoecommerce-lib
+# Codie Components Web
 
 [![NPM version][npm-image]][npm-url]
 [![Build][github-build]][github-build-url]
@@ -22,7 +22,7 @@ yarn
 Add components in aplication:
 
 ```js
-import { MeuComponente } from 'reidoecommerce/meucomponente'
+import { MeuComponente } from 'codieweb/meucomponente'
 
 export function Componente() {
     return <MeuComponente />
@@ -37,5 +37,5 @@ npm publish --access-public
 [npm-url]: https://www.npmjs.com/package/my-react-typescript-package
 [npm-image]: https://img.shields.io/npm/v/my-react-typescript-package
 [github-license]: https://img.shields.io/github/license/gapon2401/my-react-typescript-package
-[github-license-url]: https://github.com/ReiDoEcommerce/npm-ecommerce
+[github-license-url]: https://github.com/
 [npm-typescript]: https://img.shields.io/npm/types/my-react-typescript-package
