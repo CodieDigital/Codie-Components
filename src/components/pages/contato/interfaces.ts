@@ -1,5 +1,3 @@
-import { AxiosInstance } from "axios";
-
 interface IForm {
     nome: string;
     email: string;
@@ -7,7 +5,7 @@ interface IForm {
 }
 
 interface IContatoProps {
-    api: AxiosInstance;
+    api: any;
 }
 
 export type { IForm, IContatoProps }
