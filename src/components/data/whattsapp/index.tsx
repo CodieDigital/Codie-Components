@@ -6,7 +6,7 @@ interface WhattsappProps {
   href: string
 }
 
-export const Whattsapp = ({ href }: WhattsappProps) => {
+const Whattsapp = ({ href }: WhattsappProps) => {
   return (
     <Link href={href} passHref>
       <S.Whattsapp href='' rel='external' target='_blanck'>
@@ -24,3 +24,5 @@ export const Whattsapp = ({ href }: WhattsappProps) => {
     </Link>
   )
 }
+
+export default Whattsapp
