@@ -15,25 +15,19 @@ interface IFaqs {
 }
 
 const Faqs = ({ questionsList }: FaqsProps) => {
-  const [isActive, setIsActive] = useState(false)
-
-  const onClick = () => setIsActive(!isActive)
-
   return (
     <S.Faqs>
-
       <Container>
-
         <div className='box-duvidas'>
-
           {questionsList.map((cardFaq) => {
+            const [isActive, setIsActive] = useState(false)
+
+            const onClick = () => setIsActive(!isActive)
+
             return (
               <div className='card-duvida'>
-
                 <button className={`question ${isActive ? 'active' : 'disabled2'}`} onClick={onClick}>
-
                   <span className='question-text'>
-
                     <span className='text'>
                       <span className='link-4-objective-medium number'>{'0' + cardFaq.id}</span>
                       <h1 className='title-8-objective-bold'>{cardFaq.question}</h1>
@@ -68,15 +62,12 @@ const Faqs = ({ questionsList }: FaqsProps) => {
                         </g>
                       </g>
                     </svg>
-
                   </span>
 
                   <div className={`answer ${isActive ? 'active' : 'disabled'}`}>
                     <p className='paragraph-1-objective-regular'>{cardFaq.answer}</p>
                   </div>
-
                 </button>
-                
               </div>
             )
           })}
