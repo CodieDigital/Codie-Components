@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const Faqs = styled.section`
-  padding-top: clamp(25px, 5vw, 80px);
-  padding-bottom: clamp(25px, 5vw, 80px);
+export const Faqs = styled.div`
+  /* padding-top: clamp(25px, 5vw, 80px); */
+  /* padding-bottom: clamp(25px, 5vw, 80px); */
 
   .box-duvidas {
     display: flex;
@@ -15,8 +15,8 @@ export const Faqs = styled.section`
     width: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius: 10px;
-    background-color: var(--white);
-    color: var(--black);
+    background-color: #fff;
+    color: #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,7 +40,7 @@ export const Faqs = styled.section`
       }
 
       .number {
-        color: var(--blue);
+        color: blue;
       }
 
       svg {
@@ -52,7 +52,7 @@ export const Faqs = styled.section`
     &.active {
       .question-text {
         padding-bottom: 20px;
-        border-bottom: 2px solid var(--black);
+        border-bottom: 2px solid #000;
       }
     }
   }
@@ -60,13 +60,13 @@ export const Faqs = styled.section`
   .answer {
     width: 100%;
     border-radius: 0 0 10px 10px;
-    background-color: var(--white);
+    background-color: #fff;
     padding: 20px;
     -webkit-transition: 0.4s;
 
     p {
       line-height: 1.3;
-      color: var(--lightgray);
+      color: lightgray;
     }
   }
 
@@ -77,7 +77,6 @@ export const Faqs = styled.section`
   .active {
     display: flex;
   }
-
 
   /* Responsivos */
   @media only screen and (max-width: 1600px) {
@@ -201,7 +200,7 @@ export const Faqs = styled.section`
 
     .question {
       padding: 19px 10px;
-      
+
       .question-text {
         svg {
           max-width: 11px;
