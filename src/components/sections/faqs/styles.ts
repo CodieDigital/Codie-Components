@@ -6,6 +6,7 @@ interface FaqsProps {
   answerColor?: string
   numberColor?: string
   padding?: boolean
+  middleLineColor?: string
 }
 
 export const Faqs = styled.div<FaqsProps>`
@@ -61,7 +62,7 @@ export const Faqs = styled.div<FaqsProps>`
     &.active {
       .question-text {
         padding-bottom: 20px;
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid ${(props) => (props.middleLineColor ? props.middleLineColor : '#000')};
       }
     }
   }
@@ -112,12 +113,6 @@ export const Faqs = styled.div<FaqsProps>`
         svg {
           max-width: 18px;
         }
-      }
-    }
-
-    .answer {
-      p {
-        line-height: 1.2;
       }
     }
   }
@@ -196,9 +191,7 @@ export const Faqs = styled.div<FaqsProps>`
     }
 
     .answer {
-      p {
-        line-height: 1.1;
-      }
+      padding: 20px 10px;
     }
   }
 
@@ -221,6 +214,10 @@ export const Faqs = styled.div<FaqsProps>`
   @media only screen and (max-width: 400px) {
     .box-duvidas {
       gap: 5px;
+    }
+
+    .answer {
+      padding: 20px 10px 0;
     }
   }
 `

@@ -11,6 +11,7 @@ interface FaqsProps {
   answerColor?: string
   numberColor?: string
   padding?: boolean
+  middleLineColor?: string
 }
 
 interface IFaqs {
@@ -19,7 +20,15 @@ interface IFaqs {
   answer: string
 }
 
-const Faqs = ({ questionsList, answerColor, bgColor, numberColor, padding, questionColor }: FaqsProps) => {
+const Faqs = ({
+  questionsList,
+  answerColor,
+  bgColor,
+  numberColor,
+  padding,
+  questionColor,
+  middleLineColor,
+}: FaqsProps) => {
   return (
     <S.Faqs
       bgColor={bgColor}
@@ -27,6 +36,7 @@ const Faqs = ({ questionsList, answerColor, bgColor, numberColor, padding, quest
       answerColor={answerColor}
       numberColor={numberColor}
       padding={padding}
+      middleLineColor={middleLineColor}
     >
       <Container>
         <div className='box-duvidas'>
