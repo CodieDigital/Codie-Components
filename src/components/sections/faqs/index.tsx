@@ -6,6 +6,11 @@ import * as S from './styles'
 
 interface FaqsProps {
   questionsList: IFaqs[]
+  bgColor?: string
+  questionColor?: string
+  answerColor?: string
+  numberColor?: string
+  padding?: boolean
 }
 
 interface IFaqs {
@@ -14,9 +19,15 @@ interface IFaqs {
   answer: string
 }
 
-const Faqs = ({ questionsList }: FaqsProps) => {
+const Faqs = ({ questionsList, answerColor, bgColor, numberColor, padding, questionColor }: FaqsProps) => {
   return (
-    <S.Faqs>
+    <S.Faqs
+      bgColor={bgColor}
+      questionColor={questionColor}
+      answerColor={answerColor}
+      numberColor={numberColor}
+      padding={padding}
+    >
       <Container>
         <div className='box-duvidas'>
           {questionsList.map((cardFaq) => {

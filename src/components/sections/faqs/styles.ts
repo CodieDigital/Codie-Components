@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
-export const Faqs = styled.div`
-  /* padding-top: clamp(25px, 5vw, 80px); */
-  /* padding-bottom: clamp(25px, 5vw, 80px); */
+interface FaqsProps {
+  bgColor?: string
+  questionColor?: string
+  answerColor?: string
+  numberColor?: string
+  padding?: boolean
+}
+
+export const Faqs = styled.div<FaqsProps>`
+  padding-top: ${(props) => (props.padding === true ? 'clamp(25px, 5vw, 80px)' : '0')};
+  padding-bottom: ${(props) => (props.padding === true ? 'clamp(25px, 5vw, 80px)' : '0')};
 
   .box-duvidas {
     display: flex;
@@ -15,8 +23,8 @@ export const Faqs = styled.div`
     width: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     border-radius: 10px;
-    background-color: #fff;
-    color: #000;
+    background-color: ${(props) => (props.bgColor ? props.bgColor : '#fff')};
+    color: ${(props) => (props.questionColor ? props.questionColor : '#000')};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,12 +48,13 @@ export const Faqs = styled.div`
       }
 
       .number {
-        color: blue;
+        color: ${(props) => (props.numberColor ? props.numberColor : 'blue')};
       }
 
       svg {
         max-width: 20px;
         width: 100%;
+        fill: ${(props) => (props.questionColor ? props.questionColor : '#000')};
       }
     }
 
@@ -60,13 +69,13 @@ export const Faqs = styled.div`
   .answer {
     width: 100%;
     border-radius: 0 0 10px 10px;
-    background-color: #fff;
+    background-color: ${(props) => (props.bgColor ? props.bgColor : '#fff')};
     padding: 20px;
     -webkit-transition: 0.4s;
 
     p {
       line-height: 1.3;
-      color: lightgray;
+      color: ${(props) => (props.answerColor ? props.answerColor : '#000')};
     }
   }
 
