@@ -16,8 +16,8 @@ interface FaqsProps {
 
 interface IFaqs {
   id: number
-  question: string
-  answer: string
+  titulo: string
+  descricao: string
 }
 
 const Faqs = ({
@@ -51,7 +51,7 @@ const Faqs = ({
                   <span className='question-text'>
                     <span className='text'>
                       <span className='link-4-objective-medium number'>{'0' + cardFaq.id}</span>
-                      <h1 className='title-8-objective-bold'>{cardFaq.question}</h1>
+                      <h1 className='title-8-objective-bold'>{cardFaq.titulo}</h1>
                     </span>
 
                     <svg
@@ -85,9 +85,10 @@ const Faqs = ({
                     </svg>
                   </span>
 
-                  <div className={`answer ${isActive ? 'active' : 'disabled'}`}>
-                    <p className='paragraph-1-objective-regular'>{cardFaq.answer}</p>
-                  </div>
+                  <div
+                    className={`paragraph-1 answer ${isActive ? 'active' : 'disabled'}`}
+                    dangerouslySetInnerHTML={{ __html: cardFaq.descricao }}
+                  ></div>
                 </button>
               </div>
             )
