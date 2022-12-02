@@ -46,7 +46,7 @@ const Faqs = ({
             const onClick = () => setIsActive(!isActive)
 
             return (
-              <div className='card-duvida'>
+              <div key={cardFaq.id + cardFaq.titulo} className='card-duvida'>
                 <button className={`question ${isActive ? 'active' : 'disabled2'}`} onClick={onClick}>
                   <span className='question-text'>
                     <span className='text'>
