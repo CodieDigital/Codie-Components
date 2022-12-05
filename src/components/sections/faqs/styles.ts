@@ -75,6 +75,7 @@ export const Faqs = styled.div<FaqsProps>`
     -webkit-transition: 0.4s;
 
     p {
+      text-align: start;
       line-height: 1.3;
       color: ${(props) => (props.answerColor ? props.answerColor : '#000')};
     }
@@ -170,6 +171,10 @@ export const Faqs = styled.div<FaqsProps>`
           max-width: 14px;
         }
       }
+    }
+
+    .answer p {
+      text-align: center;
     }
   }
 

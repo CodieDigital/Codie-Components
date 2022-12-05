@@ -40,7 +40,8 @@ const Faqs = ({
     >
       <Container>
         <div className='box-duvidas'>
-          {questionsList.map((cardFaq) => {
+          {questionsList.map((cardFaq, i) => {
+            i = i + 1
             const [isActive, setIsActive] = useState(false)
 
             const onClick = () => setIsActive(!isActive)
@@ -50,7 +51,7 @@ const Faqs = ({
                 <button className={`question ${isActive ? 'active' : 'disabled2'}`} onClick={onClick}>
                   <span className='question-text'>
                     <span className='text'>
-                      <span className='link-4-objective-medium number'>{'0' + cardFaq.id}</span>
+                      <span className='link-4-objective-medium number'>{i <= 9 ? '0' + i : i}</span>
                       <h1 className='title-8-objective-bold'>{cardFaq.titulo}</h1>
                     </span>
 
