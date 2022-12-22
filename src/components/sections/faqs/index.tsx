@@ -12,6 +12,7 @@ interface FaqsProps {
   numberColor?: string
   padding?: boolean
   middleLineColor?: string
+  fontFamily?: string
 }
 
 interface IFaqs {
@@ -20,7 +21,7 @@ interface IFaqs {
   descricao: string
 }
 
-const Faqs = ({
+export const Faqs = ({
   questionsList,
   answerColor,
   bgColor,
@@ -28,6 +29,7 @@ const Faqs = ({
   padding,
   questionColor,
   middleLineColor,
+  fontFamily,
 }: FaqsProps) => {
   return (
     <S.Faqs
@@ -51,8 +53,8 @@ const Faqs = ({
                 <button className={`question ${isActive ? 'active' : 'disabled2'}`} onClick={onClick}>
                   <span className='question-text'>
                     <span className='text'>
-                      <span className='link-4-objective-medium number'>{i <= 9 ? '0' + i : i}</span>
-                      <h1 className='title-8-objective-bold'>{cardFaq.titulo}</h1>
+                      <span className={`link-4${fontFamily} number`}>{i <= 9 ? '0' + i : i}</span>
+                      <h1 className={`title-8${fontFamily}`}>{cardFaq.titulo}</h1>
                     </span>
 
                     <svg
@@ -87,7 +89,7 @@ const Faqs = ({
                   </span>
 
                   <div
-                    className={`paragraph-1 answer ${isActive ? 'active' : 'disabled'}`}
+                    className={`paragraph-1${fontFamily} answer ${isActive ? 'active' : 'disabled'}`}
                     dangerouslySetInnerHTML={{ __html: cardFaq.descricao }}
                   ></div>
                 </button>
@@ -99,5 +101,3 @@ const Faqs = ({
     </S.Faqs>
   )
 }
-
-export default Faqs

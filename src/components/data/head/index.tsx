@@ -1,29 +1,10 @@
 import Head from 'next/head'
+
 import { useRouter } from 'next/router'
+
 import React from 'react'
 
-interface HeadComponentProps {
-  headContent: PageInformationProps
-  pageUrl: string
-  api: string
-}
-
-interface PageInformationProps {
-  head: {
-    pageTitle: string
-    metaDescription: string
-    imageOpenGraph: string
-    headScripts: string
-  }
-  body: { bodyScripts: string }
-  item: {
-    id: number
-    titulo: string
-    thumbnail: string
-    imagem: string
-    url: string
-  }
-}
+import { HeadComponentProps } from './interfaces'
 
 export function HeadComponent({ headContent, pageUrl, api }: HeadComponentProps) {
   const router = useRouter()
