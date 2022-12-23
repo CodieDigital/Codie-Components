@@ -42,4 +42,86 @@ export const BannerRotativo = styled.div`
       }
     }
   }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+  }
+
+  .titles {
+    padding-top: 380px;
+    color: #fff;
+    line-height: normal;
+
+    h1 + * {
+      margin-top: 70px;
+    }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      svg {
+        fill: #fff;
+        stroke: #fff;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1600px) {
+    .titles {
+      padding-left: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .titles {
+      padding-left: 45px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .titles {
+      padding-left: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .titles {
+      padding-left: 35px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .bg {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .titles {
+      h1 + * {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    h1 {
+      font-size: 33px;
+    }
+
+    h2 {
+      font-size: 30px;
+    }
+  }
 `

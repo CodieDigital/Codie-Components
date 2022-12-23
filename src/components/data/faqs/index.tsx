@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Container } from '../../data/container'
+import { Container } from '../container'
 
 import * as S from './styles'
 
