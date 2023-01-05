@@ -67,6 +67,10 @@ export const BannerRotativo = styled.div`
       gap: 15px;
       color: #fff;
 
+      & + * {
+        margin-top: 100px;
+      }
+
       svg {
         fill: #fff;
         stroke: #fff;

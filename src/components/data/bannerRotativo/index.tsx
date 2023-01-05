@@ -3,6 +3,7 @@ import React from 'react'
 
 import { useConfigSite } from '../../../contexts/configs'
 import { Container } from '../container'
+import { WhattsappButton } from '../whattsappButton'
 
 import { BannerRotativoProps } from './interfaces'
 
@@ -15,6 +16,9 @@ export const BannerRotativo = ({
   title,
   scroll,
   fontFamily,
+  subTitle,
+  whattsHref,
+  whattsText,
 }: BannerRotativoProps) => {
   const { EffectFade, Swiper, SwiperSlide }: any = useConfigSite()
 
@@ -31,16 +35,27 @@ export const BannerRotativo = ({
         className='swiper-banner'
       >
         {listBanners.map((banner) => (
-          <SwiperSlide key={banner.id + banner.imagem}>
-            <div
-              className='absolute-image hide-mobile'
-              style={{ backgroundImage: `url(${urlBaseImage + banner.imagem})` }}
-            ></div>
+          <SwiperSlide key={banner.id}>
+            {banner.imagem && (
+              <div
+                className='absolute-image hide-mobile'
+                style={{ backgroundImage: `url(${urlBaseImage + banner.imagem})` }}
+              ></div>
+            )}
 
-            <div
-              className='absolute-image show-mobile'
-              style={{ backgroundImage: `url(${urlBaseImage + banner.thumbnail})` }}
-            ></div>
+            {banner.fileData && (
+              <div
+                className='absolute-image hide-mobile'
+                style={{ backgroundImage: `url(${urlBaseImage + '/' + banner.tableId + '/' + banner.fileData})` }}
+              ></div>
+            )}
+
+            {banner.thumbnail && (
+              <div
+                className='absolute-image show-mobile'
+                style={{ backgroundImage: `url(${urlBaseImage + banner.thumbnail})` }}
+              ></div>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -50,6 +65,12 @@ export const BannerRotativo = ({
           <div className='titles'>
             {upTitle && <h2 className={`title-3${fontFamily}-regular`}>{upTitle}</h2>}
             <h1 className={`title-1${fontFamily}-bold`}>{title}</h1>
+            {subTitle && (
+              <div
+                className={`paragraph-2${fontFamily}-medium subtitle`}
+                dangerouslySetInnerHTML={{ __html: subTitle }}
+              ></div>
+            )}
 
             {scroll && (
               <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
@@ -77,6 +98,8 @@ export const BannerRotativo = ({
                 scroll para baixo
               </Link>
             )}
+
+            {whattsHref || (whattsText && <WhattsappButton href={whattsHref!} text={whattsText} />)}
           </div>
         </Container>
       </div>

@@ -5,6 +5,9 @@ export interface BannerRotativoProps {
   title: string
   scroll?: string
   fontFamily?: string
+  subTitle?: string
+  whattsHref?: string
+  whattsText?: string
 }
 
 export interface Banners {
@@ -13,5 +16,7 @@ export interface Banners {
   titulo: string
   subtitulo: string
   thumbnail: string
-  imagem: string
+  imagem?: string
+  fileData?: string
+  tableId?: number
 }
