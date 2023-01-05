@@ -60,11 +60,12 @@ export const BannerRotativo = styled.div`
       margin-top: 70px;
     }
 
-    span {
+    .scroll {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 15px;
+      color: #fff;
 
       svg {
         fill: #fff;

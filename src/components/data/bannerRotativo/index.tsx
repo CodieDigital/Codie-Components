@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 import { useConfigSite } from '../../../contexts/configs'
@@ -51,7 +52,7 @@ export const BannerRotativo = ({
             <h1 className={`title-1${fontFamily}-bold`}>{title}</h1>
 
             {scroll && (
-              <span className={`title-10${fontFamily}-medium`}>
+              <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
                 <svg xmlns='http://www.w3.org/2000/svg' width='18' height='24' viewBox='0 0 18 24'>
                   <defs>
                     <clipPath id='7kdwa'>
@@ -74,7 +75,7 @@ export const BannerRotativo = ({
                   </g>
                 </svg>
                 scroll para baixo
-              </span>
+              </Link>
             )}
           </div>
         </Container>

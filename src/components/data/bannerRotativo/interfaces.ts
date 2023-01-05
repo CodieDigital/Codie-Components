@@ -3,7 +3,7 @@ export interface BannerRotativoProps {
   urlBaseImage: string
   upTitle: string
   title: string
-  scroll: boolean
+  scroll?: string
   fontFamily?: string
 }
 
