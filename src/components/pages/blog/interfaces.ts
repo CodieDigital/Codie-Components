@@ -21,8 +21,10 @@ export interface Post {
 }
 
 export interface IBlogContentDefaultProps {
-  bannerImage: string
-  titleBlog: string
+  bannerImage?: string
+  titleBlog?: string
+  isBaseUrl?: boolean
+  baseImage?: string
 }
 
 export interface StateForm {

@@ -10,14 +10,16 @@ import { NewsLetterBlog } from '../blog/side-box-newsletter'
 import { TagsBlog } from '../blog/side-box-tags'
 import { BlogDestaques } from '../blog/side-box-destaques'
 import { AxiosInstance } from 'axios'
+import { IBlogContentDefaultProps } from '../blog/interfaces'
 
 interface PostContentProps {
   postDetail: PostDetail
   api: AxiosInstance
   breadcrumb?: BreadCrumbProps
+  default: IBlogContentDefaultProps
 }
 
-export function PostContent({ postDetail, api }: PostContentProps) {
+export function PostContent({ postDetail, api, default: { baseImage, isBaseUrl } }: PostContentProps) {
   return (
     <S.Post className='post-content'>
       <div className='banner-post'>
@@ -33,7 +35,7 @@ export function PostContent({ postDetail, api }: PostContentProps) {
           <div className='box-left'>
             <div className='post'>
               <div className='image'>
-                <NextImage isBaseUrl alt='post' src={postDetail.detail.imagem} />
+                <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt='post' src={postDetail.detail.imagem} />
               </div>
 
               <h3>{postDetail.detail.subtitulo}</h3>

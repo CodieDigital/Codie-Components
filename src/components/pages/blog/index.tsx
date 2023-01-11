@@ -26,7 +26,11 @@ interface IBlogContentProps {
   api: AxiosInstance
 }
 
-export function BlogContent({ default: { bannerImage, titleBlog }, blogList, api }: IBlogContentProps) {
+export function BlogContent({
+  default: { bannerImage, titleBlog, isBaseUrl, baseImage },
+  blogList,
+  api,
+}: IBlogContentProps) {
   const router = useRouter(),
     routerBuild = createRouterBuild(router),
     [pagination, setPagination] = useState<IPagination | null>(null)
@@ -75,7 +79,7 @@ export function BlogContent({ default: { bannerImage, titleBlog }, blogList, api
                 >
                   <span className='tag-post'>Dicas</span>
 
-                  <NextImage isBaseUrl src={imagem} alt='Blog post' />
+                  <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} src={imagem} alt='Blog post' />
                 </Link>
 
                 <div className='text'>
