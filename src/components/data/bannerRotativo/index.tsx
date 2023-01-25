@@ -30,6 +30,7 @@ export const BannerRotativo = ({
           disableOnInteraction: false,
         }}
         effect={'fade'}
+        loop={true}
         slidesPerView={1}
         modules={[EffectFade]}
         className='swiper-banner'
