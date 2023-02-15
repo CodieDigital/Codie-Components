@@ -49,10 +49,16 @@ export const BannerRotativo = styled.div`
     position: absolute;
     z-index: 10;
     top: 0;
+    display: flex;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    position: relative;
   }
 
   .titles {
-    padding-top: 380px;
     color: #fff;
     line-height: normal;
 
@@ -60,27 +66,39 @@ export const BannerRotativo = styled.div`
       margin-top: 70px;
     }
 
-    .scroll {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      color: #fff;
+    .subtitle {
+      max-width: 680px;
+      line-height: 1.2;
 
       & + * {
-        margin-top: 100px;
+        margin-top: 80px;
       }
+    }
+  }
 
-      svg {
-        fill: #fff;
-        stroke: #fff;
-      }
+  .scroll {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #fff;
+    position: absolute;
+    bottom: 60px;
+    left: 15px;
+
+    svg {
+      fill: #fff;
+      stroke: #fff;
     }
   }
 
   @media only screen and (max-width: 1600px) {
     .titles {
       padding-left: 60px;
+    }
+
+    .scroll {
+      left: 75px;
     }
   }
 
@@ -91,17 +109,29 @@ export const BannerRotativo = styled.div`
     .titles {
       padding-left: 45px;
     }
+
+    .scroll {
+      left: 60px;
+    }
   }
 
   @media only screen and (max-width: 1024px) {
     .titles {
       padding-left: 40px;
     }
+
+    .scroll {
+      left: 55px;
+    }
   }
 
   @media only screen and (max-width: 900px) {
     .titles {
       padding-left: 35px;
+    }
+
+    .scroll {
+      left: 50px;
     }
   }
 

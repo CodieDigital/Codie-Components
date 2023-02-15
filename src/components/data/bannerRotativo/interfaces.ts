@@ -6,8 +6,6 @@ export interface BannerRotativoProps {
   scroll?: string
   fontFamily?: string
   subTitle?: string
-  whattsHref?: string
-  whattsText?: string
 }
 
 export interface Banners {

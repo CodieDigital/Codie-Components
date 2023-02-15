@@ -3,7 +3,6 @@ import React from 'react'
 
 import { useConfigSite } from '../../../contexts/configs'
 import { Container } from '../container'
-import { WhattsappButton } from '../whattsappButton'
 
 import { BannerRotativoProps } from './interfaces'
 
@@ -17,8 +16,6 @@ export const BannerRotativo = ({
   scroll,
   fontFamily,
   subTitle,
-  whattsHref,
-  whattsText,
 }: BannerRotativoProps) => {
   const { EffectFade, Swiper, SwiperSlide }: any = useConfigSite()
 
@@ -72,36 +69,34 @@ export const BannerRotativo = ({
                 dangerouslySetInnerHTML={{ __html: subTitle }}
               ></div>
             )}
-
-            {scroll && (
-              <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
-                <svg xmlns='http://www.w3.org/2000/svg' width='18' height='24' viewBox='0 0 18 24'>
-                  <defs>
-                    <clipPath id='7kdwa'>
-                      <path d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z' />
-                    </clipPath>
-                  </defs>
-                  <g>
-                    <g>
-                      <path
-                        fill='none'
-                        strokeMiterlimit='20'
-                        strokeWidth='4'
-                        d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z'
-                        clipPath='url("#7kdwa")'
-                      />
-                    </g>
-                    <g>
-                      <path fill='none' strokeMiterlimit='20' strokeWidth='2' d='M8.923 6.462v4.923' />
-                    </g>
-                  </g>
-                </svg>
-                scroll para baixo
-              </Link>
-            )}
-
-            {whattsHref || (whattsText && <WhattsappButton href={whattsHref!} text={whattsText} />)}
           </div>
+
+          {scroll && (
+            <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
+              <svg xmlns='http://www.w3.org/2000/svg' width='18' height='24' viewBox='0 0 18 24'>
+                <defs>
+                  <clipPath id='7kdwa'>
+                    <path d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z' />
+                  </clipPath>
+                </defs>
+                <g>
+                  <g>
+                    <path
+                      fill='none'
+                      strokeMiterlimit='20'
+                      strokeWidth='4'
+                      d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z'
+                      clipPath='url("#7kdwa")'
+                    />
+                  </g>
+                  <g>
+                    <path fill='none' strokeMiterlimit='20' strokeWidth='2' d='M8.923 6.462v4.923' />
+                  </g>
+                </g>
+              </svg>
+              scroll para baixo
+            </Link>
+          )}
         </Container>
       </div>
     </S.BannerRotativo>
