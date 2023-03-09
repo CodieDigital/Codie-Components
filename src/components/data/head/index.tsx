@@ -20,7 +20,7 @@ export function HeadComponent({ headContent, pageUrl, api }: HeadComponentProps)
       <meta property='og:locale' content='pt_BR' />
       <meta property='og:url' content='https://gps.com.br' />
       <meta property='og:title' content={headContent.head.pageTitle} />
-      <meta property='og:site_name' content='Guiadas para o Sucesso' />
+      <meta property='og:site_name' content={headContent.head.pageTitle} />
       <meta property='og:description' content={headContent.head.metaDescription} />
       <meta property='og:image' content={`${api}upload/uploads/download/${headContent.head.imageOpenGraph}`} />
       <meta property='og:image:type' content='image/jpeg' />
