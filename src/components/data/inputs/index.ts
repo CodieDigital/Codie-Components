@@ -1,10 +1,17 @@
 import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
+
+import { YupValidation as validator } from '../../../utils/yup-validation'
+
+interface StateForm {
+  state: 'error' | 'loading' | 'send' | 'default'
+  message?: string
+}
+
+import { InputMask } from './input'
 import { SelectComponent } from './select'
 import { TextAreaComponent } from './textarea'
-import { YupValidation } from '../../../utils/yup-validation'
-import { InputMask } from './input'
 
-export { Form, YupValidation, TextAreaComponent, SelectComponent, InputMask }
+export { Form, validator, TextAreaComponent, SelectComponent, InputMask }
 
-export type { FormHandles }
+export type { FormHandles, StateForm }

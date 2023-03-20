@@ -3,7 +3,7 @@ import React from 'react'
 import { useRef, useState } from 'react'
 
 import * as S from './styles'
-import { Form, FormHandles, InputMask, YupValidation } from '../../../data/inputs'
+import { Form, FormHandles, InputMask, validator } from '../../../data/inputs'
 import { LoaderCircle } from '../../../data'
 import { StateForm } from '../interfaces'
 import { AxiosInstance } from 'axios'
@@ -51,7 +51,7 @@ export function NewsLetterBlog({ api }: NewsLetterBlog) {
 
       setStateForm({ state: 'default' })
 
-      YupValidation(Yup, errors, formRef)
+      validator(Yup, errors, formRef)
     }
   }
 

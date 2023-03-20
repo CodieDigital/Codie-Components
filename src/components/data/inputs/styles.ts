@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Input = styled.div`
   width: 100%;
@@ -155,7 +155,7 @@ export const Input = styled.div`
       height: 85px;
     }
   }
-`;
+`
 
 export const InputEdit = styled.div`
   width: 100%;
@@ -189,7 +189,7 @@ export const InputEdit = styled.div`
       opacity: 1;
     }
   }
-`;
+`
 
 export const InputRadio = styled.div`
   width: 100%;
@@ -271,4 +271,4 @@ export const InputRadio = styled.div`
       }
     }
   }
-`;
+`
