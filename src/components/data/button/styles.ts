@@ -52,6 +52,7 @@ export const Button = styled.div<ButtonProps>`
 
   button:disabled {
     cursor: not-allowed;
+    background: ${(props) => (props.$loading ? '#295d00' : props.backgroundColor)};
     opacity: 0.75;
   }
 
