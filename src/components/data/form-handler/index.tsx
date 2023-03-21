@@ -11,7 +11,10 @@ import { generateSchemasByDemand, IDefaultSchemas } from './generate-schemas'
 import * as S from './styles'
 
 interface IFormHandler {
-  recaptcha?: string
+  recaptcha?: {
+    key?: string
+    active?: boolean
+  }
   button: ButtonProps
   children: React.ReactNode
   onSucess: (data: any) => void
@@ -91,12 +94,14 @@ export function FormHandler({
         {children}
 
         <div className='actions'>
-          <ReCAPTCHA
-            size='normal'
-            className='captcha'
-            onChange={() => setEnable(true)}
-            sitekey={recaptcha ? recaptcha : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
-          />
+          {recaptcha?.active && (
+            <ReCAPTCHA
+              size='normal'
+              className='captcha'
+              onChange={() => setEnable(true)}
+              sitekey={recaptcha.key ? recaptcha.key : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
+            />
+          )}
 
           <ButtonComponent {...button} loading={stateForm.state === 'loading'} />
         </div>

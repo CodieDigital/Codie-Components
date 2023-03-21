@@ -5,6 +5,7 @@ export const FormHandler = styled.div`
 
   .errorForm {
     color: red;
-    margin-bottom: 10px;
+    display: flex;
+    margin-top: 10px;
   }
 `
