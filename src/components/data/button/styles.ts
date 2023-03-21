@@ -37,10 +37,6 @@ export const Button = styled.div<ButtonProps>`
     transition: all 0.4s ease-in-out;
   }
 
-  button:disabled:hover {
-    background: ${(props) => props.backgroundColor};
-  }
-
   @keyframes loading {
     0% {
       background-size: 300% 100%;

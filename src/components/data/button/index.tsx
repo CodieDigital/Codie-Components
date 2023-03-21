@@ -31,7 +31,13 @@ export function ButtonComponent({
   ...props
 }: ButtonProps) {
   return (
-    <S.Button checked={checked} color={color} $loading={loading} className='button' backgroundColor={backgroundColor}>
+    <S.Button
+      color={color}
+      checked={checked}
+      $loading={loading}
+      backgroundColor={backgroundColor}
+      className={`button ${checked ? 'active' : ''}`}
+    >
       {href && !type ? (
         <Link href={href} passHref>
           <a
