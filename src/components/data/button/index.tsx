@@ -12,7 +12,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<any> {
   target?: boolean
   loading?: boolean
   checked?: boolean
-  sizeClass: string
+  sizeClass?: string
   backgroundColor?: string
   type?: 'submit' | 'button'
 }
