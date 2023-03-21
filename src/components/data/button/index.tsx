@@ -36,7 +36,7 @@ export function ButtonComponent({
       checked={checked}
       $loading={loading}
       backgroundColor={backgroundColor}
-      className={`button ${checked ? 'active' : ''}`}
+      className={`button ${!checked ? 'active' : ''}`}
     >
       {href && !type ? (
         <Link href={href} passHref>
