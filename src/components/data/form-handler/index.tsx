@@ -103,7 +103,7 @@ export function FormHandler({
             />
           )}
 
-          <ButtonComponent {...button} loading={stateForm.state === 'loading'} />
+          <ButtonComponent {...button} loading={stateForm.state === 'loading'} checked={enable} />
         </div>
       </Form>
     </S.FormHandler>

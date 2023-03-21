@@ -52,8 +52,7 @@ export const Button = styled.div<ButtonProps>`
 
   button:disabled {
     cursor: not-allowed;
-    background: '#6749a3';
-    opacity: 0.8;
+    opacity: 0.75;
   }
 
   @media only screen and (max-width: 1600px) {

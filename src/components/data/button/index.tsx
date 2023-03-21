@@ -35,7 +35,7 @@ export function ButtonComponent({
           </a>
         </Link>
       ) : (
-        <button className='link-3-semibold ' type={type ? type : 'submit'} disabled={loading} {...props}>
+        <button className='link-3-semibold ' type={type ? type : 'submit'} disabled={checked || loading} {...props}>
           {loading ? <LoaderCircle size={40} /> : text}
         </button>
       )}
