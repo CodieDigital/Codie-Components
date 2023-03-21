@@ -1,5 +1,6 @@
 export interface IDefaultSchemas {
   name?: boolean | undefined
+  city?: boolean | undefined
   date?: boolean | undefined
   loja?: boolean | undefined
   email?: boolean | undefined
@@ -9,6 +10,7 @@ export interface IDefaultSchemas {
   subject?: boolean | undefined
   password?: boolean | undefined
   lastName?: boolean | undefined
+  formaContato?: boolean | undefined
 }
 
 export async function generateSchemasByDemand(defaultSchemas: IDefaultSchemas | undefined) {
@@ -20,12 +22,14 @@ export async function generateSchemasByDemand(defaultSchemas: IDefaultSchemas | 
   const schemas = {
     name: yup.string().required('Por favor, digite seu nome'),
     date: yup.string().required('Por favor, digite uma data'),
+    city: yup.string().required('Por favor, digite sua cidade'),
     loja: yup.string().required('Por favor, selecione uma loja'),
     login: yup.string().required('Por favor, digite seu usuário'),
     password: yup.string().required('Por favor, digite uma senha'),
     subject: yup.string().required('Por favor, digite uma assunto'),
     message: yup.string().required('Por favor, digite uma mensagem'),
     lastName: yup.string().required('Por favor, digite seu último nome'),
+    formaContato: yup.string().required('Por favor, selecione uma forma de contato'),
     email: yup.string().required('Por favor, digite um email').email('Por favor, digite um email válido'),
     phone: yup.string().min(11, 'Por favor, digite um número válido').required('Por favor, digite um número'),
   }
