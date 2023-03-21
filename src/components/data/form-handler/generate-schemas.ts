@@ -6,10 +6,12 @@ export interface IDefaultSchemas {
   email?: boolean | undefined
   phone?: boolean | undefined
   login?: boolean | undefined
+  cidade?: boolean | undefined
   message?: boolean | undefined
   subject?: boolean | undefined
   password?: boolean | undefined
   lastName?: boolean | undefined
+  mesviajem?: boolean | undefined
   formaContato?: boolean | undefined
 }
 
@@ -24,8 +26,10 @@ export async function generateSchemasByDemand(defaultSchemas: IDefaultSchemas | 
     date: yup.string().required('Por favor, digite uma data'),
     city: yup.string().required('Por favor, digite sua cidade'),
     loja: yup.string().required('Por favor, selecione uma loja'),
+    cidade: yup.string().required('Por favor, digite sua cidade'),
     login: yup.string().required('Por favor, digite seu usuário'),
     password: yup.string().required('Por favor, digite uma senha'),
+    mesviajem: yup.string().required('Por favor, digite uma data'),
     subject: yup.string().required('Por favor, digite uma assunto'),
     message: yup.string().required('Por favor, digite uma mensagem'),
     lastName: yup.string().required('Por favor, digite seu último nome'),
