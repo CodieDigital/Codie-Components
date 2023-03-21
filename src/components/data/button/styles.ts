@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 interface ButtonProps {
-  backgroundColor?: string
-  $loading?: boolean
+  color: string
   checked?: boolean
+  $loading?: boolean
+  backgroundColor: string
 }
 
 export const Button = styled.div<ButtonProps>`
@@ -16,13 +17,13 @@ export const Button = styled.div<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: ${(props) => props.color};
     border: 0;
     border-radius: 5px;
     opacity: ${(props) => props.$loading && '0.8'};
     transition: all 0.4s ease-in-out;
     background-size: 300% 100%;
-    background: ${(props) => (props.$loading ? '#295d00' : props.backgroundColor)};
+    background: ${(props) => props.backgroundColor};
 
     svg {
       width: 30px;

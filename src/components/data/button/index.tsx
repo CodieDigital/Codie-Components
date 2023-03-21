@@ -9,11 +9,12 @@ import * as S from './styles'
 export interface ButtonProps extends React.ButtonHTMLAttributes<any> {
   text: string
   href?: string
+  color: string
   target?: boolean
   loading?: boolean
   checked?: boolean
   sizeClass?: string
-  backgroundColor?: string
+  backgroundColor: string
   type?: 'submit' | 'button'
 }
 
@@ -21,6 +22,7 @@ export function ButtonComponent({
   text,
   href,
   type,
+  color,
   target,
   checked,
   loading,
@@ -29,7 +31,7 @@ export function ButtonComponent({
   ...props
 }: ButtonProps) {
   return (
-    <S.Button checked={checked} $loading={loading} className='button' backgroundColor={backgroundColor}>
+    <S.Button checked={checked} color={color} $loading={loading} className='button' backgroundColor={backgroundColor}>
       {href && !type ? (
         <Link href={href} passHref>
           <a
