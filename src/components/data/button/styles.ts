@@ -19,7 +19,6 @@ export const Button = styled.div<ButtonProps>`
     justify-content: center;
     color: ${(props) => props.color};
     border: 0;
-    border-radius: 5px;
     opacity: ${(props) => props.$loading && '0.8'};
     transition: all 0.4s ease-in-out;
     background-size: 300% 100%;

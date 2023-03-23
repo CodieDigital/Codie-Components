@@ -1,7 +1,10 @@
 import React from 'react'
+
 import Link from 'next/link'
-import * as S from './styles'
+
 import { WhattsappButtonProps } from './interfaces'
+
+import * as S from './styles'
 
 export function WhattsappButton({ href, text }: WhattsappButtonProps) {
   return (
