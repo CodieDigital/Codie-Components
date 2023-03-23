@@ -1,19 +1,16 @@
 import React from 'react'
 
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import { HeadComponentProps } from './interfaces'
 
-export function HeadComponent({ headContent, siteDomain, painel }: HeadComponentProps) {
-  const router = useRouter()
-
+export function HeadComponent({ headContent, siteDomain, painel, pathname }: HeadComponentProps) {
   return (
     <Head>
       <title>{headContent.pageTitle}</title>
-      <link rel='canonical' href={siteDomain + router.pathname} />
+      <link rel='canonical' href={siteDomain + pathname} />
       <meta name='description' content={headContent.metaDescription} />
-      <meta property='og:url' content={siteDomain + router.pathname} />
+      <meta property='og:url' content={siteDomain + pathname} />
 
       {/*Open Graph Facebook*/}
       <meta property='og:type' content='website' />
@@ -22,7 +19,7 @@ export function HeadComponent({ headContent, siteDomain, painel }: HeadComponent
       <meta property='og:image:type' content='image/jpeg' />
       <meta property='og:title' content={headContent.pageTitle} />
       <meta property='og:site_name' content={headContent.pageTitle} />
-      <meta property='og:url' content={siteDomain + router.pathname} />
+      <meta property='og:url' content={siteDomain + pathname} />
       <meta property='og:description' content={headContent.metaDescription} />
       <meta property='og:image' content={`${painel}uploads/${headContent.imageOpenGraph}`} />
 
