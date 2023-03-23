@@ -8,8 +8,6 @@ import { ButtonProps, ButtonComponent } from '../button'
 import { Form, FormHandles, StateForm, validator } from '../inputs'
 import { generateSchemasByDemand, IDefaultSchemas } from './generate-schemas'
 
-import * as S from './styles'
-
 interface IFormHandler {
   recaptcha?: {
     key?: string
@@ -87,7 +85,7 @@ export function FormHandler({
   }
 
   return (
-    <S.FormHandler className='form-componet'>
+    <>
       <Form ref={formRef} onSubmit={handleSubmit}>
         {stateForm.state === 'error' && <span className='errorForm paragraph-5-bold'>{stateForm.message}</span>}
 
@@ -106,6 +104,6 @@ export function FormHandler({
           <ButtonComponent {...button} loading={stateForm.state === 'loading'} checked={!enable} />
         </div>
       </Form>
-    </S.FormHandler>
+    </>
   )
 }
