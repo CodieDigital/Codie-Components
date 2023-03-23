@@ -21,13 +21,17 @@ export function HeadComponent({ headContent, siteDomain, painel, pathname }: Hea
       <meta property='og:site_name' content={headContent.pageTitle} />
       <meta property='og:url' content={siteDomain + pathname} />
       <meta property='og:description' content={headContent.metaDescription} />
-      <meta property='og:image' content={`${painel}uploads/${headContent.imageOpenGraph}`} />
+      {headContent.imageOpenGraph && (
+        <meta property='og:image' content={`${painel}uploads/${headContent.imageOpenGraph}`} />
+      )}
 
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={headContent.pageTitle} />
       <meta name='twitter:description' content={headContent.metaDescription} />
-      <meta name='twitter:image' content={`${painel}uploads/${headContent.imageOpenGraph}`} />
+      {headContent.imageOpenGraph && (
+        <meta name='twitter:image' content={`${painel}uploads/${headContent.imageOpenGraph}`} />
+      )}
     </Head>
   )
 }

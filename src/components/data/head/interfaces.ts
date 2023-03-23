@@ -7,7 +7,7 @@ export interface HeadComponentProps {
 
 interface IHeadPage {
   pageTitle: string
-  headScripts: string
-  imageOpenGraph: string
+  headScripts?: string
+  imageOpenGraph?: string
   metaDescription: string
 }
