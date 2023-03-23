@@ -87,7 +87,7 @@ export function FormHandler({
   }
 
   return (
-    <S.FormHandler>
+    <S.FormHandler className='form-componet'>
       <Form ref={formRef} onSubmit={handleSubmit}>
         {stateForm.state === 'error' && <span className='errorForm paragraph-5-bold'>{stateForm.message}</span>}
 
