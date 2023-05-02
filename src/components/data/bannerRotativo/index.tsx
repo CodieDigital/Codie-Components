@@ -58,47 +58,49 @@ export const BannerRotativo = ({
         ))}
       </Swiper>
 
-      <div className='content'>
-        <Container>
-          <div className='titles'>
-            {upTitle && <h2 className={`title-3${fontFamily}-regular`}>{upTitle}</h2>}
-            <h1 className={`title-1${fontFamily}-bold`}>{title}</h1>
-            {subTitle && (
-              <div
-                className={`paragraph-2${fontFamily}-medium subtitle`}
-                dangerouslySetInnerHTML={{ __html: subTitle }}
-              ></div>
-            )}
-          </div>
+      {title && (
+        <div className='content'>
+          <Container>
+            <div className='titles'>
+              {upTitle && <h2 className={`title-3${fontFamily}-regular`}>{upTitle}</h2>}
+              <h1 className={`title-1${fontFamily}-bold`}>{title}</h1>
+              {subTitle && (
+                <div
+                  className={`paragraph-2${fontFamily}-medium subtitle`}
+                  dangerouslySetInnerHTML={{ __html: subTitle }}
+                ></div>
+              )}
+            </div>
 
-          {scroll && (
-            <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
-              <svg xmlns='http://www.w3.org/2000/svg' width='18' height='24' viewBox='0 0 18 24'>
-                <defs>
-                  <clipPath id='7kdwa'>
-                    <path d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z' />
-                  </clipPath>
-                </defs>
-                <g>
+            {scroll && (
+              <Link href={scroll} className={`title-10${fontFamily}-medium scroll`}>
+                <svg xmlns='http://www.w3.org/2000/svg' width='18' height='24' viewBox='0 0 18 24'>
+                  <defs>
+                    <clipPath id='7kdwa'>
+                      <path d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z' />
+                    </clipPath>
+                  </defs>
                   <g>
-                    <path
-                      fill='none'
-                      strokeMiterlimit='20'
-                      strokeWidth='4'
-                      d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z'
-                      clipPath='url("#7kdwa")'
-                    />
+                    <g>
+                      <path
+                        fill='none'
+                        strokeMiterlimit='20'
+                        strokeWidth='4'
+                        d='M8 24a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8h1.846a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8z'
+                        clipPath='url("#7kdwa")'
+                      />
+                    </g>
+                    <g>
+                      <path fill='none' strokeMiterlimit='20' strokeWidth='2' d='M8.923 6.462v4.923' />
+                    </g>
                   </g>
-                  <g>
-                    <path fill='none' strokeMiterlimit='20' strokeWidth='2' d='M8.923 6.462v4.923' />
-                  </g>
-                </g>
-              </svg>
-              scroll para baixo
-            </Link>
-          )}
-        </Container>
-      </div>
+                </svg>
+                scroll para baixo
+              </Link>
+            )}
+          </Container>
+        </div>
+      )}
     </S.BannerRotativo>
   )
 }

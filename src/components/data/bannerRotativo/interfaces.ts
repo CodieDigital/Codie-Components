@@ -1,8 +1,8 @@
 export interface BannerRotativoProps {
   listBanners: Banners[]
   urlBaseImage: string
-  upTitle: string
-  title: string
+  upTitle?: string
+  title?: string
   scroll?: string
   fontFamily?: string
   subTitle?: string
