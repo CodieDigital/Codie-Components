@@ -7,6 +7,7 @@ export interface IDefaultSchemas {
   phone?: boolean | undefined
   login?: boolean | undefined
   cidade?: boolean | undefined
+  select?: boolean | undefined
   message?: boolean | undefined
   subject?: boolean | undefined
   password?: boolean | undefined
@@ -30,6 +31,7 @@ export async function generateSchemasByDemand(defaultSchemas: IDefaultSchemas | 
     login: yup.string().required('Por favor, digite seu usuário'),
     password: yup.string().required('Por favor, digite uma senha'),
     mesviajem: yup.string().required('Por favor, digite uma data'),
+    select: yup.string().required('Por favor, selecione uma opção'),
     subject: yup.string().required('Por favor, digite uma assunto'),
     message: yup.string().required('Por favor, digite uma mensagem'),
     lastName: yup.string().required('Por favor, digite seu último nome'),

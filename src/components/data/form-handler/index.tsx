@@ -98,6 +98,7 @@ export function FormHandler({
               className='captcha'
               onChange={() => setEnable(true)}
               sitekey={recaptcha.key ? recaptcha.key : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
+              onExpired={() => setEnable(false)}
             />
           )}
 
