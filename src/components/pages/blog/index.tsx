@@ -24,12 +24,20 @@ interface IBlogContentProps {
   default: IBlogContentDefaultProps
   blogList: BlogProps
   api: AxiosInstance
+  hasDestaques?: boolean
+  hasfilter?: boolean
+  hasNewsletter?: boolean
+  hasTags?: boolean
 }
 
 export function BlogContent({
   default: { bannerImage, titleBlog, isBaseUrl, baseImage },
   blogList,
   api,
+  hasDestaques,
+  hasfilter,
+  hasNewsletter,
+  hasTags,
 }: IBlogContentProps) {
   const router = useRouter(),
     routerBuild = createRouterBuild(router),
@@ -67,7 +75,7 @@ export function BlogContent({
         <div className='posts'>
           {blogList.posts.map(({ titulo, imagem, descricao, url }) => {
             return (
-              <div className='box-post'>
+              <div key={`blogPost${titulo}-${descricao}`} className='box-post'>
                 <Link
                   href={{
                     pathname: '/post/[url]',
@@ -128,17 +136,13 @@ export function BlogContent({
         </div>
 
         <div className='side-bar'>
-          <div className='hide-mobile'>
-            <FilterBlog />
-          </div>
+          <div className='hide-mobile'>{hasfilter && <FilterBlog />}</div>
 
-          <NewsLetterBlog api={api} />
+          {hasNewsletter && <NewsLetterBlog api={api} />}
 
-          <div className='hide-mobile'>
-            <TagsBlog />
-          </div>
+          <div className='hide-mobile'>{hasTags && <TagsBlog />}</div>
 
-          <BlogDestaques />
+          {hasDestaques && <BlogDestaques />}
         </div>
       </Container>
     </S.BlogContent>
