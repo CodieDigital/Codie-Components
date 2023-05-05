@@ -18,12 +18,10 @@ import { NextImage } from '../../data/NextImage'
 import { Iconfacebook, IconLinkedin, IconWhatsApp } from './icons'
 import { PaginationComponent } from '../../data/pagination'
 import { AxiosInstance } from 'axios'
-import { PostDetail } from '../post/interfaces'
 
 import * as S from './styles'
 
 interface IBlogContentProps {
-  postDetail: PostDetail
   default: IBlogContentDefaultProps
   blogList: BlogProps
   api: AxiosInstance
@@ -34,7 +32,6 @@ interface IBlogContentProps {
 }
 
 export function BlogContent({
-  postDetail,
   default: { bannerImage, titleBlog, isBaseUrl, baseImage, siteDomain },
   blogList,
   api,
@@ -105,7 +102,7 @@ export function BlogContent({
                     <div className='share'>
                       <Link
                         target={'_blank'}
-                        href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${url}`}
                         className='link'
                       >
                         <Iconfacebook />
@@ -113,7 +110,7 @@ export function BlogContent({
 
                       <Link
                         target={'_blank'}
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${url}`}
                         className='link'
                       >
                         <IconLinkedin />
@@ -121,7 +118,7 @@ export function BlogContent({
 
                       <Link
                         target={'_blank'}
-                        href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${postDetail.detail.url}`}
+                        href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${url}`}
                         className='link'
                       >
                         <IconWhatsApp />
