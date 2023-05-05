@@ -25,6 +25,7 @@ export interface IBlogContentDefaultProps {
   titleBlog?: string
   isBaseUrl?: boolean
   baseImage?: string
+  siteDomain?: string
 }
 
 export interface StateForm {

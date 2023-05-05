@@ -16,11 +16,13 @@ import createRouterBuild from '../../../utils/router-build'
 import Paginate, { IPagination } from '../../../utils/pagination'
 import { Container } from '../../data/container'
 import { NextImage } from '../../data/NextImage'
-import { Iconfacebook, IconInstagram, IconLinkedin, IconWhatsApp } from './icons'
+import { Iconfacebook, IconLinkedin, IconWhatsApp } from './icons'
 import { PaginationComponent } from '../../data/pagination'
 import { AxiosInstance } from 'axios'
+import { PostDetail } from '../post/interfaces'
 
 interface IBlogContentProps {
+  postDetail: PostDetail
   default: IBlogContentDefaultProps
   blogList: BlogProps
   api: AxiosInstance
@@ -31,7 +33,8 @@ interface IBlogContentProps {
 }
 
 export function BlogContent({
-  default: { bannerImage, titleBlog, isBaseUrl, baseImage },
+  postDetail,
+  default: { bannerImage, titleBlog, isBaseUrl, baseImage, siteDomain },
   blogList,
   api,
   hasDestaques,
@@ -99,16 +102,27 @@ export function BlogContent({
 
                   <div className='actions'>
                     <div className='share'>
-                      <Link target={'_blank'} href='#' className='link'>
-                        <IconInstagram />
-                      </Link>
-                      <Link target={'_blank'} href='#' className='link'>
+                      <Link
+                        target={'_blank'}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                        className='link'
+                      >
                         <Iconfacebook />
                       </Link>
-                      <Link target={'_blank'} href='#' className='link'>
+
+                      <Link
+                        target={'_blank'}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                        className='link'
+                      >
                         <IconLinkedin />
                       </Link>
-                      <Link target={'_blank'} href='#' className='link'>
+
+                      <Link
+                        target={'_blank'}
+                        href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${postDetail.detail.url}`}
+                        className='link'
+                      >
                         <IconWhatsApp />
                       </Link>
                     </div>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const BlogContent = styled.section`
   padding-bottom: 225px;
@@ -751,4 +751,4 @@ export const BlogContent = styled.section`
       }
     }
   }
-`;
+`

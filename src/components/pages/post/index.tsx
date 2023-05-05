@@ -4,7 +4,7 @@ import Link from 'next/link'
 import * as S from './styles'
 import { BreadCrumbProps, Container, NextImage } from '../../data'
 import { PostDetail } from './interfaces'
-import { Iconfacebook, IconInstagram, IconLinkedin, IconWhatsApp } from '../blog/icons'
+import { Iconfacebook, IconLinkedin, IconWhatsApp } from '../blog/icons'
 import { FilterBlog } from '../blog/side-box-filter'
 import { NewsLetterBlog } from '../blog/side-box-newsletter'
 import { TagsBlog } from '../blog/side-box-tags'
@@ -17,9 +17,21 @@ interface PostContentProps {
   api: AxiosInstance
   breadcrumb?: BreadCrumbProps
   default: IBlogContentDefaultProps
+  hasDestaques: boolean
+  hasfilter: boolean
+  hasNewsletter: boolean
+  hasTags: boolean
 }
 
-export function PostContent({ postDetail, api, default: { baseImage, isBaseUrl } }: PostContentProps) {
+export function PostContent({
+  postDetail,
+  api,
+  default: { baseImage, isBaseUrl, siteDomain },
+  hasDestaques,
+  hasfilter,
+  hasNewsletter,
+  hasTags,
+}: PostContentProps) {
   return (
     <S.Post className='post-content'>
       <div className='banner-post'>
@@ -62,19 +74,27 @@ export function PostContent({ postDetail, api, default: { baseImage, isBaseUrl }
                 <h4>Compartilhe</h4>
 
                 <div className='midias'>
-                  <Link target={'_blank'} className='link-share' href=''>
-                    <IconInstagram />
-                  </Link>
-
-                  <Link target={'_blank'} className='link-share' href=''>
+                  <Link
+                    target={'_blank'}
+                    className='link-share'
+                    href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                  >
                     <Iconfacebook />
                   </Link>
 
-                  <Link target={'_blank'} className='link-share' href=''>
+                  <Link
+                    target={'_blank'}
+                    className='link-share'
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
+                  >
                     <IconLinkedin />
                   </Link>
 
-                  <Link target={'_blank'} className='link-share' href=''>
+                  <Link
+                    target={'_blank'}
+                    className='link-share'
+                    href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${postDetail.detail.url}`}
+                  >
                     <IconWhatsApp />
                   </Link>
                 </div>
@@ -83,10 +103,13 @@ export function PostContent({ postDetail, api, default: { baseImage, isBaseUrl }
           </div>
 
           <div className='side-bar'>
-            <FilterBlog />
-            <NewsLetterBlog api={api} />
-            <TagsBlog />
-            <BlogDestaques />
+            {hasfilter && <FilterBlog />}
+
+            {hasNewsletter && <NewsLetterBlog api={api} />}
+
+            {hasTags && <TagsBlog />}
+
+            {hasDestaques && <BlogDestaques />}
           </div>
         </Container>
       </div>
