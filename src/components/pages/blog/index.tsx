@@ -7,7 +7,6 @@ import { useRouter } from 'next/router'
 
 import { NewsLetterBlog } from './side-box-newsletter'
 
-import * as S from './styles'
 import { FilterBlog } from './side-box-filter'
 import { TagsBlog } from './side-box-tags'
 import { BlogDestaques } from './side-box-destaques'
@@ -20,6 +19,8 @@ import { Iconfacebook, IconLinkedin, IconWhatsApp } from './icons'
 import { PaginationComponent } from '../../data/pagination'
 import { AxiosInstance } from 'axios'
 import { PostDetail } from '../post/interfaces'
+
+import * as S from './styles'
 
 interface IBlogContentProps {
   postDetail: PostDetail
