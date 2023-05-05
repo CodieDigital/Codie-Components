@@ -17,10 +17,10 @@ interface PostContentProps {
   api: AxiosInstance
   breadcrumb?: BreadCrumbProps
   default: IBlogContentDefaultProps
-  hasDestaques: boolean
-  hasfilter: boolean
-  hasNewsletter: boolean
-  hasTags: boolean
+  hasDestaques?: boolean
+  hasfilter?: boolean
+  hasNewsletter?: boolean
+  hasTags?: boolean
 }
 
 export function PostContent({
