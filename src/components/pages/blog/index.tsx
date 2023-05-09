@@ -92,7 +92,15 @@ export function BlogContent({
                 </Link>
 
                 <div className='text'>
-                  <Link href={''} className='title-post'>
+                  <Link
+                    href={{
+                      pathname: '/post/[url]',
+                      query: {
+                        url: url ? url : 'default',
+                      },
+                    }}
+                    className='title-post'
+                  >
                     {titulo}
                   </Link>
 
