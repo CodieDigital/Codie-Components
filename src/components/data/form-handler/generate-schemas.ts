@@ -13,6 +13,7 @@ export interface IDefaultSchemas {
   password?: boolean | undefined
   lastName?: boolean | undefined
   mesviajem?: boolean | undefined
+  selectEvent?: boolean | undefined
   formaContato?: boolean | undefined
 }
 
@@ -34,6 +35,7 @@ export async function generateSchemasByDemand(defaultSchemas: IDefaultSchemas | 
     select: yup.string().required('Por favor, selecione uma opção'),
     subject: yup.string().required('Por favor, digite uma assunto'),
     message: yup.string().required('Por favor, digite uma mensagem'),
+    selectEvent: yup.string().required('Por favor, digite uma assunto'),
     lastName: yup.string().required('Por favor, digite seu último nome'),
     formaContato: yup.string().required('Por favor, selecione uma forma de contato'),
     email: yup.string().required('Por favor, digite um email').email('Por favor, digite um email válido'),
