@@ -46,9 +46,11 @@ export function PostContent({
         <Container>
           <div className='box-left'>
             <div className='post'>
-              <div className='image'>
-                <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt='post' src={postDetail.detail.imagem} />
-              </div>
+              {postDetail.detail.imagem && (
+                <div className='image'>
+                  <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt='post' src={postDetail.detail.imagem} />
+                </div>
+              )}
 
               <h3>{postDetail.detail.subtitulo}</h3>
 
