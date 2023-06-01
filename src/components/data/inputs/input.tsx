@@ -23,7 +23,7 @@ interface Props {
 
 type InputProps = JSX.IntrinsicElements['input'] & Props
 
-export function InputMask({ id, name, mask, label, onChangeInput, readOnly }: InputProps) {
+export function InputMask({ id, name, mask, label, placeholder, onChangeInput, readOnly }: InputProps) {
   const [value, setValue] = useState('')
   const { fieldName, registerField, defaultValue, error } = useField(name)
 
@@ -55,7 +55,7 @@ export function InputMask({ id, name, mask, label, onChangeInput, readOnly }: In
     <S.Input>
       <div className='input-content'>
         {label && (
-          <label className='label-text paragraph-2-bold-graphie' htmlFor={id}>
+          <label className='label-text paragraph-2-bold' htmlFor={id}>
             {label}
           </label>
         )}
@@ -63,6 +63,7 @@ export function InputMask({ id, name, mask, label, onChangeInput, readOnly }: In
         <input style={{ display: 'none' }} ref={ref} defaultValue={value} type='text' name={name} />
 
         <ReactInputMask
+          placeholder={placeholder}
           mask={mask}
           onChange={(e) => {
             setValue(e.target.value)
@@ -72,14 +73,14 @@ export function InputMask({ id, name, mask, label, onChangeInput, readOnly }: In
             }
           }}
           value={value}
-          className='paragraph-1-bold-graphie'
+          className='paragraph-1-bold'
           id={id}
           type='text'
           readOnly={readOnly}
         />
       </div>
 
-      {error && <span className='error paragraph-3-bold-graphie error-message'>{error}</span>}
+      {error && <span className='error paragraph-3-bold error-message'>{error}</span>}
     </S.Input>
   )
 }

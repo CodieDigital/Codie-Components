@@ -32,6 +32,7 @@ interface IBlogContentProps {
   hasTags?: boolean
   detach: IListBlog
   categories: IFilterItem[]
+  newsLetterHasPhone?: boolean
 }
 
 export function BlogContent({
@@ -44,6 +45,7 @@ export function BlogContent({
   hasfilter,
   hasNewsletter,
   hasTags,
+  newsLetterHasPhone,
 }: IBlogContentProps) {
   const router = useRouter(),
     routerBuild = createRouterBuild(router),
@@ -163,7 +165,7 @@ export function BlogContent({
         <div className='side-bar'>
           <div className='hide-mobile'>{hasfilter && <FilterBlog categories={categories} />}</div>
 
-          {hasNewsletter && <NewsLetterBlog api={api} />}
+          {hasNewsletter && <NewsLetterBlog hasPhone={newsLetterHasPhone} api={api} />}
 
           <div className='hide-mobile'>{hasTags && <TagsBlog />}</div>
 

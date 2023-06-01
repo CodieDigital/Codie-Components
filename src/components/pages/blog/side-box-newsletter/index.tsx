@@ -1,18 +1,20 @@
 import React from 'react'
-
 import { useRef, useState } from 'react'
 
-import * as S from './styles'
+import { AxiosInstance } from 'axios'
+
 import { Form, FormHandles, InputMask, validator } from '../../../data/inputs'
 import { LoaderCircle } from '../../../data'
 import { StateForm } from '../interfaces'
-import { AxiosInstance } from 'axios'
+
+import * as S from './styles'
 
 interface NewsLetterBlog {
   api: AxiosInstance
+  hasPhone?: boolean
 }
 
-export function NewsLetterBlog({ api }: NewsLetterBlog) {
+export function NewsLetterBlog({ api, hasPhone }: NewsLetterBlog) {
   const [stateForm, setStateForm] = useState<StateForm>({
     state: 'default',
     message: '',
@@ -20,7 +22,7 @@ export function NewsLetterBlog({ api }: NewsLetterBlog) {
 
   const formRef = useRef<FormHandles>(null)
 
-  async function handleSubmit(data: { email: string }) {
+  async function handleSubmit(data: { email: string; phone?: string }) {
     const Yup = await import('yup')
 
     try {
@@ -28,6 +30,7 @@ export function NewsLetterBlog({ api }: NewsLetterBlog) {
 
       const schema = Yup.object().shape({
         email: Yup.string().required('Por favor, digite um email').email('Por favor, digite um email válido'),
+        phone: Yup.string().required('Por favor insira seu telefone').min(11, 'Favor inserir um número válido'),
       })
 
       await schema.validate(data, {
@@ -66,6 +69,10 @@ export function NewsLetterBlog({ api }: NewsLetterBlog) {
           {stateForm.state === 'send' && <span className='email-send paragraph'>Email enviado com sucesso!</span>}
 
           <InputMask name='email' type={'email'} placeholder='digite seu e-mail' mask={''} />
+
+          {hasPhone && (
+            <InputMask name='phone' type={'text'} placeholder='(DDD) 9 9999-9999' mask={'(99) 9 9999-9999'} />
+          )}
 
           <button type='submit'>{stateForm.state === 'loading' ? <LoaderCircle size={25} /> : 'Cadastrar'}</button>
         </Form>

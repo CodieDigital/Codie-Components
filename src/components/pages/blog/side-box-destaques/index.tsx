@@ -38,7 +38,7 @@ export function BlogDestaques({ posts }: IBlogDestaquesProps) {
                 </div>
               </div>
             )
-          }
+          } else return
         })}
       </div>
     </S.Destaques>
