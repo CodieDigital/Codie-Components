@@ -5,32 +5,37 @@ import * as S from './styles'
 import { BreadCrumbProps, Container, NextImage } from '../../data'
 import { PostDetail } from './interfaces'
 import { Iconfacebook, IconLinkedin, IconWhatsApp } from '../blog/icons'
-import { FilterBlog } from '../blog/side-box-filter'
+import { FilterBlog, IFilterItem } from '../blog/side-box-filter'
 import { NewsLetterBlog } from '../blog/side-box-newsletter'
 import { TagsBlog } from '../blog/side-box-tags'
 import { BlogDestaques } from '../blog/side-box-destaques'
 import { AxiosInstance } from 'axios'
 import { IBlogContentDefaultProps } from '../blog/interfaces'
+import { IListBlog } from '../../../interfaces/blog'
 
 interface PostContentProps {
-  postDetail: PostDetail
+  hasTags?: boolean
+  detach: IListBlog
   api: AxiosInstance
+  hasfilter?: boolean
+  hasDestaques?: boolean
+  postDetail: PostDetail
+  hasNewsletter?: boolean
+  categories: IFilterItem[]
   breadcrumb?: BreadCrumbProps
   default: IBlogContentDefaultProps
-  hasDestaques?: boolean
-  hasfilter?: boolean
-  hasNewsletter?: boolean
-  hasTags?: boolean
 }
 
 export function PostContent({
-  postDetail,
   api,
-  default: { baseImage, isBaseUrl, siteDomain },
-  hasDestaques,
-  hasfilter,
-  hasNewsletter,
+  detach,
   hasTags,
+  hasfilter,
+  categories,
+  postDetail,
+  hasDestaques,
+  hasNewsletter,
+  default: { baseImage, isBaseUrl, siteDomain },
 }: PostContentProps) {
   return (
     <S.Post className='post-content'>
@@ -105,13 +110,13 @@ export function PostContent({
           </div>
 
           <div className='side-bar'>
-            {hasfilter && <FilterBlog />}
+            {hasfilter && <FilterBlog categories={categories} />}
 
             {hasNewsletter && <NewsLetterBlog api={api} />}
 
             {hasTags && <TagsBlog />}
 
-            {hasDestaques && <BlogDestaques />}
+            {hasDestaques && <BlogDestaques posts={detach.posts} />}
           </div>
         </Container>
       </div>

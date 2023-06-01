@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 import { NewsLetterBlog } from './side-box-newsletter'
 
-import { FilterBlog } from './side-box-filter'
+import { FilterBlog, IFilterItem } from './side-box-filter'
 import { TagsBlog } from './side-box-tags'
 import { BlogDestaques } from './side-box-destaques'
 import { BlogProps, IBlogContentDefaultProps } from './interfaces'
@@ -20,6 +20,7 @@ import { PaginationComponent } from '../../data/pagination'
 import { AxiosInstance } from 'axios'
 
 import * as S from './styles'
+import { IListBlog } from '../../../interfaces/blog'
 
 interface IBlogContentProps {
   default: IBlogContentDefaultProps
@@ -29,9 +30,13 @@ interface IBlogContentProps {
   hasfilter?: boolean
   hasNewsletter?: boolean
   hasTags?: boolean
+  detach: IListBlog
+  categories: IFilterItem[]
 }
 
 export function BlogContent({
+  detach,
+  categories,
   default: { bannerImage, titleBlog, isBaseUrl, baseImage, siteDomain },
   blogList,
   api,
@@ -68,7 +73,7 @@ export function BlogContent({
 
       <Container>
         <div className='show-mobile'>
-          <FilterBlog />
+          <FilterBlog categories={categories} />
 
           <TagsBlog />
         </div>
@@ -156,13 +161,13 @@ export function BlogContent({
         </div>
 
         <div className='side-bar'>
-          <div className='hide-mobile'>{hasfilter && <FilterBlog />}</div>
+          <div className='hide-mobile'>{hasfilter && <FilterBlog categories={categories} />}</div>
 
           {hasNewsletter && <NewsLetterBlog api={api} />}
 
           <div className='hide-mobile'>{hasTags && <TagsBlog />}</div>
 
-          {hasDestaques && <BlogDestaques />}
+          {hasDestaques && <BlogDestaques posts={detach.posts} />}
         </div>
       </Container>
     </S.BlogContent>
