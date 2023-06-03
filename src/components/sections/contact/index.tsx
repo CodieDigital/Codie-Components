@@ -1,14 +1,15 @@
 import React from 'react'
-// import { contactList } from 'src/localData/data';
-// import { CardContactLink } from 'components/cards/card-contact-link';
+import router from 'next/router'
 
-import { BoxContact, IBoxContact } from '../../data/box-contact'
+import { AxiosInstance } from 'axios'
+
+import { Container } from '../../data'
 import { ButtonProps } from '../../data/button'
+import { BoxContact, IBoxContact } from '../../data/box-contact'
 import { IDefaultSchemas } from '../../data/form-handler/generate-schemas'
+import { CardContactLink, CardContactProps } from '../../cards/card-contact-link'
 
 import * as S from './styles'
-import { Container } from '../../data'
-import { CardContactLink, CardContactProps } from '../../cards/card-contact-link'
 
 interface IContact {
   type?: 1 | 2 | 3 | 4 | 5
@@ -19,11 +20,26 @@ interface IContact {
     key?: string
     active?: boolean
   }
-  onSucess: (data: any) => void
   contactList?: CardContactProps[]
+  api: AxiosInstance
 }
 
-export function Contact({ type, configs, onSucess, recaptcha, contactList, buttonProps, defaultSchemas }: IContact) {
+interface SubmitProps {
+  name: string
+  email: string
+  message: string
+  phone: string
+}
+
+export function Contact({ api, type, configs, recaptcha, contactList, buttonProps, defaultSchemas }: IContact) {
+  async function handleSucess(data: SubmitProps) {
+    const response = await api.post('form', data)
+
+    if (response.status === 200) {
+      router.push({ pathname: '/contato/sucesso', query: data.name })
+    }
+  }
+
   return (
     <S.Contact $type={type}>
       <Container>
@@ -50,7 +66,7 @@ export function Contact({ type, configs, onSucess, recaptcha, contactList, butto
 
         <BoxContact
           type={type}
-          onSucess={onSucess}
+          onSucess={handleSucess}
           configs={configs}
           buttonProps={buttonProps}
           defaultSchemas={defaultSchemas}
