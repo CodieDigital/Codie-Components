@@ -1,9 +1,10 @@
 import React from 'react'
 import { useRef, useState } from 'react'
+import router from 'next/router'
 
 import { AxiosInstance } from 'axios'
 
-import { Form, FormHandles, InputMask, validator } from '../../../data/inputs'
+import { Form, FormHandles, InputComponent, InputMask, validator } from '../../../data/inputs'
 import { LoaderCircle } from '../../../data'
 import { StateForm } from '../interfaces'
 
@@ -39,7 +40,13 @@ export function NewsLetterBlog({ api, hasPhone }: NewsLetterBlog) {
 
       formRef.current?.setErrors({})
 
-      await api.post('/newsletter', data)
+      const response = await api.post('/newsletter', data)
+
+      if (response.status === 200) {
+        router.push({
+          pathname: '/contato/sucesso',
+        })
+      }
 
       setStateForm({ state: 'send' })
 
@@ -68,10 +75,12 @@ export function NewsLetterBlog({ api, hasPhone }: NewsLetterBlog) {
         <Form ref={formRef} onSubmit={handleSubmit}>
           {stateForm.state === 'send' && <span className='email-send paragraph'>Email enviado com sucesso!</span>}
 
-          <InputMask name='email' type={'email'} placeholder='digite seu e-mail' mask={''} />
+          <InputComponent configs={{ type: 'email', name: 'email', placeholder: 'digite seu e-mail' }} />
 
           {hasPhone && (
-            <InputMask name='phone' type={'text'} placeholder='(DDD) 9 9999-9999' mask={'(99) 9 9999-9999'} />
+            <InputMask
+              configs={{ name: 'phone', placeholder: '(DDD) 9 9999-9999', mask: '(99) 9 9999-9999', id: 'phone' }}
+            />
           )}
 
           <button type='submit'>{stateForm.state === 'loading' ? <LoaderCircle size={25} /> : 'Cadastrar'}</button>

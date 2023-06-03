@@ -1,40 +1,78 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react'
 
-import { useField } from '@unform/core';
+import { useField } from '@unform/core'
 
-import * as S from './styles';
+import * as S from './styles'
 
-export function TextAreaComponent({ id, name, label, ...rest }: any) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const { fieldName, registerField, defaultValue, error } = useField(name);
+export interface Props {
+  id: string
+  name: string
+  label?: string
+  hasBar?: boolean
+  noMargin?: boolean
+  hasBorder?: boolean
+  placeholder: string
+  borderWithBar?: boolean
+  fontSizeFamilyInput?: string
+  fontSizeFamilyLabel?: string
+}
+
+export interface IInputProps {
+  configs: Props
+}
+
+export function TextAreaComponent({ configs, ...rest }: any) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const { fieldName, registerField, defaultValue, error } = useField(configs.name)
 
   useEffect(() => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
       path: 'value',
-    });
-  }, [fieldName, registerField]);
+    })
+  }, [fieldName, registerField])
 
   return (
-    <S.Input>
-      <label htmlFor={id} className="title-11-objective-regular">
-        {label}
-      </label>
+    <S.Input
+      hasBar={configs.hasBar}
+      noMargin={configs.noMargin}
+      hasBorder={configs.hasBorder}
+      borderWithBar={configs.borderWithBar}
+    >
+      <div className='input-textarea'>
+        {configs.label && (
+          <label
+            className={`label-text ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'}`}
+            htmlFor={configs.id}
+          >
+            {configs.label}
+          </label>
+        )}
 
-      <textarea
-        id={id}
-        defaultValue={defaultValue}
-        ref={inputRef}
-        {...rest}
-        className="title-11-objective-regular"
-      />
+        {configs.hasBar && (
+          <span className={`${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} bar`}>|</span>
+        )}
 
-      {error && (
-        <span className="title-11-objective-regular error-message">
-          {error}
-        </span>
-      )}
+        <textarea
+          id={configs.id}
+          defaultValue={defaultValue}
+          placeholder={configs.placeholder}
+          ref={inputRef}
+          {...rest}
+          className={configs.fontSizeFamilyInput ? configs.fontSizeFamilyInput : 'paragraph-2'}
+        />
+
+        {error && (
+          <span
+            className={`error ${
+              configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'
+            } error-message`}
+          >
+            {error}
+          </span>
+        )}
+      </div>
     </S.Input>
-  );
+  )
 }

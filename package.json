@@ -1,6 +1,6 @@
 {
   "name": "codieweb",
-  "version": "0.0.94",
+  "version": "0.0.96",
   "description": "Codie Components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -54,6 +54,7 @@
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
     "axios": "^1.2.2",
+    "comigo-tech-react-input-mask": "^3.0.0-alpha.3",
     "eslint-config-next": "^13.1.2",
     "next": "^13.1.2",
     "node": "^19.0.0",

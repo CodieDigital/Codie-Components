@@ -7,11 +7,11 @@ interface StateForm {
   state: 'error' | 'loading' | 'send' | 'default'
   message?: string
 }
-
-import { InputMask } from './input'
+import { InputComponent } from './input'
+import { InputMask } from './input-mask'
 import { SelectComponent } from './select'
 import { TextAreaComponent } from './textarea'
 
-export { Form, validator, TextAreaComponent, SelectComponent, InputMask }
+export { Form, validator, InputMask, InputComponent, TextAreaComponent, SelectComponent }
 
 export type { FormHandles, StateForm }

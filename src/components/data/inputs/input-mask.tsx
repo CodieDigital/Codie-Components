@@ -1,40 +1,60 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 import { useField } from '@unform/core'
 
+import ReactInputMask from 'comigo-tech-react-input-mask'
+
 import * as S from './styles'
 
-export interface Props {
+interface Props {
+  id: string
   name: string
+  mask: string
   label?: string
-  type: string
+  edit?: boolean
   placeholder?: string
   noMargin?: boolean
   hasBorder?: boolean
-  hasBar?: boolean
   borderWithBar?: boolean
+  hasBar?: boolean
   fontSizeFamilyLabel?: string
   fontSizeFamilyInput?: string
 }
 
 export interface IInputProps {
   configs: Props
+  onChangeInput?: React.Dispatch<string>
 }
 
 type InputProps = JSX.IntrinsicElements['input'] & IInputProps
 
-export function InputComponent({ configs, ...rest }: InputProps) {
-  const [value] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
+export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
+  const [value, setValue] = useState('')
   const { fieldName, registerField, defaultValue, error } = useField(configs.name)
+
+  const ref = useRef(null)
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      ref: inputRef.current || value,
-      path: 'value',
+      ref: null,
+      getValue: () => {
+        return value.replaceAll('_', '')
+      },
+      setValue: () => {
+        setValue(value)
+      },
+      clearValue: () => {
+        setValue('')
+      },
     })
   }, [fieldName, value, registerField])
+
+  useEffect(() => {
+    if (defaultValue) {
+      setValue(defaultValue)
+    }
+  }, [defaultValue])
 
   return (
     <S.Input
@@ -42,13 +62,12 @@ export function InputComponent({ configs, ...rest }: InputProps) {
       noMargin={configs.noMargin}
       hasBorder={configs.hasBorder}
       borderWithBar={configs.borderWithBar}
-      className={configs.name}
     >
       <div className='input-content'>
         {configs.label && (
           <label
             className={`label-text ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'}`}
-            htmlFor={configs.name}
+            htmlFor={configs.id}
           >
             {configs.label}
           </label>
@@ -58,25 +77,27 @@ export function InputComponent({ configs, ...rest }: InputProps) {
           <span className={`${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} bar`}>|</span>
         )}
 
-        <input
-          id={configs.name}
-          name={configs.name}
-          type={configs.type}
-          ref={inputRef}
-          placeholder={configs.placeholder}
-          defaultValue={defaultValue}
+        <input style={{ display: 'none' }} ref={ref} defaultValue={value} type='text' name={configs.name} />
+
+        <ReactInputMask
+          mask={configs.mask}
+          onChange={(e) => {
+            setValue(e.target.value)
+
+            if (onChangeInput) {
+              onChangeInput(e.target.value)
+            }
+          }}
+          value={value}
           className={configs.fontSizeFamilyInput ? configs.fontSizeFamilyInput : 'paragraph-2'}
-          {...rest}
+          id={configs.id}
+          type='text'
+          placeholder={configs.placeholder}
+          readOnly={readOnly}
         />
       </div>
 
-      {error && (
-        <span
-          className={`error ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} error-message`}
-        >
-          {error}
-        </span>
-      )}
+      {error && <span className='error paragraph-3-medium-lato error-message'>{error}</span>}
     </S.Input>
   )
 }

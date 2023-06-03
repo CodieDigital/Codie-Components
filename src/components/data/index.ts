@@ -2,7 +2,6 @@ import { NextImage } from './NextImage'
 import { Container } from './container'
 import { PaginationComponent } from './pagination'
 import { Whattsapp } from './whattsapp'
-import { WhattsappButton } from './whattsappButton'
 import { LoaderCircle } from './loader-circle'
 import { Faqs } from './faqs'
 import { BannerRotativo } from './bannerRotativo'
@@ -15,7 +14,6 @@ export {
   Container,
   PaginationComponent,
   Whattsapp,
-  WhattsappButton,
   LoaderCircle,
   Faqs,
   BannerRotativo,
