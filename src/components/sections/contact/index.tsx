@@ -27,9 +27,9 @@ interface IContact {
 }
 
 interface IFontClasses {
-  link: string
-  title: string
-  subtitle: string
+  link?: string
+  title?: string
+  subtitle?: string
 }
 
 interface SubmitProps {

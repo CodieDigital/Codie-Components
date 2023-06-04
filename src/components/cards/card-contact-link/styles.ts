@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import styled from 'styled-components'
 
 interface ICardContactLinkStyles {
@@ -12,7 +13,7 @@ export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
   width: 100%;
   max-width: fit-content;
   gap: 10px;
-  align-items: ${({ $hasTitle }) => $hasTitle && 'center'};
+  align-items: center;
 
   * {
     color: ${({ $color }) => ($color ? $color : '#171717')};

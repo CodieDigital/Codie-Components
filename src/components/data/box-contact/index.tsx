@@ -21,8 +21,10 @@ interface BoxContactProps {
 
 export interface IBoxContact {
   hasBar?: boolean
+  inputBg?: string
   titleFont?: string
   hasBorder?: boolean
+  inputBoxShadow?: string
   borderWithBar?: boolean
   fontSizeFamilyLabel?: string
   fontSizeFamilyInput?: string
@@ -43,8 +45,10 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             label: 'Nome',
             placeholder: 'Digite seu nome completo aqui',
             hasBar: configs.hasBar,
+            inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            inputBoxShadow: configs.inputBoxShadow,
             fontSizeFamilyInput: configs.fontSizeFamilyInput,
             fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
@@ -57,8 +61,10 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             label: 'E-mail',
             placeholder: 'Digite seu e-mail aqui',
             hasBar: configs.hasBar,
+            inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            inputBoxShadow: configs.inputBoxShadow,
             fontSizeFamilyInput: configs.fontSizeFamilyInput,
             fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
@@ -72,8 +78,10 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             label: 'Telefone',
             placeholder: '(DDD) 9 9999-9999',
             hasBar: configs.hasBar,
+            inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            inputBoxShadow: configs.inputBoxShadow,
             fontSizeFamilyInput: configs.fontSizeFamilyInput,
             fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
@@ -86,8 +94,10 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             label: 'Mensagem',
             placeholder: 'O que deseja dizer?',
             hasBar: configs.hasBar,
+            inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            inputBoxShadow: configs.inputBoxShadow,
             fontSizeFamilyInput: configs.fontSizeFamilyInput,
             fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
