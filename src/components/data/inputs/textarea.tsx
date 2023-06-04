@@ -9,9 +9,11 @@ export interface Props {
   name: string
   label?: string
   hasBar?: boolean
+  inputBg?: string
   noMargin?: boolean
   hasBorder?: boolean
   placeholder: string
+  inputBoxShadow?: string
   borderWithBar?: boolean
   fontSizeFamilyInput?: string
   fontSizeFamilyLabel?: string
@@ -23,6 +25,7 @@ export interface IInputProps {
 
 export function TextAreaComponent({ configs, ...rest }: any) {
   const inputRef = useRef<HTMLInputElement>(null)
+
   const { fieldName, registerField, defaultValue, error } = useField(configs.name)
 
   useEffect(() => {
@@ -35,10 +38,12 @@ export function TextAreaComponent({ configs, ...rest }: any) {
 
   return (
     <S.Input
-      hasBar={configs.hasBar}
-      noMargin={configs.noMargin}
-      hasBorder={configs.hasBorder}
-      borderWithBar={configs.borderWithBar}
+      $hasBar={configs.hasBar}
+      $inputBg={configs.inputBg}
+      $noMargin={configs.noMargin}
+      $hasBorder={configs.hasBorder}
+      $borderWithBar={configs.borderWithBar}
+      $inputBoxShadow={configs.inputBoxShadow}
     >
       <div className='input-textarea'>
         {configs.label && (

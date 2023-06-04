@@ -1,26 +1,27 @@
 import React from 'react'
 
 import { ButtonProps } from '../button'
-import { IDefaultSchemas } from '../form-handler/generate-schemas'
 import { FormHandler } from '../form-handler'
+import { IDefaultSchemas } from '../form-handler/generate-schemas'
 import { InputComponent, InputMask, TextAreaComponent } from '../inputs'
 
 import * as S from './styles'
 
 interface BoxContactProps {
+  type?: 1 | 2 | 3 | 4 | 5
   configs: IBoxContact
   buttonProps: ButtonProps
   defaultSchemas?: IDefaultSchemas
+  onSucess: (data: any) => void
   recaptcha?: {
     key?: string
     active?: boolean
   }
-  onSucess: (data: any) => void
-  type?: 1 | 2 | 3 | 4 | 5
 }
 
 export interface IBoxContact {
   hasBar?: boolean
+  titleFont?: string
   hasBorder?: boolean
   borderWithBar?: boolean
   fontSizeFamilyLabel?: string
@@ -30,7 +31,9 @@ export interface IBoxContact {
 export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, defaultSchemas }: BoxContactProps) {
   return (
     <S.BoxContact id='box-contact' $type={type}>
-      {(type === 2 || type === 4 || type === 5) && <h2 className='title-2 title uppercase'>Entre em contato</h2>}
+      {(type === 2 || type === 4 || type === 5) && (
+        <h2 className={`${configs.titleFont ? configs.titleFont : 'title-2'} title uppercase`}>Entre em contato</h2>
+      )}
 
       <FormHandler button={buttonProps} onSucess={onSucess} defaultSchemas={defaultSchemas} recaptcha={recaptcha}>
         <InputComponent
@@ -39,11 +42,11 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             type: 'text',
             label: 'Nome',
             placeholder: 'Digite seu nome completo aqui',
-            fontSizeFamilyInput: configs.fontSizeFamilyInput,
-            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
             hasBar: configs.hasBar,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            fontSizeFamilyInput: configs.fontSizeFamilyInput,
+            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
         />
 
@@ -53,11 +56,11 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             type: 'email',
             label: 'E-mail',
             placeholder: 'Digite seu e-mail aqui',
-            fontSizeFamilyInput: configs.fontSizeFamilyInput,
-            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
             hasBar: configs.hasBar,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            fontSizeFamilyInput: configs.fontSizeFamilyInput,
+            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
         />
 
@@ -68,11 +71,11 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             name: 'phone',
             label: 'Telefone',
             placeholder: '(DDD) 9 9999-9999',
-            fontSizeFamilyInput: configs.fontSizeFamilyInput,
-            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
             hasBar: configs.hasBar,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            fontSizeFamilyInput: configs.fontSizeFamilyInput,
+            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
         />
 
@@ -82,11 +85,11 @@ export function BoxContact({ type, configs, onSucess, recaptcha, buttonProps, de
             name: 'message',
             label: 'Mensagem',
             placeholder: 'O que deseja dizer?',
-            fontSizeFamilyInput: configs.fontSizeFamilyInput,
-            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
             hasBar: configs.hasBar,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
+            fontSizeFamilyInput: configs.fontSizeFamilyInput,
+            fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
           }}
         />
       </FormHandler>

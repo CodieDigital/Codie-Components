@@ -1,6 +1,6 @@
 {
   "name": "codieweb",
-  "version": "0.0.98",
+  "version": "0.0.99",
   "description": "Codie Components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import Link from 'next/link'
+import styled from 'styled-components'
 
 interface ICardContactLinkStyles {
-  $color?: string;
-  $hoverColor?: string;
+  $color?: string
+  $hoverColor?: string
+  $hasTitle?: string
 }
 
 export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
@@ -11,6 +12,7 @@ export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
   width: 100%;
   max-width: fit-content;
   gap: 10px;
+  align-items: ${({ $hasTitle }) => $hasTitle && 'center'};
 
   * {
     color: ${({ $color }) => ($color ? $color : '#171717')};
@@ -20,8 +22,7 @@ export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
 
   &:hover {
     * {
-      color: ${({ $hoverColor }) =>
-        $hoverColor ? $hoverColor : 'var(--primary-color)'};
+      color: ${({ $hoverColor }) => ($hoverColor ? $hoverColor : 'var(--primary-color)')};
       fill: var(--secondary-color);
     }
   }
@@ -64,4 +65,4 @@ export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
 
   @media only screen and (max-width: 390px) {
   }
-`;
+`

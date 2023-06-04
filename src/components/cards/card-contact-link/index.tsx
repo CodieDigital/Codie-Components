@@ -4,25 +4,40 @@ import * as S from './styles'
 
 export interface ICardContactLink {
   card: CardContactProps
+  cardConfigs?: IContactLinkConfigs
+}
+
+export interface IContactLinkConfigs {
   color?: string
+  fontClass?: string
   hoverColor?: string
 }
 
 export interface CardContactProps {
-  icon?: JSX.Element
+  url: string
   title?: string
   adress: string
-  url: string
+  icon?: JSX.Element
 }
 
-export function CardContactLink({ card, color, hoverColor }: ICardContactLink) {
+export function CardContactLink({ card, cardConfigs }: ICardContactLink) {
   return (
-    <S.CardContactLink href={card.url} $color={color} $hoverColor={hoverColor}>
+    <S.CardContactLink
+      href={card.url}
+      $hasTitle={card.title}
+      $color={cardConfigs?.color}
+      $hoverColor={cardConfigs?.hoverColor}
+    >
       {card.icon && card.icon}
 
       <div className='box-text'>
-        <h3 className='link-1 uppercase'>{card.title}</h3>
-        <span className='link-1' dangerouslySetInnerHTML={{ __html: card.adress }}></span>
+        {card.title && (
+          <h3 className={`${cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'} uppercase`}>{card.title}</h3>
+        )}
+        <span
+          className={cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'}
+          dangerouslySetInnerHTML={{ __html: card.adress }}
+        ></span>
       </div>
     </S.CardContactLink>
   )

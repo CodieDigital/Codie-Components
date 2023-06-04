@@ -12,11 +12,13 @@ interface Props {
   mask: string
   label?: string
   edit?: boolean
-  placeholder?: string
+  hasBar?: boolean
+  inputBg?: string
   noMargin?: boolean
   hasBorder?: boolean
+  placeholder?: string
   borderWithBar?: boolean
-  hasBar?: boolean
+  inputBoxShadow?: string
   fontSizeFamilyLabel?: string
   fontSizeFamilyInput?: string
 }
@@ -30,6 +32,7 @@ type InputProps = JSX.IntrinsicElements['input'] & IInputProps
 
 export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
   const [value, setValue] = useState('')
+
   const { fieldName, registerField, defaultValue, error } = useField(configs.name)
 
   const ref = useRef(null)
@@ -58,10 +61,12 @@ export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
 
   return (
     <S.Input
-      hasBar={configs.hasBar}
-      noMargin={configs.noMargin}
-      hasBorder={configs.hasBorder}
-      borderWithBar={configs.borderWithBar}
+      $hasBar={configs.hasBar}
+      $inputBg={configs.inputBg}
+      $noMargin={configs.noMargin}
+      $hasBorder={configs.hasBorder}
+      $borderWithBar={configs.borderWithBar}
+      $inputBoxShadow={configs.inputBoxShadow}
     >
       <div className='input-content'>
         {configs.label && (

@@ -6,13 +6,15 @@ import * as S from './styles'
 
 export interface Props {
   name: string
-  label?: string
   type: string
-  placeholder?: string
+  label?: string
+  hasBar?: boolean
+  inputBg?: string
   noMargin?: boolean
   hasBorder?: boolean
-  hasBar?: boolean
+  placeholder?: string
   borderWithBar?: boolean
+  inputBoxShadow?: string
   fontSizeFamilyLabel?: string
   fontSizeFamilyInput?: string
 }
@@ -25,7 +27,9 @@ type InputProps = JSX.IntrinsicElements['input'] & IInputProps
 
 export function InputComponent({ configs, ...rest }: InputProps) {
   const [value] = useState('')
+
   const inputRef = useRef<HTMLInputElement>(null)
+
   const { fieldName, registerField, defaultValue, error } = useField(configs.name)
 
   useEffect(() => {
@@ -38,11 +42,13 @@ export function InputComponent({ configs, ...rest }: InputProps) {
 
   return (
     <S.Input
-      hasBar={configs.hasBar}
-      noMargin={configs.noMargin}
-      hasBorder={configs.hasBorder}
-      borderWithBar={configs.borderWithBar}
       className={configs.name}
+      $hasBar={configs.hasBar}
+      $inputBg={configs.inputBg}
+      $noMargin={configs.noMargin}
+      $hasBorder={configs.hasBorder}
+      $borderWithBar={configs.borderWithBar}
+      $inputBoxShadow={configs.inputBoxShadow}
     >
       <div className='input-content'>
         {configs.label && (

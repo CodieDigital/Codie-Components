@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Link from 'next/link'
+
 import * as S from './styles'
 
 interface WhattsappProps {
