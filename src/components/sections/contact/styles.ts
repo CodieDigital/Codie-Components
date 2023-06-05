@@ -1,15 +1,16 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 interface IContactStyles {
-  $type?: 1 | 2 | 3 | 4 | 5;
+  $type?: 1 | 2 | 3 | 4 | 5
+  $isPage?: boolean
+  $titleColor?: string
 }
 
 export const Contact = styled.section<IContactStyles>`
-  padding-top: 200px;
-  padding-bottom: 60px;
+  padding-top: ${({ $isPage }) => $isPage && '200px'};
 
   .title {
-    color: var(--primary-color);
+    color: ${({ $titleColor }) => ($titleColor ? $titleColor : 'var(--primary-color)')};
   }
 
   .subtitle {
@@ -20,8 +21,7 @@ export const Contact = styled.section<IContactStyles>`
 
   .container {
     display: flex;
-    flex-direction: ${({ $type }) =>
-      ($type === 2 || $type === 3) && 'row-reverse'};
+    flex-direction: ${({ $type }) => ($type === 2 || $type === 3) && 'row-reverse'};
     justify-content: space-between;
     gap: 50px;
   }
@@ -44,21 +44,16 @@ export const Contact = styled.section<IContactStyles>`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
   }
 
   @media only screen and (max-width: 1600px) {
   }
 
   @media only screen and (max-width: 1400px) {
-    padding-top: 150px;
+    padding-top: ${({ $isPage }) => $isPage && '150px'};
 
     .box-content {
       gap: 40px;
-    }
-
-    .contact-list {
-      gap: 25px;
     }
   }
 
@@ -66,14 +61,10 @@ export const Contact = styled.section<IContactStyles>`
     .box-content {
       gap: 30px;
     }
-
-    .contact-list {
-      gap: 20px;
-    }
   }
 
   @media only screen and (max-width: 1024px) {
-    padding-top: 110px;
+    padding-top: ${({ $isPage }) => $isPage && '110px'};
 
     .subtitle {
       display: ${({ $type }) => ($type === 2 ? 'none' : 'flex')};
@@ -117,14 +108,10 @@ export const Contact = styled.section<IContactStyles>`
   }
 
   @media only screen and (max-width: 500px) {
-    padding-top: 80px;
+    padding-top: ${({ $isPage }) => $isPage && '80px'};
 
     .box-content {
       gap: 15px;
-    }
-
-    .contact-list {
-      gap: 10px;
     }
   }
 
@@ -138,4 +125,4 @@ export const Contact = styled.section<IContactStyles>`
       }
     }
   }
-`;
+`

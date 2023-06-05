@@ -4,8 +4,13 @@ import styled from 'styled-components'
 
 interface ICardContactLinkStyles {
   $color?: string
-  $hoverColor?: string
   $hasTitle?: string
+  $hoverColor?: string
+  $svgProps?: {
+    fill?: string
+    maxWidth?: string
+    fillHover?: string
+  }
 }
 
 export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
@@ -18,18 +23,18 @@ export const CardContactLink = styled(Link)<ICardContactLinkStyles>`
   * {
     color: ${({ $color }) => ($color ? $color : '#171717')};
     transition: 0.3s;
-    fill: var(--primary-color);
+    fill: ${({ $svgProps }) => ($svgProps?.fill ? $svgProps?.fill : 'var(--primary-color)')};
   }
 
   &:hover {
     * {
       color: ${({ $hoverColor }) => ($hoverColor ? $hoverColor : 'var(--primary-color)')};
-      fill: var(--secondary-color);
+      fill: ${({ $svgProps }) => ($svgProps?.fillHover ? $svgProps?.fillHover : 'var(--secondary-color)')};
     }
   }
 
   .svg-icon {
-    max-width: 20px;
+    max-width: ${({ $svgProps }) => ($svgProps?.maxWidth ? $svgProps?.maxWidth : '20px')};
     aspect-ratio: 1;
   }
 

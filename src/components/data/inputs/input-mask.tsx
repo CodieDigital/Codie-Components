@@ -10,7 +10,7 @@ interface Props {
   id: string
   name: string
   mask: string
-  label?: string
+  label?: string | JSX.Element
   edit?: boolean
   hasBar?: boolean
   inputBg?: string

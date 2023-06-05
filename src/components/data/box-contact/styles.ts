@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface IBoxContactStyles {
   $type?: 1 | 2 | 3 | 4 | 5
+  $titleColor?: string
 }
 
 export const BoxContact = styled.div<IBoxContactStyles>`
@@ -9,8 +10,11 @@ export const BoxContact = styled.div<IBoxContactStyles>`
   max-width: 48vw;
   margin-left: ${({ $type }) => $type === 5 && 'auto'};
 
-  .title + * {
-    margin-top: 30px;
+  .title {
+    color: ${({ $titleColor }) => ($titleColor ? $titleColor : 'var(--primary-color)')};
+    & + * {
+      margin-top: 30px;
+    }
   }
 
   .form {

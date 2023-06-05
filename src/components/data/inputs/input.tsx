@@ -7,7 +7,7 @@ import * as S from './styles'
 export interface Props {
   name: string
   type: string
-  label?: string
+  label?: string | JSX.Element
   hasBar?: boolean
   inputBg?: string
   noMargin?: boolean

@@ -60,7 +60,6 @@ export const Input = styled.div<InputProps>`
     width: 100%;
     padding: ${({ $hasBar }) => ($hasBar ? '' : '0 15px')};
     resize: none;
-    border: 0;
     border-radius: 5px;
     background-color: ${({ $inputBg }) => ($inputBg ? $inputBg : 'rgba(0, 0, 0, 0.1)')};
     /* Esse box-shadow manipula o que acontece no preenchimento automático do input */
@@ -68,7 +67,7 @@ export const Input = styled.div<InputProps>`
       $inputBoxShadow
         ? $inputBoxShadow
         : 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px rgba(255, 255, 255, 1)'};
-    border: ${({ $hasBorder }) => $hasBorder && '1px solid rgba(23,23,23,0.4)'};
+    border: ${({ $hasBorder }) => ($hasBorder ? '1px solid rgba(23,23,23,0.4)' : '0')};
   }
 
   input,

@@ -11,6 +11,11 @@ export interface IContactLinkConfigs {
   color?: string
   fontClass?: string
   hoverColor?: string
+  svgProps?: {
+    fill?: string
+    maxWidth?: string
+    fillHover?: string
+  }
 }
 
 export interface CardContactProps {
@@ -26,6 +31,7 @@ export function CardContactLink({ card, cardConfigs }: ICardContactLink) {
       href={card.url}
       $hasTitle={card.title}
       $color={cardConfigs?.color}
+      $svgProps={cardConfigs?.svgProps}
       $hoverColor={cardConfigs?.hoverColor}
     >
       {card.icon && card.icon}
