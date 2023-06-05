@@ -12,6 +12,7 @@ interface Props {
   mask: string
   label?: string | JSX.Element
   edit?: boolean
+  isFlex?: boolean
   hasBar?: boolean
   inputBg?: string
   noMargin?: boolean
@@ -61,7 +62,7 @@ export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
 
   return (
     <S.Input
-      $hasBar={configs.hasBar}
+      $hasBar={configs.isFlex}
       $inputBg={configs.inputBg}
       $noMargin={configs.noMargin}
       $hasBorder={configs.hasBorder}

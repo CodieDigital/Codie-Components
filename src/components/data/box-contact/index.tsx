@@ -28,7 +28,7 @@ export interface ILabelTexts {
   name?: string | JSX.Element
   email?: string | JSX.Element
   phone?: string | JSX.Element
-  select?: string
+  select?: string | JSX.Element
   message?: string | JSX.Element
 }
 
@@ -44,6 +44,7 @@ export interface IBoxContact {
   hasBar?: boolean
   inputBg?: string
   isPage?: boolean
+  isFlex?: boolean
   hasSelect?: boolean
   selectOptions?: IOption[]
   hasBorder?: boolean
@@ -80,6 +81,7 @@ export function BoxContact({
             label: labelTexts?.name ? labelTexts.name : 'Nome',
             placeholder: placeholderTexts?.name ? placeholderTexts?.name : 'Digite seu nome completo aqui',
             hasBar: configs.hasBar,
+            isFlex: configs.isFlex,
             inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
@@ -96,6 +98,7 @@ export function BoxContact({
             label: labelTexts?.email ? labelTexts?.email : 'E-mail',
             placeholder: placeholderTexts?.email ? placeholderTexts.email : 'Digite seu e-mail aqui',
             hasBar: configs.hasBar,
+            isFlex: configs.isFlex,
             inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
@@ -113,6 +116,7 @@ export function BoxContact({
             label: labelTexts?.phone ? labelTexts.phone : 'Telefone',
             placeholder: placeholderTexts?.phone ? placeholderTexts.phone : '(DDD) 9 9999-9999',
             hasBar: configs.hasBar,
+            isFlex: configs.isFlex,
             inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,
@@ -128,7 +132,12 @@ export function BoxContact({
               name: 'select',
               label: labelTexts?.select ? labelTexts.select : 'Selecione uma opção',
               hasBar: configs.hasBar,
+              isFlex: configs.isFlex,
+              inputBg: configs.inputBg,
+              hasBorder: configs.hasBorder,
+              borderWithBar: configs.borderWithBar,
               optionsSelect: configs.selectOptions!,
+              inputBoxShadow: configs.inputBoxShadow,
               fontSizeFamilyInput: configs.fontSizeFamilyInput,
               fontSizeFamilyLabel: configs.fontSizeFamilyLabel,
             }}
@@ -142,6 +151,7 @@ export function BoxContact({
             label: labelTexts?.message ? labelTexts.message : 'Mensagem',
             placeholder: placeholderTexts?.message ? placeholderTexts.message : 'O que deseja dizer?',
             hasBar: configs.hasBar,
+            isFlex: configs.isFlex,
             inputBg: configs.inputBg,
             hasBorder: configs.hasBorder,
             borderWithBar: configs.borderWithBar,

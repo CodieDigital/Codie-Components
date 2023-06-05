@@ -11,10 +11,14 @@ export interface IOption {
 
 export interface SelectProps {
   name: string
-  label: string
+  label?: string | JSX.Element
+  isFlex?: boolean
   hasBar?: boolean
+  inputBg?: string
+  noMargin?: boolean
   hasBorder?: boolean
   placeholder?: string
+  inputBoxShadow?: string
   optionsSelect: IOption[]
   borderWithBar?: boolean
   fontSizeFamilyLabel?: string
@@ -44,12 +48,20 @@ export function SelectComponent({ configs, ...rest }: ISelect) {
   }, [fieldName, value, registerField])
 
   return (
-    <S.Input $hasBar={configs.hasBar} $hasBorder={configs.hasBorder} $borderWithBar={configs.borderWithBar}>
+    <S.Input
+      className={configs.name}
+      $hasBar={configs.isFlex}
+      $inputBg={configs.inputBg}
+      $noMargin={configs.noMargin}
+      $hasBorder={configs.hasBorder}
+      $borderWithBar={configs.borderWithBar}
+      $inputBoxShadow={configs.inputBoxShadow}
+    >
       <div className='input-content'>
         {configs.label && (
           <label
             className={`label-text ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'}`}
-            htmlFor={configs.label}
+            htmlFor={configs.name}
           >
             {configs.label}
           </label>

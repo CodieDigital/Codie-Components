@@ -9,6 +9,7 @@ export interface Props {
   name: string
   label?: string | JSX.Element
   hasBar?: boolean
+  isFlex?: boolean
   inputBg?: string
   noMargin?: boolean
   hasBorder?: boolean
@@ -38,7 +39,7 @@ export function TextAreaComponent({ configs, ...rest }: any) {
 
   return (
     <S.Input
-      $hasBar={configs.hasBar}
+      $hasBar={configs.isFlex}
       $inputBg={configs.inputBg}
       $noMargin={configs.noMargin}
       $hasBorder={configs.hasBorder}
