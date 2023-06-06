@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
+import { AxiosInstance } from 'axios'
+
 import { NewsLetterBlog } from './side-box-newsletter'
 
 import { FilterBlog, IFilterItem } from './side-box-filter'
@@ -17,10 +19,10 @@ import { Container } from '../../data/container'
 import { NextImage } from '../../data/NextImage'
 import { Iconfacebook, IconLinkedin, IconWhatsApp } from './icons'
 import { PaginationComponent } from '../../data/pagination'
-import { AxiosInstance } from 'axios'
+import { IDetach } from '../../../interfaces/blog'
 
 import * as S from './styles'
-import { IListBlog } from '../../../interfaces/blog'
+import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton } from 'react-share'
 
 interface IBlogContentProps {
   default: IBlogContentDefaultProps
@@ -30,7 +32,7 @@ interface IBlogContentProps {
   hasfilter?: boolean
   hasNewsletter?: boolean
   hasTags?: boolean
-  detach: IListBlog
+  detach?: IDetach[]
   categories: IFilterItem[]
   newsLetterHasPhone?: boolean
 }
@@ -41,7 +43,6 @@ export function BlogContent({
   default: { bannerImage, titleBlog, isBaseUrl, baseImage, siteDomain },
   blogList,
   api,
-  hasDestaques,
   hasfilter,
   hasNewsletter,
   hasTags,
@@ -88,7 +89,7 @@ export function BlogContent({
                   href={{
                     pathname: '/post/[url]',
                     query: {
-                      url: url ? url : 'default',
+                      url: url,
                     },
                   }}
                   className='image'
@@ -111,36 +112,32 @@ export function BlogContent({
                     {titulo}
                   </Link>
 
-                  <div dangerouslySetInnerHTML={{ __html: descricao }}></div>
+                  <div className='description' dangerouslySetInnerHTML={{ __html: descricao }}></div>
 
                   <div className='actions'>
                     <div className='share'>
-                      <Link
-                        target={'_blank'}
-                        href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${url}`}
-                        className='link'
-                      >
+                      <FacebookShareButton className='link' url={`${siteDomain}/post/${url}`}>
                         <Iconfacebook />
-                      </Link>
+                      </FacebookShareButton>
 
-                      <Link
-                        target={'_blank'}
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${url}`}
-                        className='link'
-                      >
+                      <LinkedinShareButton className='link' url={`${siteDomain}/post/${url}`}>
                         <IconLinkedin />
-                      </Link>
+                      </LinkedinShareButton>
 
-                      <Link
-                        target={'_blank'}
-                        href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${url}`}
-                        className='link'
-                      >
+                      <WhatsappShareButton className='link' url={`${siteDomain}/post/${url}`}>
                         <IconWhatsApp />
-                      </Link>
+                      </WhatsappShareButton>
                     </div>
 
-                    <Link href={'#'} className='leia-mais'>
+                    <Link
+                      href={{
+                        pathname: '/post/[url]',
+                        query: {
+                          url: url,
+                        },
+                      }}
+                      className='leia-mais'
+                    >
                       Leia mais
                     </Link>
                   </div>
@@ -169,7 +166,7 @@ export function BlogContent({
 
           <div className='hide-mobile'>{hasTags && <TagsBlog />}</div>
 
-          {hasDestaques && <BlogDestaques posts={detach.posts} />}
+          {detach && <BlogDestaques default={{ baseImage: baseImage, isBaseUrl: isBaseUrl }} posts={detach} />}
         </div>
       </Container>
     </S.BlogContent>

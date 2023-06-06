@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Post = styled.section`
   /* ----------  ESTILIZACAO CORES ------------- */
@@ -66,7 +66,7 @@ export const Post = styled.section`
       }
 
       .link-share {
-        background-color: var(--secondary-color);
+        background-color: var(--secondary-color) !important;
         border-radius: 5px;
         transition: 0.3s;
 
@@ -77,7 +77,7 @@ export const Post = styled.section`
       }
 
       .link-share:hover {
-        background-color: var(--primary-color);
+        background-color: var(--primary-color) !important;
       }
     }
   }
@@ -274,7 +274,7 @@ export const Post = styled.section`
     }
 
     .link-share {
-      padding: 8px;
+      padding: 8px !important;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -847,4 +847,4 @@ export const Post = styled.section`
       }
     }
   }
-`;
+`

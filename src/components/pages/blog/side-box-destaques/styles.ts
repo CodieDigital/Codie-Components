@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Destaques = styled.div`
   .side-box.destaques {
@@ -8,13 +8,22 @@ export const Destaques = styled.div`
       justify-content: space-between;
       gap: 12px;
 
+      & + * {
+        margin-top: 10px;
+      }
+
       .image {
-        width: 68px;
+        width: 100%;
+        max-width: 68px;
         height: 68px;
 
         img {
           border-radius: 5px;
         }
+      }
+
+      .text {
+        width: 100%;
       }
 
       a {
@@ -44,7 +53,7 @@ export const Destaques = styled.div`
     .side-box.destaques {
       .box-destaque {
         .image {
-          width: 64px;
+          max-width: 64px;
           height: 64px;
         }
       }
@@ -55,7 +64,7 @@ export const Destaques = styled.div`
     .side-box.destaques {
       .box-destaque {
         .image {
-          width: 60px;
+          max-width: 60px;
           height: 60px;
         }
       }
@@ -66,7 +75,7 @@ export const Destaques = styled.div`
     .side-box.destaques {
       .box-destaque {
         .image {
-          width: 56px;
+          max-width: 56px;
           height: 56px;
         }
       }
@@ -77,7 +86,7 @@ export const Destaques = styled.div`
     .side-box.destaques {
       .box-destaque {
         .image {
-          width: 52px;
+          max-width: 52px;
           height: 52px;
         }
       }
@@ -88,10 +97,10 @@ export const Destaques = styled.div`
     .side-box.destaques {
       .box-destaque {
         .image {
-          width: 50px;
+          max-width: 50px;
           height: 50px;
         }
       }
     }
   }
-`;
+`

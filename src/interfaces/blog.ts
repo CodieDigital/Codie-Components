@@ -54,4 +54,38 @@ interface IPostDetail {
   categoriaTitle: string
 }
 
-export type { IBlogContentDefaultProps, IBlogItem, IListBlog, IBlogDetailProps, IPostDetail }
+interface IDetach {
+  categoriaBlogId: number
+  categoriaBlog: ICategoryBlog
+  titulo: string
+  subtitulo: string
+  descricao: string
+  imagem: string
+  thumbnail: string
+  pageTitle: string
+  metaDescription: string
+  url: string
+  id: number
+  ativo: boolean
+  destaque: boolean
+  dataCriacao: string
+  dataEdicao: string
+}
+
+interface ICategoryBlog {
+  urlFull: string
+  subCategoriaBlogs: []
+  autor: []
+  noticias: []
+  titulo: string
+  pageTitle: string
+  metaDescription: string
+  url: string
+  id: number
+  ativo: boolean
+  excluido: boolean
+  destaque: boolean
+  dataCriacao: string
+}
+
+export type { IBlogContentDefaultProps, IBlogItem, IListBlog, IDetach, ICategoryBlog, IBlogDetailProps, IPostDetail }

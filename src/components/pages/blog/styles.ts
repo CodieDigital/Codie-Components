@@ -137,22 +137,23 @@ export const BlogContent = styled.section`
       text-decoration: underline !important;
     }
 
-    p {
-      line-height: 24px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-      font-size: 16px;
+    .description {
+      p {
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        font-size: 16px;
+        font-weight: 400;
+      }
 
-      font-weight: 400;
-    }
-
-    p + * {
-      border-top: 1px solid rgba(37, 37, 37, 0.6);
-      padding-top: 25px;
-      margin-top: 25px;
+      & + * {
+        border-top: 1px solid rgba(37, 37, 37, 0.6);
+        padding-top: 25px;
+        margin-top: 25px;
+      }
     }
 
     .actions {
@@ -168,12 +169,11 @@ export const BlogContent = styled.section`
       }
 
       .link {
-        padding: 6px;
+        padding: 6px !important;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        background-color: var(--secondary-color);
+        background-color: var(--secondary-color) !important;
         border-radius: 5px;
 
         svg {
@@ -184,7 +184,7 @@ export const BlogContent = styled.section`
       }
 
       .link:hover {
-        background-color: var(--primary-color);
+        background-color: var(--primary-color) !important;
       }
 
       .leia-mais {
@@ -203,9 +203,6 @@ export const BlogContent = styled.section`
 
   .box-post + .box-post {
     margin-top: 30px;
-  }
-
-  .pagination {
   }
 
   .pagination {

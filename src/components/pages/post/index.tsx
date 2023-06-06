@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Link from 'next/link'
-import * as S from './styles'
 import { BreadCrumbProps, Container, NextImage } from '../../data'
 import { PostDetail } from './interfaces'
 import { Iconfacebook, IconLinkedin, IconWhatsApp } from '../blog/icons'
@@ -11,11 +10,14 @@ import { TagsBlog } from '../blog/side-box-tags'
 import { BlogDestaques } from '../blog/side-box-destaques'
 import { AxiosInstance } from 'axios'
 import { IBlogContentDefaultProps } from '../blog/interfaces'
-import { IListBlog } from '../../../interfaces/blog'
+import { IDetach } from '../../../interfaces/blog'
+
+import * as S from './styles'
+import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton } from 'react-share'
 
 interface PostContentProps {
   hasTags?: boolean
-  detach: IListBlog
+  detach?: IDetach[]
   api: AxiosInstance
   hasfilter?: boolean
   hasDestaques?: boolean
@@ -33,7 +35,6 @@ export function PostContent({
   hasfilter,
   categories,
   postDetail,
-  hasDestaques,
   hasNewsletter,
   default: { baseImage, isBaseUrl, siteDomain },
 }: PostContentProps) {
@@ -81,29 +82,17 @@ export function PostContent({
                 <h4>Compartilhe</h4>
 
                 <div className='midias'>
-                  <Link
-                    target={'_blank'}
-                    className='link-share'
-                    href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
-                  >
+                  <FacebookShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
                     <Iconfacebook />
-                  </Link>
+                  </FacebookShareButton>
 
-                  <Link
-                    target={'_blank'}
-                    className='link-share'
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2F${siteDomain}/blog/${postDetail.detail.url}`}
-                  >
+                  <LinkedinShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
                     <IconLinkedin />
-                  </Link>
+                  </LinkedinShareButton>
 
-                  <Link
-                    target={'_blank'}
-                    className='link-share'
-                    href={`https://api.whatsapp.com/send?text=${siteDomain}/blog/${postDetail.detail.url}`}
-                  >
+                  <WhatsappShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
                     <IconWhatsApp />
-                  </Link>
+                  </WhatsappShareButton>
                 </div>
               </div>
             </div>
@@ -116,7 +105,7 @@ export function PostContent({
 
             {hasTags && <TagsBlog />}
 
-            {hasDestaques && <BlogDestaques posts={detach.posts} />}
+            {detach && <BlogDestaques default={{ baseImage: baseImage, isBaseUrl: isBaseUrl }} posts={detach} />}
           </div>
         </Container>
       </div>

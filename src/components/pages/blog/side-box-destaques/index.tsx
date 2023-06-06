@@ -2,16 +2,20 @@ import React from 'react'
 
 import Link from 'next/link'
 
-import * as S from './styles'
 import { NextImage } from '../../../data'
-import { IBlogItem } from '../../../../interfaces/blog'
+import { IDetach } from '../../../../interfaces/blog'
 import { formatedDate } from '../../../../utils/fomatedDate'
 
+import { IBlogContentDefaultProps } from '../interfaces'
+
+import * as S from './styles'
+
 interface IBlogDestaquesProps {
-  posts: IBlogItem[]
+  posts: IDetach[]
+  default: IBlogContentDefaultProps
 }
 
-export function BlogDestaques({ posts }: IBlogDestaquesProps) {
+export function BlogDestaques({ posts, default: { baseImage, isBaseUrl } }: IBlogDestaquesProps) {
   return (
     <S.Destaques>
       <div className='side-box destaques'>
@@ -21,20 +25,16 @@ export function BlogDestaques({ posts }: IBlogDestaquesProps) {
           if (post.destaque === true) {
             return (
               <div className='box-destaque' key={post.url + post.titulo}>
-                <Link passHref href={{ pathname: '/blog/[url]', query: { url: post.url } }}>
-                  <a href='' className='image'>
-                    <NextImage isBaseUrl alt={post.id + ' blog'} src={post.imagem} />
-                  </a>
+                <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='image'>
+                  <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt={post.id + ' blog'} src={post.imagem} />
                 </Link>
 
                 <div className='text'>
-                  <Link passHref href={{ pathname: '/blog/[url]', query: { url: post.url } }}>
-                    <a href='replaced' className='title-link'>
-                      {post.titulo}
-                    </a>
+                  <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='title-link'>
+                    {post.titulo}
                   </Link>
 
-                  <p className='date'>{formatedDate(post.dataCadastro)}</p>
+                  <p className='date'>{formatedDate(post.dataCriacao)}</p>
                 </div>
               </div>
             )
