@@ -1,7 +1,7 @@
 export interface HeadComponentProps {
   painel: string
-  pathname: string
-  siteDomain: string
+  pathname?: string
+  siteDomain?: string
   headContent: IHeadPage
 }
 
