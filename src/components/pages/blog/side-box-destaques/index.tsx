@@ -22,23 +22,21 @@ export function BlogDestaques({ posts, default: { baseImage, isBaseUrl } }: IBlo
         <h4>Destaques</h4>
 
         {posts.map((post) => {
-          if (post.destaque === true) {
-            return (
-              <div className='box-destaque' key={post.url + post.titulo}>
-                <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='image'>
-                  <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt={post.id + ' blog'} src={post.imagem} />
+          return (
+            <div className='box-destaque' key={post.url + post.titulo}>
+              <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='image'>
+                <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt={post.id + ' blog'} src={post.imagem} />
+              </Link>
+
+              <div className='text'>
+                <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='title-link'>
+                  {post.titulo}
                 </Link>
 
-                <div className='text'>
-                  <Link href={{ pathname: '/post/[url]', query: { url: post.url } }} className='title-link'>
-                    {post.titulo}
-                  </Link>
-
-                  <p className='date'>{formatedDate(post.dataCriacao)}</p>
-                </div>
+                {post.dataCriacao && <p className='date'>{formatedDate(post.dataCriacao)}</p>}
               </div>
-            )
-          } else return
+            </div>
+          )
         })}
       </div>
     </S.Destaques>

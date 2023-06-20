@@ -55,21 +55,23 @@ interface IPostDetail {
 }
 
 interface IDetach {
-  categoriaBlogId: number
-  categoriaBlog: ICategoryBlog
+  categoriaBlogId?: number
+  categoriaBlog?: ICategoryBlog
   titulo: string
   subtitulo: string
   descricao: string
   imagem: string
-  thumbnail: string
-  pageTitle: string
-  metaDescription: string
+  thumbnail?: string
+  pageTitle?: string
+  metaDescription?: string
   url: string
   id: number
-  ativo: boolean
-  destaque: boolean
-  dataCriacao: string
-  dataEdicao: string
+  ativo?: boolean
+  destaque?: boolean
+  dataCriacao?: string
+  dataEdicao?: string
+  categoriaTitle?: string
+  categoriaId?: number
 }
 
 interface ICategoryBlog {
