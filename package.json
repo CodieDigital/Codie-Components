@@ -1,6 +1,6 @@
 {
   "name": "codieweb",
-  "version": "0.1.15",
+  "version": "0.1.18",
   "description": "Codie Components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -60,6 +60,7 @@
     "node": "^19.0.0",
     "nookies": "^2.5.2",
     "path": "^0.12.7",
+    "react-error-boundary": "^4.0.10",
     "react-google-recaptcha": "^2.1.0",
     "react-input-mask": "^2.0.4",
     "react-maskedinput": "^4.0.1",
