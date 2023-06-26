@@ -18,53 +18,58 @@ import {
   InstagramEmptyIcon,
 } from '../../icons'
 
-import { IBoxSocials } from './interfaces'
+import { BoxSocialsProps } from './interfaces'
 
 import * as S from './styles'
 
-export function BoxSocials({ hasBg, srcLinks, svgWidth, svgColor, isEmptyIcon }: IBoxSocials) {
+export function BoxSocials({ defaultData }: BoxSocialsProps) {
   return (
     <Error name='box-socials'>
-      <S.BoxSocials className='box-socials' $hasBg={hasBg} $svgColor={svgColor} $svgWidth={svgWidth}>
-        {srcLinks.instagram && (
-          <Link href={srcLinks.instagram} target='_blank' rel='external' className='link-redes'>
-            {isEmptyIcon ? <InstagramEmptyIcon /> : <InstagramIcon />}
+      <S.BoxSocials
+        className='box-socials'
+        $hasBg={defaultData.hasBg}
+        $svgColor={defaultData.svgColor}
+        $svgWidth={defaultData.svgWidth}
+      >
+        {defaultData.srcLinks.instagram && (
+          <Link href={defaultData.srcLinks.instagram} target='_blank' rel='external' className='link-redes'>
+            {defaultData.isEmptyIcon ? <InstagramEmptyIcon /> : <InstagramIcon />}
           </Link>
         )}
 
-        {srcLinks.facebook && (
-          <Link href={srcLinks.facebook} target='_blank' rel='external' className='link-redes'>
-            {isEmptyIcon ? <FacebookNoBgIcon /> : <FacebookIcon />}
+        {defaultData.srcLinks.facebook && (
+          <Link href={defaultData.srcLinks.facebook} target='_blank' rel='external' className='link-redes'>
+            {defaultData.isEmptyIcon ? <FacebookNoBgIcon /> : <FacebookIcon />}
           </Link>
         )}
 
-        {srcLinks.whattsapp && (
-          <Link href={srcLinks.whattsapp} target='_blank' rel='external' className='link-redes'>
-            {isEmptyIcon ? <WhattsAppIcon /> : <WhattsAppInvIcon />}
+        {defaultData.srcLinks.whattsapp && (
+          <Link href={defaultData.srcLinks.whattsapp} target='_blank' rel='external' className='link-redes'>
+            {defaultData.isEmptyIcon ? <WhattsAppIcon /> : <WhattsAppInvIcon />}
           </Link>
         )}
 
-        {srcLinks.email && (
-          <Link href={srcLinks.email} target='_blank' rel='external' className='link-redes'>
-            {isEmptyIcon ? <EmailEmptyIcon /> : <EmailIcon />}
+        {defaultData.srcLinks.email && (
+          <Link href={defaultData.srcLinks.email} target='_blank' rel='external' className='link-redes'>
+            {defaultData.isEmptyIcon ? <EmailEmptyIcon /> : <EmailIcon />}
           </Link>
         )}
 
-        {srcLinks.maps && (
-          <Link href={srcLinks.maps} target='_blank' rel='external' className='link-redes'>
+        {defaultData.srcLinks.maps && (
+          <Link href={defaultData.srcLinks.maps} target='_blank' rel='external' className='link-redes'>
             <PinIcon />
           </Link>
         )}
 
-        {srcLinks.youtube && (
-          <Link href={srcLinks.youtube} target='_blank' rel='external' className='link-redes'>
+        {defaultData.srcLinks.youtube && (
+          <Link href={defaultData.srcLinks.youtube} target='_blank' rel='external' className='link-redes'>
             <YouTubeIcon />
           </Link>
         )}
 
-        {srcLinks.linkedin && (
-          <Link href={srcLinks.linkedin} target='_blank' rel='external' className='link-redes'>
-            {isEmptyIcon ? <LinkedinNoBgIcon /> : <LinkedinIcon />}
+        {defaultData.srcLinks.linkedin && (
+          <Link href={defaultData.srcLinks.linkedin} target='_blank' rel='external' className='link-redes'>
+            {defaultData.isEmptyIcon ? <LinkedinNoBgIcon /> : <LinkedinIcon />}
           </Link>
         )}
       </S.BoxSocials>

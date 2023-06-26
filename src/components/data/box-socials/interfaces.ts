@@ -1,3 +1,7 @@
+export interface BoxSocialsProps {
+  defaultData: IBoxSocials
+}
+
 export interface IBoxSocials {
   hasBg?: string
   svgColor?: string

@@ -5,6 +5,7 @@ import { NextImage } from './NextImage'
 import { Container } from './container'
 import { Whattsapp } from './whattsapp'
 import { BoxSwiper } from './box-swiper'
+import { Button } from './simple-button'
 import { BoxSocials } from './box-socials'
 import { LoaderCircle } from './loader-circle'
 import { BreadCrumbProps } from './breadcrumb'
@@ -15,6 +16,7 @@ import { PaginationComponent } from './pagination'
 export {
   Faqs,
   Error,
+  Button,
   NextImage,
   Container,
   Whattsapp,
