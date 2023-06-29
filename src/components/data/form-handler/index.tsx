@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 
-import { AnyObject } from 'yup/lib/types'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { RequiredStringSchema } from 'yup/lib/string'
 
 import { ButtonProps, ButtonComponent } from '../button'
 import { Form, FormHandles, StateForm, validator } from '../inputs'
 import { generateSchemasByDemand, IDefaultSchemas } from './generate-schemas'
+import { AnyObject } from 'yup'
+
+import { RequiredStringSchema } from 'yup/index.esm'
 
 interface IFormHandler {
   recaptcha?: {
