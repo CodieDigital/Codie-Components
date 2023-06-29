@@ -4,7 +4,7 @@ interface ButtonProps {
   color: string
   checked?: boolean
   $loading?: boolean
-  backgroundColor: string
+  $bgColor: string
 }
 
 export const Button = styled.div<ButtonProps>`
@@ -22,7 +22,7 @@ export const Button = styled.div<ButtonProps>`
     opacity: ${(props) => props.$loading && '0.8'};
     transition: all 0.4s ease-in-out;
     background-size: 300% 100%;
-    background: ${(props) => props.backgroundColor};
+    background: ${(props) => props.$bgColor};
 
     svg {
       width: 30px;
@@ -52,7 +52,7 @@ export const Button = styled.div<ButtonProps>`
 
   button:disabled {
     cursor: not-allowed;
-    background: ${(props) => (props.$loading ? '#295d00' : props.backgroundColor)};
+    background: ${(props) => (props.$loading ? '#295d00' : props.$bgColor)};
     opacity: 0.75;
   }
 

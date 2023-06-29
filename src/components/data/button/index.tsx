@@ -14,7 +14,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<any> {
   loading?: boolean
   checked?: boolean
   sizeClass?: string
-  backgroundColor: string
+  bgColor: string
   type?: 'submit' | 'button'
 }
 
@@ -24,10 +24,10 @@ export function ButtonComponent({
   type,
   color,
   target,
+  bgColor,
   checked,
   loading,
   sizeClass,
-  backgroundColor,
   ...props
 }: ButtonProps) {
   return (
@@ -35,7 +35,7 @@ export function ButtonComponent({
       color={color}
       checked={checked}
       $loading={loading}
-      backgroundColor={backgroundColor}
+      $bgColor={bgColor}
       className={`button ${!checked ? 'active' : ''}`}
     >
       {href && !type ? (
