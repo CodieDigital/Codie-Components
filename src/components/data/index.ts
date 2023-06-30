@@ -7,6 +7,7 @@ import { Whattsapp } from './whattsapp'
 import { BoxSwiper } from './box-swiper'
 import { Button } from './simple-button'
 import { BoxSocials } from './box-socials'
+import { ButtonComponent } from './button'
 import { LoaderCircle } from './loader-circle'
 import { BreadCrumbProps } from './breadcrumb'
 import { BannerRotativo } from './bannerRotativo'
@@ -25,6 +26,7 @@ export {
   LoaderCircle,
   HeadComponent,
   BannerRotativo,
+  ButtonComponent,
   PaginationComponent,
   BreadCrumbComponent,
 }
