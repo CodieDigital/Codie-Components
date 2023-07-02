@@ -4,7 +4,7 @@ import { Error } from '../error-body'
 
 import { NavLeftIcon, NavRightIcon } from '../../icons'
 
-import { IBoxSwiper, IInitialSlides } from './interfaces'
+import { IBoxSwiper, IInitialSlides, INavPositions } from './interfaces'
 
 import { useConfigSite } from '../../../contexts/configs'
 
@@ -17,6 +17,7 @@ export function BoxSwiper({
   hasAutoPlay,
   breakpoints,
   slidesLenght,
+  navPositions,
   hasNavigation,
   slidesBreakpoints,
 }: IBoxSwiper) {
@@ -67,6 +68,30 @@ export function BoxSwiper({
     },
   }
 
+  const defaultNavPositions: INavPositions = {
+    1920: {
+      position: '-30px',
+    },
+    1600: {
+      position: '-30px',
+    },
+    1400: {
+      position: '-30px',
+    },
+    1200: {
+      position: '-30px',
+    },
+    1024: {
+      position: '-30px',
+    },
+    900: {
+      position: '-30px',
+    },
+    768: {
+      position: '-30px',
+    },
+  }
+
   const defaultAutoPlay = {
     delay: 3500,
     disableOnInteraction: false,
@@ -79,6 +104,7 @@ export function BoxSwiper({
         $name={name}
         $navColor={navColor}
         $slidesLenght={slidesLenght}
+        $navPositions={navPositions ? navPositions : defaultNavPositions}
         $slidesBreakpoints={slidesBreakpoints ? slidesBreakpoints : defaultSlidesBreakpoints}
       >
         {hasNavigation && (

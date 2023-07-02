@@ -9,6 +9,7 @@ export interface IBoxSwiper {
   breakpoints?: IBreakpoints
   hasNavigation?: boolean
   slidesBreakpoints?: IInitialSlides
+  navPositions?: INavPositions
 }
 
 export interface IBreakpoints {
@@ -20,6 +21,14 @@ export interface IInitialSlides {
   [breakPoint: number]: ISlidesBreakpoints
 }
 
+export interface INavPositions {
+  [breakPoint: number]: INavBreakpoints
+}
+
+export interface INavBreakpoints {
+  position: string
+}
+
 export interface ISlidesBreakpoints {
   breaking: number
   pagination?: boolean
@@ -29,5 +38,6 @@ export interface IBoxSwiperStyles {
   $name: string
   $navColor?: string
   $slidesLenght: number
+  $navPositions: INavPositions
   $slidesBreakpoints: IInitialSlides
 }

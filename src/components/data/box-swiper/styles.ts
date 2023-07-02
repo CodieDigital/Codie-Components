@@ -29,11 +29,11 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
   }
 
   .nav-left-${({ $name }) => $name} {
-    left: -50px;
+    left: ${({ $navPositions }) => $navPositions[1920].position};
   }
 
   .nav-right-${({ $name }) => $name} {
-    right: -50px;
+    right: ${({ $navPositions }) => $navPositions[1920].position};
   }
 
   .swiper-pagination-${({ $name }) => $name} {
@@ -64,11 +64,11 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
     }
 
     .nav-left-${({ $name }) => $name} {
-      left: -45px;
+      left: ${({ $navPositions }) => $navPositions[1600].position};
     }
 
     .nav-right-${({ $name }) => $name} {
-      right: -45px;
+      right: ${({ $navPositions }) => $navPositions[1600].position};
     }
 
     .swiper-pagination-${({ $name }) => $name} {
@@ -87,11 +87,11 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
     }
 
     .nav-left-${({ $name }) => $name} {
-      left: -35px;
+      left: ${({ $navPositions }) => $navPositions[1400].position};
     }
 
     .nav-right-${({ $name }) => $name} {
-      right: -35px;
+      right: ${({ $navPositions }) => $navPositions[1400].position};
     }
 
     .swiper-pagination-${({ $name }) => $name} {
@@ -110,11 +110,11 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
     }
 
     .nav-left-${({ $name }) => $name} {
-      left: -25px;
+      left: ${({ $navPositions }) => $navPositions[1200].position};
     }
 
     .nav-right-${({ $name }) => $name} {
-      right: -25px;
+      right: ${({ $navPositions }) => $navPositions[1200].position};
     }
 
     .swiper-pagination-${({ $name }) => $name} {
@@ -128,6 +128,14 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
         $slidesLenght != $slidesBreakpoints?.[1024]?.breaking && 'flex'};
     }
 
+    .nav-left-${({ $name }) => $name} {
+      left: ${({ $navPositions }) => $navPositions[1024].position};
+    }
+
+    .nav-right-${({ $name }) => $name} {
+      right: ${({ $navPositions }) => $navPositions[1024].position};
+    }
+
     .swiper-pagination-${({ $name }) => $name} {
       display: ${({ $slidesBreakpoints }) => $slidesBreakpoints?.[1024]?.pagination && 'flex'};
     }
@@ -139,6 +147,14 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
         $slidesLenght != $slidesBreakpoints?.[900]?.breaking && 'flex'};
     }
 
+    .nav-left-${({ $name }) => $name} {
+      left: ${({ $navPositions }) => $navPositions[900].position};
+    }
+
+    .nav-right-${({ $name }) => $name} {
+      right: ${({ $navPositions }) => $navPositions[900].position};
+    }
+
     .swiper-pagination-${({ $name }) => $name} {
       display: ${({ $slidesBreakpoints }) => $slidesBreakpoints?.[900]?.pagination && 'flex'};
     }
@@ -148,6 +164,14 @@ export const BoxSwiper = styled.div<IBoxSwiperStyles>`
     .button-nav {
       display: ${({ $slidesLenght, $slidesBreakpoints }) =>
         $slidesLenght != $slidesBreakpoints?.[768]?.breaking && 'flex'};
+    }
+
+    .nav-left-${({ $name }) => $name} {
+      left: ${({ $navPositions }) => $navPositions[768].position};
+    }
+
+    .nav-right-${({ $name }) => $name} {
+      right: ${({ $navPositions }) => $navPositions[768].position};
     }
 
     .swiper-pagination-${({ $name }) => $name} {
