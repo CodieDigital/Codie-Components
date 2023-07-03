@@ -22,9 +22,8 @@ export function FilterBlog({ categories }: IFilterBlog) {
 
         {categories.map((categorie) => (
           <Link
-            passHref
             key={categorie.id + categorie.titulo + categorie.url}
-            href={{ pathname: '/blog', query: { categoria: categorie.url } }}
+            href={{ pathname: '/blog/categoria/[url]', query: { url: categorie.url } }}
           >
             {categorie.titulo}
           </Link>

@@ -21,8 +21,9 @@ import { Iconfacebook, IconLinkedin, IconWhatsApp } from './icons'
 import { PaginationComponent } from '../../data/pagination'
 import { IDetach } from '../../../interfaces/blog'
 
-import * as S from './styles'
 import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton } from 'react-share'
+
+import * as S from './styles'
 
 interface IBlogContentProps {
   default: IBlogContentDefaultProps
