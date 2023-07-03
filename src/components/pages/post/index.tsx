@@ -12,8 +12,9 @@ import { AxiosInstance } from 'axios'
 import { IBlogContentDefaultProps } from '../blog/interfaces'
 import { IDetach } from '../../../interfaces/blog'
 
-import * as S from './styles'
 import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton } from 'react-share'
+
+import * as S from './styles'
 
 interface PostContentProps {
   hasTags?: boolean
@@ -25,6 +26,7 @@ interface PostContentProps {
   hasNewsletter?: boolean
   categories: IFilterItem[]
   breadcrumb?: BreadCrumbProps
+  newsLetterHasPhone?: boolean
   default: IBlogContentDefaultProps
 }
 
@@ -36,6 +38,7 @@ export function PostContent({
   categories,
   postDetail,
   hasNewsletter,
+  newsLetterHasPhone,
   default: { baseImage, isBaseUrl, siteDomain },
 }: PostContentProps) {
   return (
@@ -101,7 +104,7 @@ export function PostContent({
           <div className='side-bar'>
             {hasfilter && <FilterBlog categories={categories} />}
 
-            {hasNewsletter && <NewsLetterBlog api={api} />}
+            {hasNewsletter && <NewsLetterBlog api={api} hasPhone={newsLetterHasPhone} />}
 
             {hasTags && <TagsBlog />}
 
