@@ -14,16 +14,17 @@ export const Button = styled(Link)<IButtonStyles>`
   background-size: 300%;
   background-position: left;
   transition: all 0.4s ease-in-out;
-  color: ${({ $hasBg }) => ($hasBg ? '#fff' : 'var(--button-color)')};
-  border: ${({ $hasBg }) => ($hasBg ? 'none' : '2px solid var(--button-color)')};
+  color: ${({ $hasBg }) => ($hasBg ? 'var(--button-color-bg)' : 'var(--button-color-no-bg)')};
+  border: ${({ $hasBg }) => ($hasBg ? 'none' : '2px solid var(--bt-linear-gradient-1)')};
   background-image: ${({ $hasBg }) =>
-    $hasBg && `linear-gradient(99deg, #c78c21 0%, #dcb351 33%, #c0851d 67%, #dcb251 100%)`};
+    $hasBg &&
+    `linear-gradient(99deg, var(--bt-linear-gradient-1) 0%, var(--bt-linear-gradient-2) 33%, var(--bt-linear-gradient-1) 67%, var(--bt-linear-gradient-2))`};
 
   &:hover {
     background-position: right;
-    background-color: ${({ $hasBg }) => !$hasBg && 'var(--button-color)'};
-    color: #000;
-    fill: #000;
+    background-color: ${({ $hasBg }) => !$hasBg && 'var(--bt-linear-gradient-1)'};
+    color: ${({ $hasBg }) => ($hasBg ? 'var(--button-color-bg-hover)' : 'var(--button-color-no-bg-hover)')};
+    fill: var(--button-hover-color);
   }
 
   @media only screen and (max-width: 1600px) {

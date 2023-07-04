@@ -11,11 +11,13 @@ export function Button({ buttonData }: ButtonProps) {
     <Error name='button-component'>
       <S.Button
         href={buttonData.url}
-        className={`link-1-medium button ${buttonData.className ? buttonData.className : ''}`}
         $hasBg={buttonData.hasBg}
+        $borderRadius={buttonData.borderRadius}
         rel={`${buttonData.externalLink ? 'external' : ''}`}
         target={`${buttonData.externalLink ? '_blank' : ''}`}
-        $borderRadius={buttonData.borderRadius}
+        className={`${buttonData.font ? buttonData.font : 'link-1'} button${
+          buttonData.name ? '-' + buttonData.name : ''
+        }`}
       >
         {buttonData.icon}
         {buttonData.text}

@@ -4,10 +4,11 @@ export interface ButtonProps {
 
 export interface IButton {
   url: string
+  name?: string
   text?: string
+  font?: string
   hasBg?: boolean
   icon?: JSX.Element
-  className?: string
   borderRadius?: string
   externalLink?: boolean
 }
