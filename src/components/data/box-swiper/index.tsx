@@ -132,8 +132,8 @@ export function BoxSwiper({
           pagination={{
             el: `.swiper-pagination-${name}`,
             clickable: true,
-            renderBullet: function (className) {
-              return `<div class="${className} pagination-bullet"></div>`
+            renderBullet: function (index, className) {
+              return `<div class="${className} pagination-bullet ${index}"></div>`
             },
             bulletClass: 'swiper-pagination-bullet',
           }}

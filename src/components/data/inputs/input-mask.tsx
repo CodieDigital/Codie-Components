@@ -103,7 +103,13 @@ export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
         />
       </div>
 
-      {error && <span className='error paragraph-3-medium-lato error-message'>{error}</span>}
+      {error && (
+        <span
+          className={`error ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} error-message`}
+        >
+          {error}
+        </span>
+      )}
     </S.Input>
   )
 }
