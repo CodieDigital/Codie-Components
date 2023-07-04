@@ -1,12 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const BreadCrumb = styled.ul`
+interface IBreadCrumbStyles {
+  $isBg?: boolean
+}
+
+export const BreadCrumb = styled.ul<IBreadCrumbStyles>`
   display: flex;
   align-items: center;
 
-  a, span {
-    color:#003050;
-    opacity: .3;
+  a,
+  span {
+    color: ${({ $isBg }) => ($isBg ? '#fff' : '#003050')};
+    opacity: 0.9;
     transition: all 0.3s;
   }
 
@@ -15,10 +20,10 @@ export const BreadCrumb = styled.ul`
   }
 
   li::after {
-    content: ">";
+    content: '>';
     margin: 0 11px;
-    color:#003050;
-    opacity: .3;
+    color: ${({ $isBg }) => ($isBg ? '#fff' : '#003050')};
+    opacity: 0.3;
     font-size: 20px;
   }
 
@@ -89,6 +94,4 @@ export const BreadCrumb = styled.ul`
       display: none;
     }
   }
-
-
-`;
+`
