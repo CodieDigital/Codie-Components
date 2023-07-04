@@ -83,9 +83,9 @@ export function BlogContent({
         </div>
 
         <div className='posts'>
-          {blogList.posts.map(({ titulo, imagem, descricao, url }) => {
+          {blogList.posts.map(({ titulo, imagem, subtitulo, url }) => {
             return (
-              <div key={`blogPost${titulo}-${descricao}`} className='box-post'>
+              <div key={`blogPost${titulo}-${subtitulo}`} className='box-post'>
                 <Link
                   href={{
                     pathname: '/post/[url]',
@@ -95,7 +95,7 @@ export function BlogContent({
                   }}
                   className='image'
                 >
-                  <span className='tag-post'>Dicas</span>
+                  {/* <span className='tag-post'>Dicas</span> */}
 
                   <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} src={imagem} alt='Blog post' />
                 </Link>
@@ -113,7 +113,7 @@ export function BlogContent({
                     {titulo}
                   </Link>
 
-                  <div className='description' dangerouslySetInnerHTML={{ __html: descricao }}></div>
+                  {subtitulo && <div className='description' dangerouslySetInnerHTML={{ __html: subtitulo }}></div>}
 
                   <div className='actions'>
                     <div className='share'>
