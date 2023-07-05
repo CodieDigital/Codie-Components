@@ -8,6 +8,7 @@ export interface IButton {
   text?: string
   font?: string
   hasBg?: boolean
+  hasAos?: boolean
   icon?: JSX.Element
   borderRadius?: string
   externalLink?: boolean

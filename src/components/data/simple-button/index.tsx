@@ -18,6 +18,8 @@ export function Button({ buttonData }: ButtonProps) {
         className={`${buttonData.font ? buttonData.font : 'link-1'} button${
           buttonData.name ? '-' + buttonData.name : ''
         }`}
+        data-aos={buttonData.hasAos && 'fade-up'}
+        data-aos-duration={buttonData.hasAos && '1500'}
       >
         {buttonData.icon}
         {buttonData.text}
