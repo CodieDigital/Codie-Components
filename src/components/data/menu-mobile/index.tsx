@@ -108,7 +108,7 @@ export function MenuMobile({
                   Contato
                 </h3>
 
-                <BoxSocials defaultData={defaultBoxSocials} />
+                <BoxSocials srcLinks={defaultBoxSocials.srcLinks} boxStyles={defaultBoxSocials.boxStyles} />
               </>
             )}
           </nav>

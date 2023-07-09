@@ -1,13 +1,17 @@
 export interface BoxSocialsProps {
-  defaultData: IBoxSocials
+  boxStyles?: IBoxSocials
+  srcLinks: ISrcLinks
 }
 
 export interface IBoxSocials {
-  hasBg?: string
+  bgColor?: string
+  bgHoverColor?: string
   svgColor?: string
+  svgHoverColor?: string
   svgWidth?: string
-  srcLinks: ISrcLinks
+  padding?: string
   isEmptyIcon?: boolean
+  boxGap?: string
 }
 
 export interface ISrcLinks {
@@ -21,7 +25,11 @@ export interface ISrcLinks {
 }
 
 export interface IBoxSocialsStyles {
-  $hasBg?: string
+  $bgColor?: string
+  $bgHoverColor?: string
   $svgColor?: string
+  $svgHoverColor?: string
   $svgWidth?: string
+  $padding?: string
+  $boxGap?: string
 }

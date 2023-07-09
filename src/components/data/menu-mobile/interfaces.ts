@@ -1,12 +1,12 @@
 import { IButton } from '../simple-button/interfaces'
-import { IBoxSocials } from '../box-socials/interfaces'
+import { BoxSocialsProps } from '../box-socials/interfaces'
 
 export interface MenuMobileProps {
   menu: boolean
   defaultFonts?: IFonts
   defaultButton?: IButton
   data: ICategoriesHeader[]
-  defaultBoxSocials?: IBoxSocials
+  defaultBoxSocials?: BoxSocialsProps
   setStateMenu: React.Dispatch<boolean>
 }
 

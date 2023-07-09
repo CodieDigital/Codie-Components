@@ -204,8 +204,11 @@ export const Post = styled.section`
     }
   }
 
+  .box-left {
+    width: 100%;
+  }
+
   .post {
-    max-width: 890px;
     width: 100%;
     padding: 40px 40px 50px;
 
@@ -287,7 +290,7 @@ export const Post = styled.section`
   }
 
   .side-bar {
-    max-width: 430px;
+    max-width: 450px;
     width: 100%;
   }
 

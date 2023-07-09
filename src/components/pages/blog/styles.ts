@@ -55,12 +55,11 @@ export const BlogContent = styled.section`
   }
 
   .posts {
-    max-width: 890px;
     width: 100%;
   }
 
   .side-bar {
-    max-width: 430px;
+    max-width: 450px;
     width: 100%;
   }
 
@@ -75,7 +74,6 @@ export const BlogContent = styled.section`
     }
 
     .image {
-      max-width: 810px;
       width: 100%;
       aspect-ratio: 890/440;
       margin-bottom: 40px;
@@ -236,7 +234,6 @@ export const BlogContent = styled.section`
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-
     padding: 40px 40px 45px;
     display: flex;
     flex-direction: column;
@@ -283,6 +280,10 @@ export const BlogContent = styled.section`
     .posts,
     .side-bar {
       margin-top: 28px;
+    }
+
+    .side-bar {
+      max-width: 440px;
     }
 
     .box-post {
