@@ -4,7 +4,14 @@ import { IPagination } from './interfaces'
 
 import * as S from './styles'
 
-export function PaginationComponent({ pages, onSelect, currentPage, hasNextPage, hasPreviousPage }: IPagination) {
+export function PaginationComponent({
+  pages,
+  onSelect,
+  boxColors,
+  currentPage,
+  hasNextPage,
+  hasPreviousPage,
+}: IPagination) {
   if (pages.length === 1) {
     return <div></div>
   }
@@ -28,7 +35,7 @@ export function PaginationComponent({ pages, onSelect, currentPage, hasNextPage,
     return onSelect(currentPage - 1)
   }
   return (
-    <S.PaginationComponent className='pagination'>
+    <S.PaginationComponent $boxColors={boxColors} className='pagination'>
       {hasPreviousPage && (
         <button
           style={{ display: currentPage == 1 ? 'none' : 'flex' }}

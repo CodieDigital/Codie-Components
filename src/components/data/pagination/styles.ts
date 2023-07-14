@@ -13,9 +13,9 @@ export const PaginationComponent = styled.div<IPaginationStyles>`
     width: 42px;
     height: 42px;
     background-color: transparent;
-    color: ${({ $boxColors }) => ($boxColors?.$color ? $boxColors?.$color : 'var(--primary-color)')};
+    color: ${({ $boxColors }) => ($boxColors?.color ? $boxColors?.color : 'var(--primary-color)')};
     border: 1px solid
-      ${({ $boxColors }) => ($boxColors?.$borderColor ? $boxColors?.$borderColor : 'var(--primary-color)')};
+      ${({ $boxColors }) => ($boxColors?.borderColor ? $boxColors?.borderColor : 'var(--primary-color)')};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,11 +25,10 @@ export const PaginationComponent = styled.div<IPaginationStyles>`
     &.active,
     &:hover {
       background-color: ${({ $boxColors }) =>
-        $boxColors?.$bgHoverColor ? $boxColors?.$bgHoverColor : 'var(--primary-color)'};
+        $boxColors?.bgHoverColor ? $boxColors?.bgHoverColor : 'var(--primary-color)'};
       border: 1px solid
-        ${({ $boxColors }) =>
-          $boxColors?.$borderHoverColor ? $boxColors?.$borderHoverColor : 'var(--secondary-color)'};
-      color: ${({ $boxColors }) => ($boxColors?.$hoverColor ? $boxColors?.$hoverColor : 'var(--secondary-color)')};
+        ${({ $boxColors }) => ($boxColors?.borderHoverColor ? $boxColors?.borderHoverColor : 'var(--secondary-color)')};
+      color: ${({ $boxColors }) => ($boxColors?.hoverColor ? $boxColors?.hoverColor : 'var(--secondary-color)')};
     }
   }
 
