@@ -18,6 +18,7 @@ export interface ISrcLinks {
   maps?: string
   email?: string
   youtube?: string
+  twitter?: string
   facebook?: string
   linkedin?: string
   whattsapp?: string

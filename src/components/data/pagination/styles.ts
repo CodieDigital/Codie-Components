@@ -1,35 +1,42 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const PaginationStyle = styled.div`
+import { IPaginationStyles } from './interfaces'
+
+export const PaginationComponent = styled.div<IPaginationStyles>`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5.21vw;
   gap: 28px;
 
-  button,
-  span {
+  button {
     width: 42px;
     height: 42px;
     background-color: transparent;
-    color: #fff;
-    border: 1px solid var(--orange);
-    display: flex !important;
+    color: ${({ $boxColors }) => ($boxColors?.$color ? $boxColors?.$color : 'var(--primary-color)')};
+    border: 1px solid
+      ${({ $boxColors }) => ($boxColors?.$borderColor ? $boxColors?.$borderColor : 'var(--primary-color)')};
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
+    transition: all 0.3s;
 
-  button.active {
-    background-color: var(--primary-color);
-    color: var(--orange);
+    &.active,
+    &:hover {
+      background-color: ${({ $boxColors }) =>
+        $boxColors?.$bgHoverColor ? $boxColors?.$bgHoverColor : 'var(--primary-color)'};
+      border: 1px solid
+        ${({ $boxColors }) =>
+          $boxColors?.$borderHoverColor ? $boxColors?.$borderHoverColor : 'var(--secondary-color)'};
+      color: ${({ $boxColors }) => ($boxColors?.$hoverColor ? $boxColors?.$hoverColor : 'var(--secondary-color)')};
+    }
   }
 
   @media only screen and (max-width: 1600px) {
     gap: 25px;
 
-    button,
-    span {
+    button {
       width: 40px;
       height: 40px;
     }
@@ -38,8 +45,7 @@ export const PaginationStyle = styled.div`
   @media only screen and (max-width: 1400px) {
     gap: 22px;
 
-    button,
-    span {
+    button {
       width: 38px;
       height: 38px;
     }
@@ -48,8 +54,7 @@ export const PaginationStyle = styled.div`
   @media only screen and (max-width: 1200px) {
     gap: 20px;
 
-    button,
-    span {
+    button {
       width: 37px;
       height: 37px;
     }
@@ -58,8 +63,7 @@ export const PaginationStyle = styled.div`
   @media only screen and (max-width: 1024px) {
     gap: 17px;
 
-    button,
-    span {
+    button {
       width: 36px;
       height: 36px;
     }
@@ -68,8 +72,7 @@ export const PaginationStyle = styled.div`
   @media only screen and (max-width: 768px) {
     margin-top: 40px;
 
-    button,
-    span {
+    button {
       width: 35px;
       height: 35px;
     }
@@ -79,18 +82,16 @@ export const PaginationStyle = styled.div`
     gap: 15px;
     margin-top: 35px;
 
-    button,
-    span {
+    button {
       width: 34px;
       height: 34px;
     }
   }
 
   @media only screen and (max-width: 400px) {
-    button,
-    span {
+    button {
       width: 32px;
       height: 32px;
     }
   }
-`;
+`

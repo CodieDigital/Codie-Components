@@ -2,6 +2,7 @@ import { PinIcon } from './Pin'
 import { CloseIcon } from './Close'
 import { CodieIcon } from './Codie'
 import { PhoneIcon } from './Phone'
+import { TwitterIcon } from './Twitter'
 import { YouTubeIcon } from './YouTube'
 import { NavLeftIcon } from './NavLeft'
 import { NavRightIcon } from './NavRight'
@@ -18,6 +19,7 @@ export {
   CloseIcon,
   CodieIcon,
   EmailIcon,
+  TwitterIcon,
   YouTubeIcon,
   NavLeftIcon,
   LinkedinIcon,

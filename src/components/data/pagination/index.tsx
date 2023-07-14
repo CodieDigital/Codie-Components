@@ -1,39 +1,51 @@
 import React from 'react'
 
+import { IPagination } from './interfaces'
+
 import * as S from './styles'
 
-interface PaginationProps {
-  pages: number[]
-  currentPage: number
-  hasNextPage: boolean
-  hasPreviousPage: boolean
-  onSelect(page: number): void
-}
-
-export function PaginationComponent({ pages, currentPage, hasNextPage, hasPreviousPage, onSelect }: PaginationProps) {
+export function PaginationComponent({ pages, onSelect, currentPage, hasNextPage, hasPreviousPage }: IPagination) {
   if (pages.length === 1) {
     return <div></div>
   }
 
+  const goToTopPage = () => {
+    window.location.href = '#top-page'
+  }
+
+  const handlePaginationButton = (pageItem) => {
+    goToTopPage()
+    return onSelect(pageItem)
+  }
+
+  const handleRightButton = (currentPage) => {
+    goToTopPage()
+    return onSelect(currentPage + 1)
+  }
+
+  const handleLeftButton = (currentPage) => {
+    goToTopPage()
+    return onSelect(currentPage - 1)
+  }
   return (
-    <S.PaginationStyle>
+    <S.PaginationComponent className='pagination'>
       {hasPreviousPage && (
-        <span
-          style={{ display: currentPage == 1 ? 'none' : 'block' }}
-          className='txt-sz-8-bold-roboto-slab'
-          onClick={() => onSelect(currentPage - 1)}
+        <button
+          style={{ display: currentPage == 1 ? 'none' : 'flex' }}
+          type='button'
+          onClick={() => handleLeftButton(currentPage - 1)}
         >
           {'<'}
-        </span>
+        </button>
       )}
 
       {pages.map((pageItem) => {
         return (
           <button
-            key={`${pageItem}-pagination}`}
+            key={`${pageItem}-pagination`}
             type='button'
-            className={`${currentPage === pageItem ? 'txt-sz-8-bold-roboto-slab active' : 'txt-sz-8-bold-roboto-slab'}`}
-            onClick={() => onSelect(pageItem)}
+            className={`${currentPage === pageItem ? 'active' : ''}`}
+            onClick={() => handlePaginationButton(pageItem)}
           >
             {pageItem}
           </button>
@@ -41,16 +53,16 @@ export function PaginationComponent({ pages, currentPage, hasNextPage, hasPrevio
       })}
 
       {hasNextPage && (
-        <span
+        <button
           style={{
-            display: pages[pages.length - 1] == currentPage ? 'none' : 'block',
+            display: pages[pages.length - 1] == currentPage ? 'none' : 'flex',
           }}
-          className='link-3-bold filson'
-          onClick={() => onSelect(currentPage + 1)}
+          type='button'
+          onClick={() => handleRightButton(currentPage + 1)}
         >
           {'>'}
-        </span>
+        </button>
       )}
-    </S.PaginationStyle>
+    </S.PaginationComponent>
   )
 }

@@ -6,6 +6,7 @@ import { Error } from '../error-body'
 import {
   PinIcon,
   EmailIcon,
+  TwitterIcon,
   YouTubeIcon,
   LinkedinIcon,
   FacebookIcon,
@@ -27,13 +28,13 @@ export function BoxSocials({ srcLinks, boxStyles }: BoxSocialsProps) {
     <Error name='box-socials'>
       <S.BoxSocials
         className='box-socials'
-        $bgColor={boxStyles?.bgColor}
-        $bgHoverColor={boxStyles?.bgHoverColor}
-        $svgColor={boxStyles?.svgColor}
-        $svgHoverColor={boxStyles?.svgHoverColor}
-        $svgWidth={boxStyles?.svgWidth}
-        $padding={boxStyles?.padding}
         $boxGap={boxStyles?.boxGap}
+        $bgColor={boxStyles?.bgColor}
+        $padding={boxStyles?.padding}
+        $svgColor={boxStyles?.svgColor}
+        $svgWidth={boxStyles?.svgWidth}
+        $bgHoverColor={boxStyles?.bgHoverColor}
+        $svgHoverColor={boxStyles?.svgHoverColor}
       >
         {srcLinks.instagram && (
           <Link href={srcLinks.instagram} target='_blank' rel='external' className='link-redes'>
@@ -56,6 +57,12 @@ export function BoxSocials({ srcLinks, boxStyles }: BoxSocialsProps) {
         {srcLinks.email && (
           <Link href={srcLinks.email} target='_blank' rel='external' className='link-redes'>
             {boxStyles?.isEmptyIcon ? <EmailEmptyIcon /> : <EmailIcon />}
+          </Link>
+        )}
+
+        {srcLinks.twitter && (
+          <Link href={srcLinks.twitter} target='_blank' rel='external' className='link-redes'>
+            <TwitterIcon />
           </Link>
         )}
 
