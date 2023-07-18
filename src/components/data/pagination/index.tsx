@@ -40,7 +40,7 @@ export function PaginationComponent({
         <button
           style={{ display: currentPage == 1 ? 'none' : 'flex' }}
           type='button'
-          onClick={() => handleLeftButton(currentPage - 1)}
+          onClick={() => handleLeftButton(currentPage)}
         >
           {'<'}
         </button>
@@ -65,7 +65,7 @@ export function PaginationComponent({
             display: pages[pages.length - 1] == currentPage ? 'none' : 'flex',
           }}
           type='button'
-          onClick={() => handleRightButton(currentPage + 1)}
+          onClick={() => handleRightButton(currentPage)}
         >
           {'>'}
         </button>
