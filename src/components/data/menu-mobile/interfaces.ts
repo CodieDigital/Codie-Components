@@ -3,6 +3,7 @@ import { BoxSocialsProps } from '../box-socials/interfaces'
 
 export interface MenuMobileProps {
   menu: boolean
+  pathname?: string
   defaultFonts?: IFonts
   defaultButton?: IButton
   data: ICategoriesHeader[]
@@ -18,8 +19,8 @@ export interface IFonts {
 
 export interface ICategoriesHeader {
   id: number
-  link?: string
-  href: string
+  link: string
+  href?: string
   categorias?: IServices[]
   logo?: string
 }

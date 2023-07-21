@@ -15,13 +15,20 @@ import * as S from './styles'
 export function MenuMobile({
   menu,
   data,
+  pathname,
   defaultFonts,
-  defaultButton,
   setStateMenu,
+  defaultButton,
   defaultBoxSocials,
 }: MenuMobileProps) {
-  const [dropdown, setDropdown] = useState(false)
+  const [dropdown, setDropdown] = useState('')
   const router = useRouter()
+
+  function handleDropDown(e: string) {
+    if (e !== dropdown) {
+      setDropdown(e)
+    } else setDropdown('')
+  }
 
   const urlPage = router.query.url
   return (
@@ -47,10 +54,10 @@ export function MenuMobile({
               categoria.categorias ? (
                 <span
                   key={'link-menu-' + categoria.id + index}
-                  className={`dropdown ${dropdown ? 'active' : ''} ${
+                  className={`dropdown ${categoria.link === dropdown ? 'active' : ''} ${
                     defaultFonts?.link ? defaultFonts.link : 'link-3'
                   } ${defaultFonts?.isUppercase ? 'uppercase' : ''}`}
-                  onClick={() => setDropdown(!dropdown)}
+                  onClick={() => handleDropDown(categoria.link)}
                 >
                   <div className='title'>
                     {categoria.link}
@@ -64,7 +71,7 @@ export function MenuMobile({
                         <Link
                           key={subCategoria.id + subCategoria.titulo}
                           href={{
-                            pathname: '/servico/[url]',
+                            pathname: pathname ? pathname : '/servico/[url]',
                             query: {
                               url: subCategoria.url,
                             },
@@ -83,7 +90,7 @@ export function MenuMobile({
               ) : (
                 <Link
                   key={'link-menu-' + categoria.id}
-                  href={categoria.href}
+                  href={categoria.href!}
                   className={`link ${defaultFonts?.link ? defaultFonts.link : 'link-3'} ${
                     defaultFonts?.isUppercase ? 'uppercase' : ''
                   } ${router.pathname === categoria.href ? 'active' : ''}`}
