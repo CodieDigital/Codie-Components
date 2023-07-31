@@ -83,8 +83,7 @@ export function BlogContent({
         </div>
 
         <div className='posts'>
-          {blogList.posts.map(({ titulo, imagem, subtitulo, url }) => {
-            return (
+          {blogList.posts.length>0? blogList.posts.map(({ titulo, imagem, subtitulo, url }) => (
               <div key={`blogPost${titulo}-${subtitulo}`} className='box-post'>
                 <Link
                   href={{
@@ -145,7 +144,7 @@ export function BlogContent({
                 </div>
               </div>
             )
-          })}
+          ): <h2 className='title-2 noPostMessage'>Ops! Não temos post dessa categoria ainda! :/</h2>}
 
           {pagination && (
             <PaginationComponent

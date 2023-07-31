@@ -39,7 +39,7 @@ export function PostContent({
   postDetail,
   hasNewsletter,
   newsLetterHasPhone,
-  default: { baseImage, isBaseUrl, siteDomain },
+  default: { baseImage, isBaseUrl, siteDomain, shareDomain },
 }: PostContentProps) {
   return (
     <S.Post className='post-content'>
@@ -85,15 +85,15 @@ export function PostContent({
                 <h4>Compartilhe</h4>
 
                 <div className='midias'>
-                  <FacebookShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
+                  <FacebookShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
                     <Iconfacebook />
                   </FacebookShareButton>
 
-                  <LinkedinShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
+                  <LinkedinShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
                     <IconLinkedin />
                   </LinkedinShareButton>
 
-                  <WhatsappShareButton className='link-share' url={`${siteDomain}/post/${postDetail.detail.url}`}>
+                  <WhatsappShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
                     <IconWhatsApp />
                   </WhatsappShareButton>
                 </div>
