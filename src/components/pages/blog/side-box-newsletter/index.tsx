@@ -31,7 +31,7 @@ export function NewsLetterBlog({ api, hasPhone }: NewsLetterBlog) {
 
       const schema = Yup.object().shape({
         email: Yup.string().required('Por favor, digite um email').email('Por favor, digite um email válido'),
-        phone: Yup.string().required('Por favor insira seu telefone').min(11, 'Favor inserir um número válido'),
+        // phone: Yup.string().required('Por favor insira seu telefone').min(11, 'Favor inserir um número válido'),
       })
 
       await schema.validate(data, {
