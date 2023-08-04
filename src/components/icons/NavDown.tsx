@@ -20,28 +20,26 @@ export function NavDownIcon() {
 
 export function NavDownDoubleIcon() {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='33' height='28' viewBox='0 0 33 28' className='svg-icon'>
+    <svg xmlns='http://www.w3.org/2000/svg' width='22' height='18' viewBox='0 0 22 18' className='svg-icon'>
       <g>
         <g>
           <path
             fill='none'
-            stroke='#e21776'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeMiterlimit='20'
-            strokeWidth='2'
-            d='M1 1.005v0l15.145 8.74v0l15.145-8.74v0'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-miterlimit='20'
+            stroke-width='2'
+            d='M21 9.955v0l-10 7v0l-10-7v0'
           />
         </g>
         <g>
           <path
             fill='none'
-            stroke='#e21776'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeMiterlimit='20'
-            strokeWidth='2'
-            d='M1 17.745v0l15.145 8.74v0l15.145-8.74v0'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-miterlimit='20'
+            stroke-width='2'
+            d='M21 .955v0l-10 7v0l-10-7v0'
           />
         </g>
       </g>

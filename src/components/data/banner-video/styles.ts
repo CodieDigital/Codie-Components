@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-interface IBannerStyles {
+interface IBannerVideoStyles {
   $defaultStyles?: {
     titleAlign?: 'flex-start' | 'center' | 'flex-end'
     titleColor?: string
@@ -8,10 +8,11 @@ interface IBannerStyles {
     linkHovervColor?: string
     subtitleColor?: string
     linkCenter?: boolean
+    linkBottom?: string
   }
 }
 
-export const Banner = styled.section<IBannerStyles>`
+export const BannerVideo = styled.section<IBannerVideoStyles>`
   aspect-ratio: 1920/800;
   padding: 0;
   display: flex;
@@ -66,11 +67,14 @@ export const Banner = styled.section<IBannerStyles>`
     max-width: fit-content;
     display: flex;
     align-items: center;
-    bottom: 15%;
+    bottom: ${({ $defaultStyles }) => ($defaultStyles?.linkBottom ? $defaultStyles?.linkBottom : '5%')};
     left: ${({ $defaultStyles }) => ($defaultStyles?.linkCenter ? '50%' : '15px')};
     transform: ${({ $defaultStyles }) => $defaultStyles?.linkCenter && 'translateX(-50%)'};
-
     color: ${({ $defaultStyles }) => ($defaultStyles?.linkColor ? $defaultStyles.linkColor : '#fff')};
+
+    .svg-icon {
+      stroke: ${({ $defaultStyles }) => ($defaultStyles?.linkColor ? $defaultStyles.linkColor : '#fff')};
+    }
 
     &:hover {
       color: ${({ $defaultStyles }) => ($defaultStyles?.linkHovervColor ? $defaultStyles.linkHovervColor : '#0000ff')};
@@ -79,10 +83,6 @@ export const Banner = styled.section<IBannerStyles>`
         stroke: ${({ $defaultStyles }) =>
           $defaultStyles?.linkHovervColor ? $defaultStyles.linkHovervColor : '#0000ff'};
       }
-    }
-
-    .svg-icon {
-      stroke: ${({ $defaultStyles }) => ($defaultStyles?.linkColor ? $defaultStyles.linkColor : '#fff')};
     }
   }
 

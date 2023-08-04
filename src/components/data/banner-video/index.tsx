@@ -7,7 +7,7 @@ import { Error, Container, BreadCrumbComponent, BreadCrumbProps } from '..'
 
 import * as S from './styles'
 
-interface IBanner {
+interface IBannerVideo {
   defaultConfigs: IBanners
   children?: React.ReactNode
   breadCrumb?: BreadCrumbProps
@@ -18,6 +18,7 @@ interface IBanner {
     linkHovervColor?: string
     subtitleColor?: string
     linkCenter?: boolean
+    linkBottom?: string
   }
 }
 
@@ -30,10 +31,10 @@ interface IBanners {
   }
 }
 
-export function Banner({ children, breadCrumb, defaultStyles, defaultConfigs }: IBanner) {
+export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfigs }: IBannerVideo) {
   return (
     <Error name='Banner Home'>
-      <S.Banner className='banner' $defaultStyles={defaultStyles}>
+      <S.BannerVideo className='banner' $defaultStyles={defaultStyles}>
         {defaultConfigs.video && (
           <video autoPlay loop muted playsInline src={defaultConfigs.video} className='back-video'></video>
         )}
@@ -58,7 +59,7 @@ export function Banner({ children, breadCrumb, defaultStyles, defaultConfigs }: 
             </Link>
           )}
         </Container>
-      </S.Banner>
+      </S.BannerVideo>
     </Error>
   )
 }
