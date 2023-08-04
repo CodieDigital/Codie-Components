@@ -29,6 +29,11 @@ interface IBanners {
     subtitle?: string
     link?: string
   }
+  classes?: {
+    title?: string
+    subtitle?: string
+    link?: string
+  }
 }
 
 export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfigs }: IBannerVideo) {
@@ -41,19 +46,27 @@ export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfig
 
         <Container>
           {defaultConfigs.texts?.subtitle && (
-            <span className='paragraph-2 subtitle'>{defaultConfigs.texts.subtitle}</span>
+            <span className={defaultConfigs.classes?.link ? defaultConfigs.classes.link : 'paragraph-2 ' + 'subtitle'}>
+              {defaultConfigs.texts.subtitle}
+            </span>
           )}
 
           {breadCrumb && <BreadCrumbComponent font={breadCrumb.font} isBg={breadCrumb.isBg} list={breadCrumb.list} />}
 
           {defaultConfigs.texts?.title && (
-            <h1 className='title-1 title' dangerouslySetInnerHTML={{ __html: defaultConfigs.texts.title }}></h1>
+            <h1
+              className={defaultConfigs.classes?.title ? defaultConfigs.classes.title : 'title-1 ' + 'title'}
+              dangerouslySetInnerHTML={{ __html: defaultConfigs.texts.title }}
+            ></h1>
           )}
 
-          {children && children}
+          {children}
 
           {defaultConfigs.texts?.link && (
-            <Link href={'/produtos'} className='paragraph-1 link'>
+            <Link
+              href={'/produtos'}
+              className={defaultConfigs.classes?.link ? defaultConfigs.classes.link : 'paragraph-1 ' + 'link'}
+            >
               <NavDownDoubleIcon />
               {defaultConfigs.texts.link}
             </Link>
