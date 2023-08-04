@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Error } from '../../data'
+
 import * as S from './styles'
 
 export interface ICardContactLink {
@@ -27,24 +29,26 @@ export interface CardContactProps {
 
 export function CardContactLink({ card, cardConfigs }: ICardContactLink) {
   return (
-    <S.CardContactLink
-      href={card.url}
-      $hasTitle={card.title}
-      $color={cardConfigs?.color}
-      $svgProps={cardConfigs?.svgProps}
-      $hoverColor={cardConfigs?.hoverColor}
-    >
-      {card.icon && card.icon}
+    <Error name='Card-contact'>
+      <S.CardContactLink
+        href={card.url}
+        $hasTitle={card.title}
+        $color={cardConfigs?.color}
+        $svgProps={cardConfigs?.svgProps}
+        $hoverColor={cardConfigs?.hoverColor}
+      >
+        {card.icon && card.icon}
 
-      <div className='box-text'>
-        {card.title && (
-          <h3 className={`${cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'} uppercase`}>{card.title}</h3>
-        )}
-        <span
-          className={cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'}
-          dangerouslySetInnerHTML={{ __html: card.adress }}
-        ></span>
-      </div>
-    </S.CardContactLink>
+        <div className='box-text'>
+          {card.title && (
+            <h3 className={`${cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'} uppercase`}>{card.title}</h3>
+          )}
+          <span
+            className={cardConfigs?.fontClass ? cardConfigs?.fontClass : 'link-1'}
+            dangerouslySetInnerHTML={{ __html: card.adress }}
+          ></span>
+        </div>
+      </S.CardContactLink>
+    </Error>
   )
 }
