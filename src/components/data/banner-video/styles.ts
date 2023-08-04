@@ -1,24 +1,15 @@
 import styled from 'styled-components'
 
-interface IBannerVideoStyles {
-  $defaultStyles?: {
-    titleAlign?: 'flex-start' | 'center' | 'flex-end'
-    titleColor?: string
-    linkColor?: string
-    linkHovervColor?: string
-    subtitleColor?: string
-    linkCenter?: boolean
-    linkBottom?: string
-  }
-}
+import { IBannerVideoStyles } from './interfaces'
 
 export const BannerVideo = styled.section<IBannerVideoStyles>`
-  aspect-ratio: 1920/800;
+  aspect-ratio: ${({ $defaultStyles }) => $defaultStyles?.aspectRatio};
   padding: 0;
   display: flex;
   align-items: center;
   position: relative;
   width: 100%;
+  height: 100vh;
 
   &::after {
     content: '';
@@ -96,27 +87,19 @@ export const BannerVideo = styled.section<IBannerVideoStyles>`
   }
 
   @media only screen and (max-width: 1024px) {
-    height: 80vh;
-    aspect-ratio: 1;
   }
 
   @media only screen and (max-width: 900px) {
-    height: 70vh;
   }
 
   @media only screen and (max-width: 768px) {
-    height: 65vh;
   }
 
   @media only screen and (max-width: 650px) {
-    .link {
-      right: 5%;
-    }
+    height: 85vh;
   }
 
   @media only screen and (max-width: 500px) {
-    height: 60vh;
-
     .container {
       align-items: center;
     }

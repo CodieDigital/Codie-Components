@@ -3,50 +3,30 @@ import React from 'react'
 import Link from 'next/link'
 
 import { NavDownDoubleIcon } from '../../icons'
-import { Error, Container, BreadCrumbComponent, BreadCrumbProps } from '..'
+import { Error, Container, BreadCrumbComponent } from '..'
+
+import { IBannerVideo } from './interfaces'
 
 import * as S from './styles'
-
-interface IBannerVideo {
-  defaultConfigs: IBanners
-  children?: React.ReactNode
-  breadCrumb?: BreadCrumbProps
-  defaultStyles?: {
-    titleAlign?: 'flex-start' | 'center' | 'flex-end'
-    titleColor?: string
-    linkColor?: string
-    linkHovervColor?: string
-    subtitleColor?: string
-    linkCenter?: boolean
-    linkBottom?: string
-  }
-}
-
-interface IBanners {
-  video: string
-  texts?: {
-    title?: string
-    subtitle?: string
-    link?: string
-  }
-  classes?: {
-    title?: string
-    subtitle?: string
-    link?: string
-  }
-}
 
 export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfigs }: IBannerVideo) {
   return (
     <Error name='Banner Home'>
-      <S.BannerVideo className='banner' $defaultStyles={defaultStyles}>
+      <S.BannerVideo
+        className={defaultConfigs.className ? defaultConfigs.className : 'banner'}
+        $defaultStyles={defaultStyles}
+      >
         {defaultConfigs.video && (
           <video autoPlay loop muted playsInline src={defaultConfigs.video} className='back-video'></video>
         )}
 
         <Container>
           {defaultConfigs.texts?.subtitle && (
-            <span className={defaultConfigs.classes?.link ? defaultConfigs.classes.link : 'paragraph-2 ' + 'subtitle'}>
+            <span
+              className={
+                defaultConfigs.classes?.link ? defaultConfigs.classes.link + ' subtitle' : 'paragraph-2 ' + 'subtitle'
+              }
+            >
               {defaultConfigs.texts.subtitle}
             </span>
           )}
@@ -55,7 +35,7 @@ export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfig
 
           {defaultConfigs.texts?.title && (
             <h1
-              className={defaultConfigs.classes?.title ? defaultConfigs.classes.title : 'title-1 ' + 'title'}
+              className={defaultConfigs.classes?.title ? defaultConfigs.classes.title + ' title' : 'title-1 ' + 'title'}
               dangerouslySetInnerHTML={{ __html: defaultConfigs.texts.title }}
             ></h1>
           )}
@@ -65,7 +45,7 @@ export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfig
           {defaultConfigs.texts?.link && (
             <Link
               href={'/produtos'}
-              className={defaultConfigs.classes?.link ? defaultConfigs.classes.link : 'paragraph-1 ' + 'link'}
+              className={defaultConfigs.classes?.link ? defaultConfigs.classes.link + ' link' : 'paragraph-1 ' + 'link'}
             >
               <NavDownDoubleIcon />
               {defaultConfigs.texts.link}
