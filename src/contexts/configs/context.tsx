@@ -1,18 +1,23 @@
 import React, { useContext, createContext } from 'react'
 import { IConfigsSiteContext, IContextConfigSite } from './interfaces'
 
+import { Scripts } from '../../components/scripts'
+
+import { ThemeProvider } from 'styled-components'
+
 const ConfigSiteContext = createContext<IConfigsSiteContext | undefined>(undefined)
 
-function ConfigSiteProvider({ children, Swiper, SwiperSlide, EffectFade }: IContextConfigSite) {
+function ConfigSiteProvider({ children, Swiper, SwiperSlide, EffectFade, configs, theme }: IContextConfigSite) {
   return (
     <ConfigSiteContext.Provider
       value={{
         Swiper,
         SwiperSlide,
         EffectFade,
+        configs,
       }}
     >
-      {children}
+         <ThemeProvider theme={theme}>{configs && <Scripts children={children} informations={configs} />}</ThemeProvider>
     </ConfigSiteContext.Provider>
   )
 }
