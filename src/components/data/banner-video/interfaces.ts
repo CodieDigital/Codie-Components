@@ -23,6 +23,7 @@ export interface IBanners {
     title?: string
     subtitle?: string
     link?: string
+    linkUrl?: string
   }
   classes?: {
     title?: string

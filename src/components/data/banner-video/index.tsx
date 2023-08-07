@@ -42,9 +42,9 @@ export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfig
 
           {children}
 
-          {defaultConfigs.texts?.link && (
+          {defaultConfigs.texts?.link && defaultConfigs.texts.linkUrl && (
             <Link
-              href={'/produtos'}
+              href={defaultConfigs.texts.linkUrl}
               className={defaultConfigs.classes?.link ? defaultConfigs.classes.link + ' link' : 'paragraph-1 ' + 'link'}
             >
               <NavDownDoubleIcon />

@@ -25,20 +25,20 @@ export function NavDownDoubleIcon() {
         <g>
           <path
             fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-miterlimit='20'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeMiterlimit='20'
+            strokeWidth='2'
             d='M21 9.955v0l-10 7v0l-10-7v0'
           />
         </g>
         <g>
           <path
             fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-miterlimit='20'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeMiterlimit='20'
+            strokeWidth='2'
             d='M21 .955v0l-10 7v0l-10-7v0'
           />
         </g>
