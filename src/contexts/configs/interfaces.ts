@@ -20,6 +20,12 @@ interface IConfigs {
   ratedR?: boolean;
   domainVerify?: string;
   facebookDomainVerification?: string;
+  linkedin?: string;
+  instagram?: string;
+  facebook?: string;
+  twitter?: string;
+  phone?: string;
+  whatsappNumber?: string;
 }
 
 interface IContextConfigSite {
