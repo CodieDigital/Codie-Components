@@ -77,13 +77,14 @@ export function BlogContent({
 
       <Container>
         <div className='show-mobile'>
-          <FilterBlog categories={categories} />
+          {hasfilter && <FilterBlog categories={categories} />}
 
-          <TagsBlog />
+          {hasTags && <TagsBlog />}
         </div>
 
         <div className='posts'>
-          {blogList.posts.length>0? blogList.posts.map(({ titulo, imagem, subtitulo, url }) => (
+          {blogList.posts.length > 0 ? (
+            blogList.posts.map(({ titulo, imagem, subtitulo, url }) => (
               <div key={`blogPost${titulo}-${subtitulo}`} className='box-post'>
                 <Link
                   href={{
@@ -143,8 +144,10 @@ export function BlogContent({
                   </div>
                 </div>
               </div>
-            )
-          ): <h2 className='title-2 noPostMessage'>Ops! Não temos post dessa categoria ainda! :/</h2>}
+            ))
+          ) : (
+            <h2 className='title-2 noPostMessage'>Ops! Não temos post dessa categoria ainda! :/</h2>
+          )}
 
           {pagination && (
             <PaginationComponent

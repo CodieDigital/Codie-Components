@@ -64,6 +64,7 @@ export function FormHandler({
       formRef.current?.setErrors({})
 
       await onSucess(data)
+      formRef.current?.reset()
 
       setStateForm({ state: 'send', message: '' })
     } catch (err) {
