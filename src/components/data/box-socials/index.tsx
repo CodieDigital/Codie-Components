@@ -6,6 +6,7 @@ import { Error } from '../error-body'
 import {
   PinIcon,
   EmailIcon,
+  TikTokIcon,
   TwitterIcon,
   YouTubeIcon,
   LinkedinIcon,
@@ -81,6 +82,12 @@ export function BoxSocials({ srcLinks, boxStyles }: BoxSocialsProps) {
         {srcLinks.linkedin && (
           <Link href={srcLinks.linkedin} target='_blank' rel='external' className='link-redes'>
             {boxStyles?.isEmptyIcon ? <LinkedinNoBgIcon /> : <LinkedinIcon />}
+          </Link>
+        )}
+
+        {srcLinks.tiktok && (
+          <Link href={srcLinks.tiktok} target='_blank' rel='external' className='link-redes'>
+            <TikTokIcon />
           </Link>
         )}
       </S.BoxSocials>

@@ -70,12 +70,16 @@ export function MenuMobile({
                       {categoria.categorias?.map((subCategoria) => (
                         <Link
                           key={subCategoria.id + subCategoria.titulo}
-                          href={{
-                            pathname: pathname ? pathname : '/servico/[url]',
-                            query: {
-                              url: subCategoria.url,
-                            },
-                          }}
+                          href={
+                            pathname
+                              ? {
+                                  pathname: `/${pathname}/[url]`,
+                                  query: {
+                                    url: subCategoria.url,
+                                  },
+                                }
+                              : subCategoria.url
+                          }
                           className={`sub-link ${defaultFonts?.link ? defaultFonts.link : 'link-3'} ${
                             defaultFonts?.isUppercase ? 'uppercase' : ''
                           } ${urlPage === subCategoria.url ? 'active' : ''}`}

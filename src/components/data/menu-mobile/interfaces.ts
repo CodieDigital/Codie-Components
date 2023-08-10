@@ -27,7 +27,7 @@ export interface ICategoriesHeader {
 
 export interface IServices {
   titulo: string
-  subtitulo: string
+  subtitulo?: string
   url: string
-  id: number
+  id?: number
 }

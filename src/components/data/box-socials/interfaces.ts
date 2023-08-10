@@ -17,6 +17,7 @@ export interface IBoxSocials {
 export interface ISrcLinks {
   maps?: string
   email?: string
+  tiktok?: string
   youtube?: string
   twitter?: string
   facebook?: string
