@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Link from 'next/link'
 import { BreadCrumbProps, Container, NextImage } from '../../data'
 import { PostDetail } from './interfaces'
 import { Iconfacebook, IconLinkedin, IconWhatsApp } from '../blog/icons'
@@ -42,36 +41,36 @@ export function PostContent({
   default: { baseImage, isBaseUrl, siteDomain, shareDomain },
 }: PostContentProps) {
   return (
-    <S.Post className='post-content'>
+    <S.Post className='post-page'>
       <div className='banner-post'>
         <Container>
-          {/* <BreadCrumbComponent list={breadcrumb} /> */}
-
-          <h1>{postDetail.detail.titulo}</h1>
+          <h1 className='title'>{postDetail.detail.titulo}</h1>
         </Container>
       </div>
 
-      <div className='post-content'>
-        <Container>
+      <Container>
+        <div className='post-content'>
           <div className='box-left'>
-            <div className='post'>
+            <div className='box-post'>
               {postDetail.detail.imagem && (
                 <div className='image'>
                   <NextImage baseImage={baseImage} isBaseUrl={isBaseUrl} alt='post' src={postDetail.detail.imagem} />
                 </div>
               )}
 
-              <h3>{postDetail.detail.subtitulo}</h3>
+              {postDetail.detail.subtitulo && <h3>{postDetail.detail.subtitulo}</h3>}
 
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: postDetail.detail.descricao,
-                }}
-              ></div>
+              {postDetail.detail.descricao && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: postDetail.detail.descricao,
+                  }}
+                />
+              )}
             </div>
 
-            <div className='box-tags-post'>
-              <div className='tags'>
+            <div className='box-tags'>
+              {/* <div className='tags'>
                 <h4>Tags</h4>
 
                 <div className='wrapper-tags'>
@@ -79,21 +78,30 @@ export function PostContent({
                     Institucional
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
               <div className='share'>
                 <h4>Compartilhe</h4>
 
                 <div className='midias'>
-                  <FacebookShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
+                  <FacebookShareButton
+                    className='link-share'
+                    url={`${siteDomain}/${shareDomain ? shareDomain : 'post'}/${postDetail.detail.url}`}
+                  >
                     <Iconfacebook />
                   </FacebookShareButton>
 
-                  <LinkedinShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
+                  <LinkedinShareButton
+                    className='link-share'
+                    url={`${siteDomain}/${shareDomain ? shareDomain : 'post'}/${postDetail.detail.url}`}
+                  >
                     <IconLinkedin />
                   </LinkedinShareButton>
 
-                  <WhatsappShareButton className='link-share' url={`${siteDomain}/${shareDomain?shareDomain:'post'}/${postDetail.detail.url}`}>
+                  <WhatsappShareButton
+                    className='link-share'
+                    url={`${siteDomain}/${shareDomain ? shareDomain : 'post'}/${postDetail.detail.url}`}
+                  >
                     <IconWhatsApp />
                   </WhatsappShareButton>
                 </div>
@@ -110,8 +118,8 @@ export function PostContent({
 
             {detach && <BlogDestaques default={{ baseImage: baseImage, isBaseUrl: isBaseUrl }} posts={detach} />}
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </S.Post>
   )
 }

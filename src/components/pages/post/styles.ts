@@ -1,88 +1,117 @@
 import styled from 'styled-components'
 
 export const Post = styled.section`
-  /* ----------  ESTILIZACAO CORES ------------- */
-
   .banner-post {
+    width: 100%;
+    padding: 40px 0;
     background-color: var(--primary-color);
 
     * {
       font-family: var(--font-blog-2);
     }
 
-    h1 {
-      color: #fff;
-    }
-
-    .breadcrumb {
-      a,
-      span,
-      li::after {
-        color: #fcfcfc;
-        opacity: 0.5;
-      }
-
-      a:hover {
-        opacity: 1;
-      }
+    & + * {
+      margin-top: 100px;
     }
   }
 
+  .title {
+    color: #fff;
+    font-size: 48px;
+  }
+
+  .post-content {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
   .box-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
     * {
       font-family: var(--font-blog-2);
     }
+  }
 
-    .post,
-    .box-tags-post {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  .box-post,
+  .box-tags {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  .box-post {
+    width: 100%;
+    padding: 40px;
+
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
     }
 
-    .post {
+    p,
+    li {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .image {
+      max-width: 100%;
+      width: 100%;
       margin-bottom: 30px;
-
-      h3 {
-        font-weight: 600;
-      }
-
-      p {
-        font-weight: 400;
-      }
     }
 
-    .box-tags-post {
-      .tag {
-        border: 1px solid var(--secondary-color);
-        border-radius: 5px;
-        font-weight: 600;
-        color: #000;
-      }
+    h3 + * {
+      margin-top: 12px;
+    }
 
-      .tag:hover {
-        background-color: var(--secondary-color);
-        color: #fff;
-      }
+    p + * {
+      margin-top: 30px;
+    }
 
-      .link-share {
-        background-color: var(--secondary-color) !important;
-        border-radius: 5px;
-        transition: 0.3s;
+    ul + * {
+      margin-top: 15px;
+    }
+  }
 
-        svg {
-          fill: #fff;
-          border-radius: 5px;
-        }
-      }
+  .box-tags {
+    .tag {
+      border: 1px solid var(--secondary-color);
+      border-radius: 5px;
+      font-weight: 600;
+      color: #000;
+    }
 
-      .link-share:hover {
-        background-color: var(--primary-color) !important;
-      }
+    .tag:hover {
+      background-color: var(--secondary-color);
+      color: #fff;
+    }
+  }
+
+  .link-share {
+    background-color: var(--secondary-color) !important;
+    border-radius: 5px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: var(--primary-color) !important;
+    }
+
+    svg {
+      fill: #fff;
+      border-radius: 5px;
     }
   }
 
   .side-bar {
+    max-width: 450px;
+    width: 100%;
+
     .side-box {
       background-color: #fff;
       border-radius: 10px;
@@ -166,83 +195,7 @@ export const Post = styled.section`
     }
   }
 
-  /* ----------- ESTILIZACAO ESPACAMENTO E RESPONSIVIDADE -------------- */
-
-  .banner-post {
-    min-height: 400px;
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 40px;
-
-    .breadcrumb {
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 99;
-
-      a,
-      span {
-        font-size: 18px;
-      }
-    }
-
-    h1 {
-      font-size: 48px;
-      max-width: 1200px;
-      line-height: 1.3;
-    }
-  }
-
-  .post-content {
-    padding: 70px 0 220px;
-
-    .container {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 30px;
-    }
-  }
-
-  .box-left {
-    width: 100%;
-  }
-
-  .post {
-    width: 100%;
-    padding: 40px 40px 50px;
-
-    h3 {
-      font-size: 24px;
-      line-height: 24px;
-    }
-
-    p,
-    li {
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    .image {
-      max-width: 100%;
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
-    h3 + * {
-      margin-top: 12px;
-    }
-
-    p + * {
-      margin-top: 30px;
-    }
-
-    ul + * {
-      margin-top: 15px;
-    }
-  }
-
-  .box-tags-post {
+  .box-tags {
     width: 100%;
     display: flex;
     gap: 40px;
@@ -289,11 +242,6 @@ export const Post = styled.section`
     }
   }
 
-  .side-bar {
-    max-width: 450px;
-    width: 100%;
-  }
-
   .side-box {
     padding: 40px 40px 45px;
     display: flex;
@@ -316,126 +264,24 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 1600px) {
-    .banner-post {
-      min-height: 375px;
-
-      .breadcrumb {
-        margin-bottom: 15px;
-
-        a,
-        span {
-          font-size: 15.5px;
-        }
-      }
-
-      h1 {
-        font-size: 43px;
-        max-width: 1100px;
-        line-height: 1.3;
-      }
+    .banner-post + * {
+      margin-top: 80px;
     }
 
-    .post-content {
-      padding: 60px 0 200px;
+    .title {
+      font-size: 43px;
     }
 
-    .post {
-      padding: 37px 37px 45px;
+    .box-post {
+      padding: 35px;
 
       h3 {
         font-size: 23px;
-        line-height: 23.5px;
       }
 
       p,
       li {
         font-size: 15.5px;
-        line-height: 23.5px;
-      }
-
-      .image {
-        margin-bottom: 28px;
-      }
-
-      h3 + * {
-        margin-top: 11px;
-      }
-
-      p + * {
-        margin-top: 28px;
-      }
-    }
-
-    .box-tags-post {
-      padding: 37px;
-
-      h4 {
-        margin-bottom: 15px;
-      }
-
-      .tag {
-        padding: 8px 12px 5px;
-      }
-
-      .link-share {
-        padding: 7px;
-
-        svg {
-          width: 16px;
-          height: 16px;
-        }
-      }
-    }
-
-    .side-box {
-      padding: 37px 37px 42px;
-
-      h4 {
-        margin-bottom: 22px;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 1400px) {
-    .banner-post {
-      min-height: 365px;
-
-      .breadcrumb {
-        margin-bottom: 15px;
-
-        a,
-        span {
-          font-size: 15px;
-        }
-      }
-
-      h1 {
-        font-size: 39px;
-        max-width: 1000px;
-        line-height: 1.3;
-      }
-    }
-
-    .post-content {
-      padding: 50px 0 180px;
-
-      .container {
-        gap: 25px;
-      }
-    }
-
-    .post {
-      padding: 30px 30px 40px;
-
-      h3 {
-        font-size: 21px;
-        line-height: 23px;
-      }
-
-      p,
-      li {
-        font-size: 15px;
-        line-height: 23px;
       }
 
       .image {
@@ -447,11 +293,76 @@ export const Post = styled.section`
       }
 
       p + * {
+        margin-top: 28px;
+      }
+    }
+
+    .box-tags {
+      padding: 35px;
+
+      h4 {
+        margin-bottom: 15px;
+      }
+
+      .tag {
+        padding: 8px 12px 5px;
+      }
+    }
+
+    .link-share {
+      padding: 7px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .side-box {
+      padding: 35px;
+
+      h4 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .banner-post + * {
+      margin-top: 70px;
+    }
+
+    .title {
+      font-size: 39px;
+    }
+
+    .post-content {
+      padding: 50px 0 180px;
+      gap: 25px;
+    }
+
+    .box-post {
+      padding: 30px;
+
+      h3 {
+        font-size: 21px;
+      }
+
+      p,
+      li {
+        font-size: 15px;
+      }
+
+      h3 + * {
+        margin-top: 10px;
+      }
+
+      p + * {
         margin-top: 25px;
       }
     }
 
-    .box-tags-post {
+    .box-tags {
       padding: 30px;
 
       h4 {
@@ -463,14 +374,14 @@ export const Post = styled.section`
         padding: 8px 10px 6px;
         font-size: 11.5px;
       }
+    }
 
-      .link-share {
-        padding: 6px;
+    .link-share {
+      padding: 6px;
 
-        svg {
-          width: 15px;
-          height: 15px;
-        }
+      svg {
+        width: 15px;
+        height: 15px;
       }
     }
 
@@ -479,7 +390,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 35px 35px 39px;
+      padding: 35px;
       margin-bottom: 25px;
 
       h4 {
@@ -498,38 +409,23 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 1200px) {
-    .banner-post {
-      min-height: 320px;
+    .banner-post + * {
+      margin-top: 60px;
+    }
 
-      .breadcrumb {
-        margin-bottom: 10px;
-
-        a,
-        span {
-          font-size: 14.5px;
-        }
-      }
-
-      h1 {
-        font-size: 33.5px;
-        max-width: 850px;
-        line-height: 1.3;
-      }
+    .title {
+      font-size: 33.5px;
     }
 
     .post-content {
-      padding: 40px 0 160px;
-
-      .container {
-        gap: 22px;
-      }
+      gap: 22px;
     }
 
-    .post {
-      padding: 28px 28px 35px;
+    .box-post {
+      padding: 28px;
     }
 
-    .box-tags-post {
+    .box-tags {
       padding: 20px;
 
       h4 {
@@ -549,14 +445,14 @@ export const Post = styled.section`
       .share {
         max-width: 130px;
       }
+    }
 
-      .link-share {
-        padding: 5px;
+    .link-share {
+      padding: 5px;
 
-        svg {
-          width: 14px;
-          height: 14px;
-        }
+      svg {
+        width: 14px;
+        height: 14px;
       }
     }
 
@@ -565,7 +461,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 31px 31px 38px;
+      padding: 30px;
       margin-bottom: 22px;
 
       h4 {
@@ -584,41 +480,20 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 1024px) {
-    .banner-post {
-      min-height: 275px;
-      padding-bottom: 30px;
-
-      .breadcrumb {
-        margin-bottom: 10px;
-
-        a,
-        span {
-          font-size: 14px;
-        }
-      }
-
-      h1 {
-        font-size: 30px;
-        max-width: 750px;
-      }
+    .title {
+      font-size: 30px;
     }
 
-    .post-content {
-      padding: 30px 0 140px;
-    }
-
-    .post {
-      padding: 25px 25px 32px;
+    .box-post {
+      padding: 25px;
 
       h3 {
         font-size: 18px;
-        line-height: 22.5px;
       }
 
       p,
       li {
         font-size: 13.5px;
-        line-height: 20.5px;
       }
 
       .image {
@@ -639,7 +514,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 28px 28px 35px;
+      padding: 25px;
       margin-bottom: 22px;
 
       h4 {
@@ -658,59 +533,36 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 900px) {
-    .side-bar {
-      max-width: 240px;
+    .banner-post + * {
+      margin-top: 50px;
     }
 
-    .breadcrumb {
-      max-width: 100%;
+    .side-bar {
+      max-width: 240px;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    .banner-post {
-      min-height: 240px;
-      padding-bottom: 30px;
-
-      .breadcrumb {
-        margin-bottom: 10px;
-        max-width: 100%;
-
-        li:first-child {
-          display: none;
-        }
-
-        a,
-        span {
-          font-size: 11px;
-        }
-      }
-
-      h1 {
-        font-size: 25px;
-      }
+    .title {
+      font-size: 25px;
     }
 
     .post-content {
-      .container {
-        flex-direction: column;
-        max-width: 500px;
-        gap: 25px;
-      }
+      flex-direction: column;
+      max-width: 500px;
+      gap: 25px;
     }
 
-    .post {
-      padding: 23px 23px 29px;
+    .box-post {
+      padding: 20px;
 
       h3 {
         font-size: 16px;
-        line-height: 21px;
       }
 
       p,
       li {
         font-size: 12.5px;
-        line-height: 20px;
       }
 
       .image {
@@ -731,7 +583,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 25px 25px 32px;
+      padding: 20px;
       margin-bottom: 22px;
 
       h4 {
@@ -750,26 +602,15 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 650px) {
-    .breadcrumb {
-      display: none;
+    .title {
+      font-size: 21px;
     }
 
-    .banner-post {
-      padding-top: 80px;
-      min-height: 190px;
-
-      h1 {
-        font-size: 21px;
-      }
+    .box-post {
+      margin-bottom: 20px;
     }
 
-    .box-left {
-      .post {
-        margin-bottom: 20px;
-      }
-    }
-
-    .box-tags-post {
+    .box-tags {
       flex-direction: column;
       gap: 30px;
 
@@ -800,31 +641,24 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 500px) {
-    .banner-post {
-      padding-bottom: 18px;
-      min-height: 175px;
-
-      h1 {
-        font-size: 18px;
-      }
+    .banner-post + * {
+      margin-top: 40px;
     }
 
-    .post-content {
-      padding: 20px 0 120px;
+    .title {
+      font-size: 18px;
     }
 
-    .post {
-      padding: 15px 15px 20px;
+    .box-post {
+      padding: 15px;
 
       h3 {
         font-size: 15px;
-        line-height: 20px;
       }
 
       p,
       li {
         font-size: 12px;
-        line-height: 19px;
       }
 
       h3 + * {
@@ -833,7 +667,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 20px 20px 25px;
+      padding: 20px;
       margin-bottom: 15px;
 
       h4 {

@@ -30,7 +30,6 @@ export function MenuMobile({
     } else setDropdown('')
   }
 
-  const urlPage = router.query.url
   return (
     <Error name='menu-mobile'>
       <S.Menu className={`menuMobile ${menu ? 'active' : ''}`}>
@@ -82,7 +81,7 @@ export function MenuMobile({
                           }
                           className={`sub-link ${defaultFonts?.link ? defaultFonts.link : 'link-3'} ${
                             defaultFonts?.isUppercase ? 'uppercase' : ''
-                          } ${urlPage === subCategoria.url ? 'active' : ''}`}
+                          } ${router.pathname === subCategoria.url ? 'active' : ''}`}
                           onClick={() => setStateMenu(false)}
                         >
                           {subCategoria.titulo}
