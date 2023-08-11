@@ -18,6 +18,7 @@ export const Post = styled.section`
   .title {
     color: #fff;
     font-size: 48px;
+    line-height: 1.3;
   }
 
   .post-content {
@@ -32,6 +33,7 @@ export const Post = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     * {
       font-family: var(--font-blog-2);
@@ -109,6 +111,9 @@ export const Post = styled.section`
   }
 
   .side-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     max-width: 450px;
     width: 100%;
 
@@ -243,10 +248,9 @@ export const Post = styled.section`
   }
 
   .side-box {
-    padding: 40px 40px 45px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
 
     h4 {
       font-size: 32px;
@@ -265,7 +269,13 @@ export const Post = styled.section`
 
   @media only screen and (max-width: 1600px) {
     .banner-post + * {
-      margin-top: 80px;
+      margin-top: 60px;
+    }
+
+    .post-content,
+    .box-left,
+    .side-bar {
+      gap: 25px;
     }
 
     .title {
@@ -329,16 +339,17 @@ export const Post = styled.section`
 
   @media only screen and (max-width: 1400px) {
     .banner-post + * {
-      margin-top: 70px;
+      margin-top: 50px;
     }
 
     .title {
       font-size: 39px;
     }
 
-    .post-content {
-      padding: 50px 0 180px;
-      gap: 25px;
+    .post-content,
+    .box-left,
+    .side-bar {
+      gap: 20px;
     }
 
     .box-post {
@@ -390,8 +401,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 35px;
-      margin-bottom: 25px;
+      padding: 30px;
 
       h4 {
         font-size: 28px;
@@ -410,15 +420,17 @@ export const Post = styled.section`
 
   @media only screen and (max-width: 1200px) {
     .banner-post + * {
-      margin-top: 60px;
+      margin-top: 45px;
     }
 
     .title {
       font-size: 33.5px;
     }
 
-    .post-content {
-      gap: 22px;
+    .post-content,
+    .box-left,
+    .side-bar {
+      gap: 18px;
     }
 
     .box-post {
@@ -426,7 +438,7 @@ export const Post = styled.section`
     }
 
     .box-tags {
-      padding: 20px;
+      padding: 28px;
 
       h4 {
         font-size: 14.5px;
@@ -461,8 +473,7 @@ export const Post = styled.section`
     }
 
     .side-box {
-      padding: 30px;
-      margin-bottom: 22px;
+      padding: 28px;
 
       h4 {
         font-size: 25px;
@@ -482,6 +493,12 @@ export const Post = styled.section`
   @media only screen and (max-width: 1024px) {
     .title {
       font-size: 30px;
+    }
+
+    .post-content,
+    .box-left,
+    .side-bar {
+      gap: 15px;
     }
 
     .box-post {
@@ -513,9 +530,12 @@ export const Post = styled.section`
       max-width: 260px;
     }
 
+    .box-tags {
+      padding: 25px;
+    }
+
     .side-box {
       padding: 25px;
-      margin-bottom: 22px;
 
       h4 {
         font-size: 22px;
@@ -534,7 +554,7 @@ export const Post = styled.section`
 
   @media only screen and (max-width: 900px) {
     .banner-post + * {
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     .side-bar {
@@ -549,7 +569,6 @@ export const Post = styled.section`
 
     .post-content {
       flex-direction: column;
-      max-width: 500px;
       gap: 25px;
     }
 
@@ -579,12 +598,12 @@ export const Post = styled.section`
     }
 
     .side-bar {
-      max-width: 100%;
+      max-width: unset;
+      gap: 25px;
     }
 
     .side-box {
       padding: 20px;
-      margin-bottom: 22px;
 
       h4 {
         font-size: 20px;
@@ -602,12 +621,12 @@ export const Post = styled.section`
   }
 
   @media only screen and (max-width: 650px) {
-    .title {
-      font-size: 21px;
+    .banner-post {
+      padding: 25px 0;
     }
 
-    .box-post {
-      margin-bottom: 20px;
+    .title {
+      font-size: 21px;
     }
 
     .box-tags {
@@ -619,7 +638,7 @@ export const Post = styled.section`
       }
 
       .tags {
-        max-width: 100%;
+        max-width: unset;
       }
 
       .share {
@@ -642,7 +661,7 @@ export const Post = styled.section`
 
   @media only screen and (max-width: 500px) {
     .banner-post + * {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .title {
