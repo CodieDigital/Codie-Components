@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import { Error } from '../../data'
-import { NavDownIcon } from '../../icons'
+import { Icon } from '../../icons/render'
 
 import * as S from './styles'
 
@@ -39,7 +39,7 @@ export function CardFaq({ faq, index }: ICardFaq) {
         <div className='box'>
           <h2 className='paragraph-2-poppinsBold uppercase'>{faq.titulo}</h2>
 
-          <NavDownIcon />
+          <Icon name='NavDownIcon' />
         </div>
         <div
           ref={contentRef}
