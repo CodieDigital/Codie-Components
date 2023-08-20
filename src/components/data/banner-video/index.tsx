@@ -2,12 +2,12 @@ import React from 'react'
 
 import Link from 'next/link'
 
+import { NavDownDoubleIcon } from '../../icons'
 import { Error, Container, BreadCrumbComponent } from '..'
 
 import { IBannerVideo } from './interfaces'
 
 import * as S from './styles'
-import { Icon } from '../../icons/render'
 
 export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfigs }: IBannerVideo) {
   return (
@@ -47,7 +47,7 @@ export function BannerVideo({ children, breadCrumb, defaultStyles, defaultConfig
               href={defaultConfigs.texts.linkUrl}
               className={defaultConfigs.classes?.link ? defaultConfigs.classes.link + ' link' : 'paragraph-1 ' + 'link'}
             >
-              <Icon name='NavDownDoubleIcon' />
+              <NavDownDoubleIcon />
               {defaultConfigs.texts.link}
             </Link>
           )}

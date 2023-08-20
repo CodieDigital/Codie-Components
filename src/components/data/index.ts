@@ -1,15 +1,34 @@
-export * from './faqs'
-export * from './error-body'
-export * from './head'
-export * from './NextImage'
-export * from './container'
-export * from './whattsapp'
-export * from './box-swiper'
-export * from './simple-button'
-export * from './box-socials'
-export * from './button'
-export * from './loader-circle'
-export * from './breadcrumb'
-export * from './bannerRotativo'
-export * from './breadcrumb'
-export * from './pagination'
+import { Faqs } from './faqs'
+import { Error } from './error-body'
+import { HeadComponent } from './head'
+import { NextImage } from './NextImage'
+import { Container } from './container'
+import { Whattsapp } from './whattsapp'
+import { BoxSwiper } from './box-swiper'
+import { Button } from './simple-button'
+import { BoxSocials } from './box-socials'
+import { ButtonComponent } from './button'
+import { LoaderCircle } from './loader-circle'
+import { BreadCrumbProps } from './breadcrumb'
+import { BannerRotativo } from './bannerRotativo'
+import { BreadCrumbComponent } from './breadcrumb'
+import { PaginationComponent } from './pagination'
+
+export {
+  Faqs,
+  Error,
+  Button,
+  NextImage,
+  Container,
+  Whattsapp,
+  BoxSwiper,
+  BoxSocials,
+  LoaderCircle,
+  HeadComponent,
+  BannerRotativo,
+  ButtonComponent,
+  PaginationComponent,
+  BreadCrumbComponent,
+}
+
+export type { BreadCrumbProps }
