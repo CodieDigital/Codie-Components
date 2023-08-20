@@ -8,13 +8,13 @@
 ## Installation:
 
 ```bash
-npm install 
+npm install
 ```
 
 or
 
 ```bash
-yarn 
+yarn
 ```
 
 ## Usage :
@@ -25,12 +25,44 @@ Add components in aplication:
 import { MeuComponente } from 'codieweb/meucomponente'
 
 export function Componente() {
-    return <MeuComponente />
+  return <MeuComponente />
 }
-
 ```
 
-## Para públicar o projeto no npm: 
+## Components documentation :
+
+Basic-carousel:
+
+```js
+import { SwiperOptions } from 'swiper'
+
+import { BasicCarousel, Container } from 'codieweb/dist/cjs/components/data/'
+
+export function Componente() {
+  // Configuração do swiper que você deve criar.
+  const SwiperConfigurations: SwiperOptions = {
+    breakpoints: { 1024: { slidesPerView: 1, spaceBetween: 30 } },
+    pagination: true,
+    navigation: {
+      nextEl: 'next-button-blog',
+      prevEl: 'prev-button-blog',
+    },
+  }
+
+  return (
+    <Container>
+      <BasicCarousel
+        iconColor='red' // Cor do icone de seta de navegação do swiper.
+        component={Card} // Componente que vai ser renderizado em cada slide.
+        list={home.blogs} // Lista que vai ser percorrida.
+        swiperConfigurations={SwiperConfigurations} // Configurações do swiper.
+      />
+    </Container>
+  )
+}
+```
+
+## Para públicar o projeto no npm:
 
 npm publish --access-public
 
