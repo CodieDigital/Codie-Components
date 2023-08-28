@@ -58,7 +58,7 @@ export function PostContent({
                 </div>
               )}
 
-              {postDetail.detail.subtitulo && <h3>{postDetail.detail.subtitulo}</h3>}
+              {/* {postDetail.detail.subtitulo && <h3>{postDetail.detail.subtitulo}</h3>} */}
 
               {postDetail.detail.descricao && (
                 <div
