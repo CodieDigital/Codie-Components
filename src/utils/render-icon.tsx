@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as Icons from '../../src/components/icons'
+import * as Icons from '../components/icons'
 
 export function RenderIcon(nameIcon: any, color?: string, stroke?: string) {
   return (
