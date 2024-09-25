@@ -72,7 +72,7 @@ export function NewsLetterBlog({ api, hasPhone }: NewsLetterBlog) {
 
         <p>Cadastre-se para receber lançamentos e notícias</p>
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
+        <Form ref={formRef} onSubmit={handleSubmit} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {stateForm.state === 'send' && <span className='email-send paragraph'>Email enviado com sucesso!</span>}
 
           <InputComponent configs={{ type: 'email', name: 'email', placeholder: 'digite seu e-mail' }} />

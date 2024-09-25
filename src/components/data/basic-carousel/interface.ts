@@ -1,9 +1,8 @@
-import { SwiperOptions } from 'swiper'
 
 export interface IBasicCarouselProps<T> {
   list: T[]
   component: React.ComponentType<{ data: T }>
-  swiperConfigurations?: SwiperOptions
+  swiperConfigurations?: any
   iconColor?: string
 }
 

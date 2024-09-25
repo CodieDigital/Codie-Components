@@ -1,4 +1,3 @@
-import { SwiperOptions } from 'swiper'
 
 export interface IBoxSwiper {
   name: string
@@ -13,8 +12,8 @@ export interface IBoxSwiper {
 }
 
 export interface IBreakpoints {
-  [width: number]: SwiperOptions
-  [ratio: string]: SwiperOptions
+  [width: number]: any
+  [ratio: string]: any
 }
 
 export interface IInitialSlides {

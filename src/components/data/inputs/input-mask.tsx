@@ -1,64 +1,78 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 
-import { useField } from '@unform/core'
+import { useMask } from "./lib/mask";
 
-import ReactInputMask from 'comigo-tech-react-input-mask'
-
-import * as S from './styles'
+import * as S from "./styles";
+import { useField } from "@unform/core";
 
 interface Props {
-  id: string
-  name: string
-  mask: string
-  label?: string | JSX.Element
-  edit?: boolean
-  isFlex?: boolean
-  hasBar?: boolean
-  inputBg?: string
-  noMargin?: boolean
-  hasBorder?: boolean
-  placeholder?: string
-  borderWithBar?: boolean
-  inputBoxShadow?: string
-  fontSizeFamilyLabel?: string
-  fontSizeFamilyInput?: string
+  id: string;
+  name: string;
+  mask: string;
+  label?: string | JSX.Element;
+  edit?: boolean;
+  isFlex?: boolean;
+  hasBar?: boolean;
+  inputBg?: string;
+  noMargin?: boolean;
+  hasBorder?: boolean;
+  placeholder?: string;
+  borderWithBar?: boolean;
+  inputBoxShadow?: string;
+  fontSizeFamilyLabel?: string;
+  fontSizeFamilyInput?: string;
 }
 
 export interface IInputProps {
-  configs: Props
-  onChangeInput?: React.Dispatch<string>
+  configs: Props;
+  onChangeInput?: React.Dispatch<string>;
 }
 
-type InputProps = JSX.IntrinsicElements['input'] & IInputProps
+type InputProps = JSX.IntrinsicElements["input"] & IInputProps;
 
 export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
-  const { fieldName, registerField, defaultValue, error } = useField(configs.name)
+  const inputRef = useMask({
+    mask: configs.mask,
+    replacement: { _: /\d/ },
+  });
 
-  const ref = useRef(null)
+  const { fieldName, registerField, defaultValue, error } = useField(
+    configs.name
+  );
+
+  const ref = useRef(null);
 
   useEffect(() => {
     registerField({
       name: fieldName,
       ref: null,
       getValue: () => {
-        return value.replaceAll('_', '')
+        return value.replaceAll("_", "");
       },
       setValue: () => {
-        setValue(value)
+        setValue(value);
       },
       clearValue: () => {
-        setValue('')
+        setValue("");
       },
-    })
-  }, [fieldName, value, registerField])
+    });
+  }, [fieldName, value, registerField]);
 
   useEffect(() => {
-    if (defaultValue) {
-      setValue(defaultValue)
+    if (inputRef.current) {
+      if (defaultValue === undefined) {
+        inputRef.current.value = "";
+        setValue("");
+      }
+
+      if (defaultValue) {
+        inputRef.current.value = defaultValue;
+        setValue(defaultValue);
+      }
     }
-  }, [defaultValue])
+  }, [defaultValue]);
 
   return (
     <S.Input
@@ -69,10 +83,14 @@ export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
       $borderWithBar={configs.borderWithBar}
       $inputBoxShadow={configs.inputBoxShadow}
     >
-      <div className='input-content'>
+      <div className="input-content">
         {configs.label && (
           <label
-            className={`label-text ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'}`}
+            className={`label-text ${
+              configs.fontSizeFamilyLabel
+                ? configs.fontSizeFamilyLabel
+                : "paragraph-2"
+            }`}
             htmlFor={configs.id}
           >
             {configs.label}
@@ -80,36 +98,60 @@ export function InputMask({ onChangeInput, configs, readOnly }: InputProps) {
         )}
 
         {configs.hasBar && (
-          <span className={`${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} bar`}>|</span>
+          <span
+            className={`${
+              configs.fontSizeFamilyLabel
+                ? configs.fontSizeFamilyLabel
+                : "paragraph-2"
+            } bar`}
+          >
+            |
+          </span>
         )}
 
-        <input style={{ display: 'none' }} ref={ref} defaultValue={value} type='text' name={configs.name} />
+        <input
+          style={{ display: "none" }}
+          ref={ref}
+          defaultValue={value}
+          type="text"
+          name={configs.name}
+        />
 
-        <ReactInputMask
-          mask={configs.mask}
-          onChange={(e) => {
-            setValue(e.target.value)
+        <input
+          id={configs.id}
+          className={
+            configs.fontSizeFamilyInput
+              ? configs.fontSizeFamilyInput
+              : "paragraph-2"
+          }
+          type="text"
+          onChange={async (ev) => {
+            if (inputRef.current) {
+              inputRef.current.value = ev.target.value;
+              setValue(ev.target.value);
 
-            if (onChangeInput) {
-              onChangeInput(e.target.value)
+              if (onChangeInput) {
+                onChangeInput(ev.target.value);
+              }
             }
           }}
-          value={value}
-          className={configs.fontSizeFamilyInput ? configs.fontSizeFamilyInput : 'paragraph-2'}
-          id={configs.id}
-          type='text'
-          placeholder={configs.placeholder}
           readOnly={readOnly}
+          placeholder={configs.placeholder}
+          ref={inputRef}
         />
       </div>
 
       {error && (
         <span
-          className={`error ${configs.fontSizeFamilyLabel ? configs.fontSizeFamilyLabel : 'paragraph-2'} error-message`}
+          className={`error ${
+            configs.fontSizeFamilyLabel
+              ? configs.fontSizeFamilyLabel
+              : "paragraph-2"
+          } error-message`}
         >
           {error}
         </span>
       )}
     </S.Input>
-  )
+  );
 }

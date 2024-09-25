@@ -88,7 +88,7 @@ export function FormHandler({
 
   return (
     <>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit} placeholder={undefined}  onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         {stateForm.state === 'error' && <span className='errorForm paragraph-5-bold'>{stateForm.message}</span>}
 
         {children}
